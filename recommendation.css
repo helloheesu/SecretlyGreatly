@@ -1,0 +1,21 @@
+.row {
+	display: -webkit-flex;
+	display: flex;
+}
+
+.card_wrapper {
+	margin: 10px;
+	max-width: 220px;
+}
+
+.first {
+	margin-left: auto;
+}
+
+.last {
+	margin-right: auto;
+}
+
+.empty {
+	width: 220px;
+}
