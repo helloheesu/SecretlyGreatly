@@ -1,4 +1,9 @@
-.row {
+* {
+	outline: 1px solid red !important;	/* for debugging */
+}
+
+.card_row {
+/* 	visibility: hidden; */
 	display: -webkit-flex;
 	display: flex;
 }
@@ -18,4 +23,8 @@
 
 .empty {
 	width: 220px;
+}
+
+.no_result {
+	text-align: center;
 }

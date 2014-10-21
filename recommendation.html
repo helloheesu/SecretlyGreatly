@@ -8,7 +8,20 @@
 
 <body>
 
-<div class="row">
+<div class="filter_row">
+	<span class="filter first">장르</span>
+	<span class="filter">국가</span>
+	<span class="filter">연도</span>
+	<span class="filter last">추천이유</span>
+</div>
+
+<div class="selected_filter_row">
+	<span class="selected_filter">공포</span>
+	<span class="selected_filter">한국</span>
+	<span class="selected_filter">1900~1990</span>
+</div>
+
+<div class="card_row">
 	<!--card1-->
 	<div class="card_wrapper first">
 		<img src="http://placehold.it/220x314" /> <!-- will be replaced with <div class="card"~~~~> -->
@@ -75,9 +88,10 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="card_row">
 	<!--card6-->
 	<div class="card_wrapper first">
+<!-- 	<div class="card_wrapper"> -->
 		<img src="http://placehold.it/220x314" />
 		<div class="expected_star">
 			<img src="http://placehold.it/25x25" />
@@ -101,7 +115,7 @@
 			<img src="http://placehold.it/79x22" />
 		</div>
 	</div>
-	
+
 	<div class="card_wrapper empty">
 	</div>
 	
@@ -110,8 +124,12 @@
 	
 	<div class="card_wrapper empty last">
 	</div>
-	
-	
 </div>
+
+<div class="no_result">
+	<img src="http://placehold.it/100x100" />
+	<p class="description">정희수님에게 추천해 드릴 만한 영화가 없습니다.<br>필터링 조건을 바꿔보세요.</p>
+</div>
+
 </body>
 </html>
