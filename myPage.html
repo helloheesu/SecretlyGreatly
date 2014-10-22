@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Googleplay</title>
+    <link rel ="stylesheet" type="text/css" href="Main.css"/>
+  </head>
+
+  <body class="bodyWrapper"> 
+   <header id="contents">
+    <div id = "topLevel">
+      
+      <!--1. 로고-->
+      <div id="mainLogo"><a href= "https://d12hfz37g51hrt.cloudfront.net/assets/bi/icon_40-c857765f58065997922df8262ca7bf07.png"></a></div>
+
+      <!--2. 상단 왼쪽 메뉴-->
+      <div>
+        <ul id="" class="">
+          <li>박스오피스</li>
+          <li>TV VOD</li>
+          <li>PC VOD</li>
+          <li>추천영화</li>
+          <li>평가늘리기</li>    
+        </ul>  
+      </div>
+
+      <!--3. 검색 버튼/검색 창-->
+      <div class="searchClass">  
+       <div id="search_button"><button><img src="images/searchButton.png"></button></div>
+       <div id="search"><form><input input type="text" value=""></form></div>
+      </div>
+
+      <!--4. 상단 오른쪽 메뉴-->
+      <div class="">
+        <ul id="" class="">
+          <!--종(알림)-->
+          <li id="alarmbell"><a href="https://plus.google.com/u/0/"><img src ="images/alarmbell.png"></a></li>
+          <!--사용자 이름-->
+          <li id="userName">신윤서<a href="url"></a></li> 
+          <!--등록된 프로필 사진(원형)-->
+          <li id="id_photo" title=""><a href="url"><img src ="images/id_photo.png" width="30" height="30"></a></li> 
+          <!--뮤비파트너-->
+          <li id ="moviePartner"><button><a href="url"><img src ="images/id_photo.png"></a></button></li>
+        </ul> 
+      </div>
+    </div>
+ 
+
+   <!--5. 개인별 프로파일-->
+    <div id="profile" class="">
+      <!--썸네일(원형)/이름 -->
+      <section id="accout">
+        <div class="thumbnail"><img src ="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_medium-9415b8a47faa6e5f31990bbc7ea41360.jpg"></div>
+        <h1="name">신윤서</h1>
+      </section>
+
+      <!--(상)클릭한영화-->
+      <section id="totalMovie">
+        <strong class="statCount">47</strong>
+      </section>
+
+      <!--(좌)영화본시간-->
+      <section id="watchedHours">
+        <span class="icon-clock"></span>
+        <strong class="statCount">97</strong>
+        <span class="label">영화 본 시간</span>
+      </section>
+
+      <!--(우)내가받은좋아요-->
+      <section id="receivedLikes">
+        <span class="icon-like"></span>
+        <strong class="statCount">5</strong>
+        <span class="label">받은 좋아요</span>
+      </section>
+    </div>
+
+
+      <!--6. 중간메뉴-->
+      <nav class="menu">
+        <div class ="menuWrapper">
+
+          <!-- (1) 좌측메뉴 -->
+          <ul class="">
+           <li class=""><a href = "">취향통계분석</a></li>
+           <li class=""><a href = "">보고싶어요<span id ="">10</span></a></li>
+           <li class=""><a href = "">봤어요<span id ="">59</span></a></li>
+           <li class=""><a href = "">코멘트<span id ="">12</span></a></li>
+         </ul>  
+          
+          <!-- (2) 공유하기 -->
+          <ul class="social">
+           <li id="" class=""><a><span class ="iconShare">공유하기</span></a></li>
+          </ul>  
+        </div>
+      </nav>
+
+
+      <!--7. 본문 내용-->
+    <div id ="contents">
+      <div id ="contentsWrapper">
+
+        <!-- (1) 별점분포 -->
+        <div class="card" id="ratingDistribution"></div>
+          <!-- (카드 타이틀) -->
+          <div class=cardTitle><h2>별점분포</h2>
+          <span class="flaverText">편식 없이 영화를 골고루 보는 '균형파'</span></div>
+          <!-- (카드 내용) -->
+          <div class= "CardContents">
+          <div class= "chart"><svg class=""><path class=""></svg></div>
+            <div class= "chartContents"><strong>3.8</strong>"별점평균"</div> 
+            <div class= "chartContents"><strong>46</strong>"별점 "</div> 
+            <div class= "chartContents"><strong>4.0</strong>"많이 준 별점"</div> 
+
+
+          <!-- (2) 선호 국가 -->
+        <div class="card" id="favoriteNations"></div>
+          <!-- (카드 타이틀) -->
+          <div class=cardTitle><h2>선호국가</h2>
+          <span class="flaverText">한국영화를 재밌게 보셨어요</span></div>
+          <!-- (카드 내용) -->
+          <div class= "CardContents">
+            <!-- 세계지도 -->
+          <div class= "worldMap">
+            <span class= "maker icon-favorite-1" data-nation-id="1"></span>
+            <span class= "maker icon-favorite-2" data-nation-id="1"></span>
+            <span class= "maker icon-favorite-3" data-nation-id="5"></span>
+          </div>
+            <!-- 선호국가 리스트  -->
+          <div class= "bestNation">
+            <span class= "maker icon-favorite-1"></span><a href="" class="">한국</a>
+            <div class= "">87%</div>  
+            <div class= "">16편</div> 
+            <span class= "maker icon-favorite-2"></span><a href="" class="">미국</a>
+            <div class= "">87%</div>  
+            <div class= "">20편</div> 
+            <span class= "maker icon-favorite-3"></span><a href="" class="">영국</a>
+            <div class= "">72%</div>  
+            <div class= "">5편</div> 
+          </div> 
+
+            <!-- 더보기 -->
+           <button class="showMore" id=""><span class="">"더 보기"</span></button>
+
+
+          <!-- (3) 선호 배우 -->
+            <div class="card" id="favoriteActors">  
+              <!-- (카드 타이틀) -->       
+              <div class=cardTitle><h2>선호배우</h2></div>
+              <div class= "CardContents">
+              <!-- (카드 내용) 더보기 클릭 전에는 best 3개만  -->
+               <div class="best">
+                <ol>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">톰 행크스</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">터미널</a></span>
+                    </div>
+                  </li>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">미야자키 하야오</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">센과 치히로의 행방불명</a></span>
+                    </div>
+                  </li>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">바즈루어만</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">로미오와 줄리엣</a></span>
+                    </div>
+                  </li>                                    
+                </ol>
+              </div>
+              
+              <!--더보기 이후 추가된 리스트  -->
+               <div class="best">
+                <ol>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">제임스 캐머런</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">타이타닉</a></span>
+                    </div>
+                  </li>                       
+                </ol>
+              </div>
+
+              <!-- 더보기 -->
+              <button class="showMore" id=""><span class="">"더 보기"</span></button>
+
+
+        <!--(4) 선호 장르-->
+        <div class="card" id="favoritGenres"></div>
+          <!-- (카드 타이틀) -->
+          <div class=cardTitle><h2>선호 장르</h2>
+          <span class="flaverText">봄날의 달콤함을 좋아하세요?</span></div>
+          <!-- (카드 내용) -->
+          <div class= "CardContents">
+          <!-- 원형그래프 -->
+          <div class= "graphChart"><svg class=""><path class=""></svg></div>
+          <!-- 상위3개선호장르 -->
+          <div class= "top3genres">
+            <span class= "icon-favorite-1"></span><a href="">로맨스/멜로</a>
+            <span class= "stat"><strong class="rating">75%</strong><strong class="count">/9편</strong></span>
+            <span class= "icon-favorite-1"></span><a href="">드라마</a>
+            <span class= "stat"><strong class="rating">73%</strong><strong class="count">/4편</strong></span>
+            <span class= "icon-favorite-1"></span><a href="">코미디</a>
+            <span class= "stat"><strong class="rating">71%</strong><strong class="count">/2편</strong></span>
+          </div> 
+
+          <!-- 기타선호장르 -->
+           <div class= "genreList">  
+           <ul>
+            <li>
+              <div class=""><a href="">판타지</a></div>
+              <div class="">61%</div>
+              <div class="">4편</div>
+            </li>
+            <li>
+              <div class=""><a href="">애니메이션</a></div>
+              <div class="">61%</div>
+              <div class="">4편</div>
+            </li>
+            <li>
+              <div class=""><a href="">>스릴러</a></div>
+              <div class="">61%</div>
+              <div class="">4편</div>
+            </li>
+            <li>
+              <div class=""><a href="">>로맨틱 코미디</a></div>
+              <div class="">61%</div>
+              <div class="">3편</div>
+            </li>
+            <li>
+              <div class=""><a href="">>전쟁</a></div>
+              <div class="">61%</div>
+              <div class="">3편</div>
+            </li>
+            <li>
+              <div class=""><a href="">>SF</a></div>
+              <div class="">61%</div>
+              <div class="">1편</div>
+            </li>
+            <li>
+              <div class=""><a href="">>액션</a></div>
+              <div class="">24%</div>
+              <div class="">1편</div>
+            </li>
+           </ul>
+           </div>
+
+           <!--(5) 평가 더하기(시간) -->
+            <div class="card" id="watchedHours">
+              <!-- (카드 타이틀) -->         
+              <div class=cardTitle><h2>조금만 더 평가를 매겨보세요 :)</h2></div>
+              <!-- (카드 내용) -->              
+              <div class= "CardContents">
+                <div>
+                  <span class="iconClock"></span>
+                  <span class>시간</span>
+                  <strong class="statCount">97</strong>
+                </div>
+            </div>
+
+           <!-- (6) 선호 감독-->
+            <div class="card" id="favoriteDirectors">
+              <!-- (카드 타이틀) -->          
+              <div class=cardTitle><h2>선호감독</h2></div>
+              <!-- (카드 내용) 더보기 클릭 전에는 best 3개만  -->
+              <div class= "CardContents">
+               <div class="best">
+                <ol>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">크리스토퍼 놀란</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">다크나이트라이즈</a></span>
+                    </div>
+                  </li>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">미야자키 하야오</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">센과 치히로의 행방불명</a></span>
+                    </div>
+                  </li>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">바즈루어만</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">로미오와 줄리엣</a></span>
+                    </div>
+                  </li>                                    
+                </ol>
+              </div>
+              
+              <!--더보기 이후 추가된 리스트  -->
+               <div class="best">
+                <ol>
+                  <li>
+                    <img class="photo" src =".jpg"><img class="photo" src =".jpg">
+                    <div class="person"><a href="">제임스 캐머런</a>
+                      <span class="stat"><strong>91%</strong>"/"</span>
+                      <span class="count"><strong>3</strong>"편"</span>
+                      <span class="watchedMovies"><a href="">타이타닉</a></span>
+                    </div>
+                  </li>                       
+                </ol>
+              </div>
+
+              <!-- 더보기 -->
+              <button class="showMore" id=""><span class="">"더 보기"</span></button>
+
+          <!--(7)선호 키워드-->
+            <div class="card" id="favoriteWord">
+              <div class=cardTitle><h2>선호키워드</h2></div>
+              <div class= "CardContents"></div>
+            </div>
+
+      </div> 
+    </div>
+  </section>
+
+    <footer>
+      <div id="footerWapper">
+       <!--1.footer (상)-->
+       <div class="upper">
+         <!-- 회사로고  -->
+        <div class="companyName">FROGRAMS</div></div>
+         <!-- 우측sns아이콘 -->
+        <div class="sns">
+          <a href = "http://facebook.com/watcha.net" target="blank">페이스북</a>
+          <a href = "http://twitter.com/watchamovie" target="blank">트위터</a>
+          <a href = "http://blog.naver.com/watchanet" target="blank">블로그</a>
+       </div>
+
+       <!--2.footer (중)-->
+       <div class="likeCount">
+        <!-- 별점카운트-->
+        <span class="starIcon"></span>
+        <span class="starNumber">144,923,234</span>
+        "개의 별점 평가가 쌓이고 있습니다.""    
+        <!--snsLike현황-->
+        <span class="facebookLike"></span>
+        <span class="tweetLike"></span>
+      </div> 
+
+       <!--3.footer (하)-->       
+       <div class="companyInfo">사업자명(주식회사 프로그램스)사업자번호(21-14-12314)Copyright 2014 byFrograms.Inc All right reserved </div>
+       </div>
+    </footer>
+ </body>
+    <script type="text/javascript" src="MainJS.js" ></script>
+ </html> 
