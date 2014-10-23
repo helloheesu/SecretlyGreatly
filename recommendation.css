@@ -1,0 +1,33 @@
+* {
+	outline: 1px solid red !important;	/* for debugging */
+}
+
+.card_row {
+/* 	visibility: hidden; */
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.card_wrapper {
+	margin: 10px;
+	max-width: 220px;
+}
+
+.first {
+	margin-left: auto;
+}
+
+.last {
+	margin-right: auto;
+}
+
+.empty {
+	width: 220px;
+}
+
+.no_result {
+	text-align: center;
+}
