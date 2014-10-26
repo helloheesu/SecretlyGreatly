@@ -7,17 +7,18 @@
 </head>
 
 <body>
-<div class="goal">
-	<span class="number now">228</span> <br />
-	<span class="description">오예, 200개 돌파! 300개에 도전해보세요!</span> <br />
-	<span class="number recent_goal">300</span> <br />
-	<div class="progress_wrapper">
-		<span class="progress" style="width: 28%;"></span>
+
+<div id="goal">
+	<span id="movie_count" class="text highlight">228</span> <br />
+	<span class="text description">오예, 200개 돌파! 300개에 도전해보세요!</span> <br />
+	<span id="recent_goal" class="text highlight">300</span> <br />
+	<div id="progress_wrapper">
+		<span id="progress" style="width: 28%;"></span>
 	</div>
 </div>
 
-<div class="contents">
-	<nav class="sidebar">
+<div id="contents">
+	<nav id="sidebar" class="card_wrapper">
 		<ul>
 			<a href="#"><li class=""><span class="text">가장 많이 평가된 영화</span></li></a>
 			<a href="#"><li class="selected"><span class="text">2011-2014년 흥행 영화</span></li></a>
@@ -34,11 +35,11 @@
 			<a href="#"><li><span class="text">드라마</span></li></a>
 			<a href="#"><li><span class="text">공포</span></li></a>
 			<a href="#"><li><span class="text">성인영화</span></li></a>
-			<a href="#"><li class="more"><span class="text">카테고리 변경하기</span></li></a>
+			<a href="#"><li class="more"><span class="text highlight">카테고리 변경하기</span></li></a>
 		</ul>
 	</nav>
 
-	<section>
+	<section id="card_container">
 		<ul>
 			<li class="card_wrapper">
 				<img src="http://placehold.it/220x314" />
@@ -70,5 +71,6 @@
 		</ul>
 	</section>
 </div>
+
 </body>
 </html>
