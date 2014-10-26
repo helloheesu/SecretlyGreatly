@@ -1,36 +1,87 @@
+/*
 * {
-	outline: 1px solid red !important;	/* for debugging */
+	outline: 1px solid red !important;
+}
+*/
+
+body {
+	background-color: #e5e5e5;
 }
 
-.goal {
-	/* text-align: center; */			/* 왜 goal 을 중앙정렬 했는데 밑에 sidebar 내부도 중앙정렬 되는 거지 ㅜㅜ */
+.progress_wrapper {
+	height: 8px;
+	border-bottom: 1px solid #C5C5C5;
+}
+.progress {
+	display: block;
+	background-color: #5b5cb5;
+	height: 100%;
 }
 
+a {
+	text-decoration: none;
+}
+ul {
+	margin: 0px;
+	/* from : http://stackoverflow.com/questions/1027354/need-an-unordered-list-without-any-bullets */
+	list-style-type: none;
+	padding: 0px;
+}
 
-.card_wrapper {
+nav {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	behavior: url(css/pie.htc);
+	
 	margin: 10px;
-	max-width: 220px;
+	background-color: #fff;
+	position: relative;
+	float: left;
+	width: 220px;
 }
-
-.card_row {
-	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-	display: -ms-flexbox;      /* TWEENER - IE 10 */
-	display: -webkit-flex;     /* NEW - Chrome */
-	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+section {
+	position: relative;
+	margin-left: 230px;
 }
-
-.first {
-	margin-left: auto;
-	margin-top: auto;
+.card_wrapper {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	/* from : http://www.hongkiat.com/blog/css3-border-radius-in-internet-explorer/ */
+	behavior: url(/css/PIE.htc);
+	/* from : http://stackoverflow.com/questions/587814/how-do-i-prevent-an-image-from-overflowing-a-rounded-corner-box-with-css3 */
+	overflow: hidden;
+	
+	/* block vs. inline-block : http://updel.com/demos/inline-block/articles.html */
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+	width: 220px;
 }
-
-.last {
-	margin-right: auto;
-	margin-bottom: auto;
+.card_wrapper img {
+	/* from : http://stackoverflow.com/questions/10656570/wrong-height-of-div-with-img-tag-inside */
+	display: block;
 }
-
+.sidebar li {
+	padding-left: 15px;
+	border-bottom: 1px solid #EEEEEE;
+}
 
 .empty {
 	width: 220px;
 }
+
+.text {
+	/* from : http://stackoverflow.com/questions/17864742/how-to-apply-font-anti-alias-effects-in-css */
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	
+	line-height: 46px;
+	font-size: 14px;
+	color: #6d6c83;
+	letter-spacing: -1px;
+	font-family: 'Apple SD Gothic Neo','나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',dotum,'굴림',gulim,applegothic,sans-serif;
+}
+
