@@ -68,10 +68,6 @@ section {
 	border-bottom: 1px solid #EEEEEE;
 }
 
-.empty {
-	width: 220px;
-}
-
 .text {
 	/* from : http://stackoverflow.com/questions/17864742/how-to-apply-font-anti-alias-effects-in-css */
 	-webkit-font-smoothing: antialiased;
@@ -84,4 +80,3 @@ section {
 	letter-spacing: -1px;
 	font-family: 'Apple SD Gothic Neo','나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',dotum,'굴림',gulim,applegothic,sans-serif;
 }
-
