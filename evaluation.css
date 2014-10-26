@@ -34,12 +34,6 @@ body {
 /* override inherited property */
 a {
 	text-decoration: none;
-	color: #6d6c83;
-}
-ul {
-	margin: 0px;
-	list-style-type: none;
-	padding: 0px;
 }
 
 /* positioning, including pbm */
