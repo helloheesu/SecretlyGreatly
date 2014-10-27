@@ -37,12 +37,37 @@ a {
 }
 
 /* positioning, including pbm */
+@media (min-width: 1212px) {
+	#top_container {
+		max-width: 1212px;
+	}
+}
+@media (min-width: 968px) and (max-width: 1211px) {
+	#top_container {
+		max-width: 968px;
+	}
+}
+@media (min-width: 724px) and (max-width: 967px) {
+	#top_container {
+		max-width: 724px;
+	}
+}
+@media (min-width: 480px) and (max-width: 723px) {
+	#top_container {
+		max-width: 480px;
+	}
+}
+#top_container {
+	min-width: 480px;
+	margin: 0 auto;
+}
+
 #goal {
 	position: relative;
+	margin: 10px;
 }
 #progress_wrapper {
 	border-bottom: 1px solid #C5C5C5;
-	margin-bottom: 10px;
 }
 #sidebar li {
 	padding-left: 14px;
