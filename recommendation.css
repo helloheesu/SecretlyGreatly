@@ -7,14 +7,104 @@
 	letter-spacing: -1px;
 	font-family: 'Apple SD Gothic Neo','나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',dotum,'굴림',gulim,applegothic,sans-serif;
 }
-.reason {
+.reason .text {
 	color: #555;
+	font-size: 12px;
+}
+.reason img {
+/* 	vertical-align: middle; */
+}
+.star_graph {
+	margin-left: 6px;
+	vertical-align: middle;
+}
+.star_graph .on {
+/* 	outline: 1px solid red !important; */
+	display: inline-block;
+	width: 15px; height: 14px;
+	background: url(https://d12hfz37g51hrt.cloudfront.net/assets/stars/star_yellow-be11c9895f730f02a33ca5f73f764342.png);
+}
+.reason_star .text {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
 }
 .reason a {
 	color: #000;
-	font-weight: bold;
+/* 	font-weight: bold; */
 }
 
+.expected_star span {
+/* 	outline: 1px dashed blue !important; */
+	color: #fff;
+	font-size: 24px;
+	text-shadow: #000 1px 1px 0px;
+/* 안 깔끔해보여 */
+/*
+	position: relative;
+	left: 4px;
+*/
+/* 	top: 3px; */
+	margin-top: 6px;
+	
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.profile_img {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	behavior: url(css/PIE.htc);
+	
+/* 	outline: 1px solid aqua !important; */
+/*
+	position: relative;
+	top: 0;
+	bottom: 0;
+*/
+/* 	margin: 10px; */
+	vertical-align: middle;
+	margin-right: 4px;
+}
+
+.expected_star .profile_img {
+	width: 25px;
+	height: 25px;
+}
+
+.reason {
+/* 	vertical-align: middle; */
+	padding: 10px;
+	height: 30px;
+	widows: 100%;
+}
+
+/*
+.reason < .reason_star {
+	outline: 1px dashed aqua !important;
+	text-align: center;
+}
+.reason:has(.reason_star) {
+	outline: 1px dotted red !important;
+	text-align: center;
+}
+.reason .reason_star:parent {
+	outline: 1px dotted black !important;
+	text-align: center;
+}
+.reason {
+	outline: 1px dotted yellow !important;
+	text-align: center;
+}
+*/
+.reason_star {
+/* 	outline: 1px dashed aqua !important; */
+	text-align: center;
+}
 /* bgcolor */
 body {
 	background-color: #e5e5e5;
@@ -22,11 +112,78 @@ body {
 .reason {
 	background-color: #f9f8f4;
 }
-
+.selected_filter_wrapper li {
+	background-color: #fff;
+}
 /* override inherited property */
 a {
 	text-decoration: none;
 }
+
+.selected_filter_wrapper .text_icon {
+	color: #6d6c83;
+	padding-left: 8px;
+}
+
+.filter_wrapper li, .selected_filter_wrapper li {
+	display: inline;
+}
+
+.selected_filter_wrapper li {
+	font-size: 12px;
+	padding: 9px;
+	margin-right: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.filter_wrapper li {
+	font-size: 13px;
+	padding: 0 20px;
+	border-right: 1px solid #93939c;
+}
+.filter_wrapper li:last-child {
+	border-right: 0 none;
+}
+
+.filter_container {
+	margin: 10px 0;
+	padding: 10px 0;
+/* 	outline: 1px solid blue !important; */
+	position: relative;
+}
+.filter_container div {
+	position: relative;
+}
+
+.selected_filter_wrapper {
+/* 	outline: 1px solid red !important; */
+/* 	margin: 10px; */
+	display: inline-block;
+/* 	position: absolute; */
+	position: relative;
+	top: 0;
+/* 	left: 0; */
+	left: 10px;
+/* 	margin-left: 10px; */
+}
+.filter_wrapper {
+/* 	outline: 1px solid red !important; */
+/* 	margin: 10px; */
+	display: inline-block;
+/* 	position: absolute; */
+	position: relative;
+	top: 0;
+	float: right;
+/* 	right: 0; */
+/* 	right: 10px; */
+/*
+	margin-right: 10px;
+	margin-left: auto;
+*/	
+}
+
 
 
 
@@ -88,13 +245,9 @@ a {
 
 
 
-.filter_container li, .selected_filter_container li {
-	display: inline;
-}
 
-.card_wrapper div {
-	margin: 0;
-}
+
+
 
 .poster_wrapper {
 	position: relative;
@@ -104,7 +257,8 @@ a {
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 7px 15px;
+	margin: 7px 15px;
+	padding-top: 8px;
 }
 
 .card_wrapper {
@@ -112,18 +266,18 @@ a {
 	max-width: 220px;
 }
 
-.first {
-	margin-left: auto;
-}
-
-.last {
-	margin-right: auto;
-}
-
-.empty {
-	width: 220px;
-}
-
 .no_result {
 	text-align: center;
+}
+
+.no_result .text {
+	line-height: 30px;
+	font-size: 16px;
+	color: #93939c;	
+}
+
+.no_result span {
+/* 	outline: 1px solid red !important; */
+	margin: 25px auto;
+	display: block;
 }
