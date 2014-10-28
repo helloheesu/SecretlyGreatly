@@ -1,2 +1,4 @@
 .idea
-bower_components
+vendor
+node_modules
+watch_original.html

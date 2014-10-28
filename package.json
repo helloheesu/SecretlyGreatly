@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/helloheesu/SecretlyGreatly/issues"
   },
-  "homepage": "https://github.com/helloheesu/SecretlyGreatly"
+  "homepage": "https://github.com/helloheesu/SecretlyGreatly",
+  "devDependencies": {
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-coverage": "^0.2.6",
+    "karma-html2js-preprocessor": "^0.1.0",
+    "karma-qunit": "^0.1.4",
+    "qunitjs": "^1.15.0"
+  }
 }
