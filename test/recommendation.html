@@ -3,131 +3,139 @@
 <head>
 	<meta charset="utf-8">
 	<title>추천 영화</title>
-	<link rel="stylesheet" href="css/recommendation.css">
+	<link rel="stylesheet" href="recommendation.css">
+	<link rel="stylesheet" href="css/reset.css" />
 </head>
+
 <body>
 
-<div class="filter_row">
-	<span class="filter first">장르</span>
-	<span class="filter">국가</span>
-	<span class="filter">연도</span>
-	<span class="filter last">추천이유</span>
+<div id="top_container">
+
+<div class="filter_container">
+	<ul>
+		<li class="filter"><span class="text">장르</span></li>
+		<li class="filter"><span class="text">국가</span></li>
+		<li class="filter"><span class="text">연도</span></li>
+		<li class="filter"><span class="text">추천이유</span></li>
+	</ul>
 </div>
 
-<div class="selected_filter_row">
-	<span class="selected_filter">공포</span>
-	<span class="selected_filter">한국</span>
-	<span class="selected_filter">1900~1990</span>
+<div class="selected_filter_container">
+	<ul>
+		<li class="selected_filter"><span class="text">공포</span></li>
+		<li class="selected_filter"><span class="text">한국</span></li>
+		<li class="selected_filter"><span class="text">1900~1990</span></li>
+	</ul>
 </div>
 
-<div class="card_row">
-	<!--card1-->
-	<div class="card_wrapper first">
-		<img src="http://placehold.it/220x314" /> <!-- will be replaced with <div class="card"~~~~> -->
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.9</span>
-		</div>
-		<div class="reason">
-			<img src="http://placehold.it/30x30" />
-			<span class="description">좋아하는 감독 <a href="#">스탠리 큐브릭</a></span>
-		</div>
-	</div>
-	
-	<!--card2-->
-	<div class="card_wrapper">
-		<img src="http://placehold.it/220x314" />
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.8</span>
-		</div>
-		<div class="reason">
-			<img src="http://placehold.it/30x30" />
-			<span class="description"><a href="#">"아메리칸 싸이코"</a>와 비슷해요.</span>
-		</div>
-	</div>
 
-	<!--card3-->
-	<div class="card_wrapper">
-		<img src="http://placehold.it/220x314" />
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.2</span>
-		</div>
-		<div class="reason">
-			<span class="description">예상별점 3.2개</span>
-			<img src="http://placehold.it/79x22" />
-		</div>
-	</div>
+<div id="card_container">
+	<ul>
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img class="poster_img" src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<span class="profile_img"><img src="http://placehold.it/25x25" /></span>
+					<span class="text star_score">3.9</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="profile_img"><img src="http://placehold.it/30x30" /></span>
+				<span class="text description">좋아하는 감독 <a href="#">스탠리 큐브릭</a></span>
+			</div>
+		</li>
 
-	<!--card4-->
-	<div class="card_wrapper">
-		<img src="http://placehold.it/220x314" />
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.7</span>
-		</div>
-		<div class="reason">
-			<span class="description">예상별점 3.7개</span>
-			<img src="http://placehold.it/79x22" />
-		</div>
-	</div>
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img class="poster_img" src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<img src="http://placehold.it/25x25" />
+					<span class="text star_score">3.8</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="profile_img"><img src="http://placehold.it/30x30" /></span>
+				<span class="text description"><a href="#"><아메리칸 싸이코></a>와 비슷해요.</span>
+			</div>
+		</li>
 
-	<!--card5-->
-	<div class="card_wrapper last">
-		<img src="http://placehold.it/220x314" />
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.9</span>
-		</div>
-		<div class="reason">
-			<img src="http://placehold.it/30x30" />
-			<span class="description">좋아하는 감독 <a href="#">스탠리 큐브릭</a></span>
-		</div>
-	</div>
-</div>
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img class="poster_img" src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<img src="http://placehold.it/25x25" />
+					<span class="text star_score">3.2</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="text description">예상별점 3.2개</span>
+				<span class="profile_img"><img src="http://placehold.it/79x22" /></span>
+			</div>
+		</li>
 
-<div class="card_row">
-	<!--card6-->
-	<div class="card_wrapper first">
-<!-- 	<div class="card_wrapper"> -->
-		<img src="http://placehold.it/220x314" />
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.8</span>
-		</div>
-		<div class="reason">
-			<img src="http://placehold.it/30x30" />
-			<span class="description"><a href="#"> <아메리칸 싸이코> </a>와 비슷해요.</span>
-		</div>
-	</div>
-	
-	<!--card7-->
-	<div class="card_wrapper">
-		<img src="http://placehold.it/220x314" />
-		<div class="expected_star">
-			<img src="http://placehold.it/25x25" />
-			<span class="star_score">3.8</span>
-		</div>
-		<div class="reason">
-			<span class="description">예상별점 3.8개</span>
-			<img src="http://placehold.it/79x22" />
-		</div>
-	</div>
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<img src="http://placehold.it/25x25" />
+					<span class="text star_score">3.7</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="text description">예상별점 3.7개</span>
+				<span class="profile_img"><img src="http://placehold.it/79x22" /></span>
+			</div>
+		</li>
 
-	<div class="card_wrapper empty">
-	</div>
-	
-	<div class="card_wrapper empty">
-	</div>
-	
-	<div class="card_wrapper empty last">
-	</div>
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<img src="http://placehold.it/25x25" />
+					<span class="text star_score">3.9</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="profile_img"><img src="http://placehold.it/30x30" /></span>
+				<span class="text description">좋아하는 감독 <a href="#">스탠리 큐브릭</a></span>
+			</div>
+		</li>
+
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img class="poster_img" src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<img src="http://placehold.it/25x25" />
+					<span class="text star_score">3.8</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="profile_img"><img src="http://placehold.it/30x30" /></span>
+				<span class="text description"><a href="#"><아메리칸 싸이코></a>와 비슷해요.</span>
+			</div>
+		</li>
+
+		<li class="card_wrapper">
+			<div class="poster_wrapper">
+				<img class="poster_img" src="http://placehold.it/220x314" />
+				<div class="expected_star">
+					<img src="http://placehold.it/25x25" />
+					<span class="text star_score">3.8</span>
+				</div>
+			</div>
+			<div class="reason">
+				<span class="text description">예상별점 3.8개</span>
+				<img src="http://placehold.it/79x22" />
+			</div>
+		</li>
+	</ul>
 </div>
 
 <div class="no_result">
 	<img src="http://placehold.it/100x100" />
-	<p class="description">정희수님에게 추천해 드릴 만한 영화가 없습니다.<br>필터링 조건을 바꿔보세요.</p>
+	<p class="text description">정희수님에게 추천해 드릴 만한 영화가 없습니다.<br>필터링 조건을 바꿔보세요.</p>
+</div>
+
 </div>
 
 </body>
