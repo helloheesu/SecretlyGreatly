@@ -1,0 +1,64 @@
+html {
+font-family:'Apple SD Gothic Neo',나눔고딕,NanumGothic,'맑은 고딕','Malgun Gothic',돋움,dotum,굴림,gulim,applegothic,sans-serif;
+}
+
+body {
+margin:0;
+}
+
+ul {
+list-style:none;
+margin:0;
+padding:0;
+}
+
+a {
+text-decoration:none;
+}
+
+#container {
+background-color:#e5e5e5;
+}
+
+#section_container {
+height:2297px;
+margin:auto;
+position:relative;
+width:960px;
+}
+
+.filter_category_wrap {
+margin:10px;
+padding:10px 0;
+position:relative;
+text-align:right;
+}
+
+.card_container {
+height:1000px;
+width:100%;
+}
+
+.card {
+1left:240px;
+background-color:#FFF;
+border-radius:5px;
+float:left;
+height:315px;
+margin:10px;
+width:220px;
+}
+
+.filter_category_genre,.filter_category_nation,.filter_category_year,.filter_category_sorting {
+border-right:1px solid #93939c;
+color:#93939c;
+cursor:pointer;
+display:inline-block;
+font-size:13px;
+line-height:13px;
+padding:0 20px;
+}
+
+.filter_category_genre_list,.filter_category_nation_list,.filter_category_year_list,.filter_category_sorting_list {
+display:none;
+}
