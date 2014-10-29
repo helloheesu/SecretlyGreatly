@@ -6,7 +6,7 @@
 .top_area {
 	position: relative;
 }
-.expect_star_rating_container {
+.expected_rate_container {
 	position: absolute;
 	top: 350px;
 	left: 300px;
