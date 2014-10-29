@@ -21,6 +21,7 @@
     "karma-coverage": "^0.2.6",
     "karma-html2js-preprocessor": "^0.1.0",
     "karma-qunit": "^0.1.4",
+    "less": "^1.7.5",
     "qunitjs": "^1.15.0"
   }
 }
