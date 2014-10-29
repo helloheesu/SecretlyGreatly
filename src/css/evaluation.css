@@ -101,7 +101,7 @@ a {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	behavior: url(/css/PIE.htc);
+	behavior: url(/src/css/PIE.htc);
 }
 .card_wrapper img {
 	display: block;
