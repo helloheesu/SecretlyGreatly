@@ -38,7 +38,7 @@ a {
 	width: 220px;
 }
 #card_container .card_wrapper {
-/* 	outline: 1px solid blue !important; */
+	/* 	outline: 1px solid blue !important; */
 	display: inline-block;
 	vertical-align: top;
 	overflow: hidden;
@@ -49,7 +49,7 @@ a {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	behavior: url(/src/css/PIE.htc);
+	behavior: url(./PIE.htc);
 }
 .card_wrapper .poster_img {
 	display: block;
@@ -81,7 +81,7 @@ a {
 }
 
 #top_container {
-/* 	outline: 1px solid red !important; */
+	/* 	outline: 1px solid red !important; */
 	min-width: 480px;
 	margin: 0 auto;
 }
