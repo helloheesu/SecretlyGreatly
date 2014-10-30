@@ -2,29 +2,135 @@
 @import "mixins";
 
 //카드
-
-.movie-card-size-1x1 {
- width: @card-size-base;
-  margin: @margin-base;
+body {
+  height: 1000px;
+}
+.card_wrap {
+  width: @card-width-base;
+  height:  @card-height-base;
+  position:  relative;
+  margin:  10px;
+  font-family:  Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, sans-serif;
+  font-size:  12px;
+  float:  left;
+  z-index:  10;
+}
+.card_wrap.size_1x1 {
+  width: @card-width-base;
+  height: @card-height-base;
+}
+.card_wrap.size_2x2 {
+  width: @card-width-base*2;
+  height: @card-height-base*2 + @margin-base;
+  .card_title {
+    font-weight: 400;
+    font-size: 26px;
+    color: white;
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    bottom: 160px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}
+.card_wrap.size_1x2 {
+  width: @card-width-base;
+  height: 638px;
+}
+.card_wrap.hover .hover_container {
+  opacity: 1;
+}
+.hover_container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  opacity: 0;
+  .black_bg {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.40;
+  }
 }
-
-.poster-wrapper {
-  font-family: @font-family-nanum;
-  font-size: @font-size-base;
+.wish_btn_container {
+  padding: 0 20px 20px 20px;
   position: relative;
-  max-width: 220px;
-  .rounded(@card-radius);
-  width: 220px;
+  color: #6d6c83;
+  height: 20px;
+  .text {
+    float: left;
+    margin-left: 5px;
+  }
+  .icon {
+    float: left;
+    width: 15px;
+    height: 13px;
+  }
+  .wish {
+    position: absolute;
+    left: 50%;
+    margin-left: -90px;
+    .icon {
+      background: url('../img/ico_spr.png') 0 -2948px;
+    }
+  }
+  .wish:hover .icon {
+    background: url('../img/ico_spr.png') 0 -2961px;
+  }
+  .wish:hover .text {
+    color: #ff382e;
+  }
+  .no_wish {
+    position: absolute;
+    right: 50%;
+    margin-right: -90px;
+    .icon {
+      background: url('../img/ico_spr.png') 0 -3030px;
+    }
+  }
+  .no_wish:hover .icon {
+    background: url('../img/ico_spr.png') 0 -3043px;
+  }
+  .no_wish:hover .text {
+    color: #32b39a;
+  }
 }
-
-.expect-star-rating-container {
-
-  .absolute-position();
+.star_container {
+  text-align: left;
+  margin: 0 auto;
+  width: 150px;
+  height: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.star {
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  float: left;
+  background-image: url('../img/img_empty_star.png');
+}
+.star.half {
+  width: 15px;
+}
+.star.half.right {
+  background-position: -15px;
+}
+.star.over {
+  background-image: url('../img/img_full_star.png');
+}
+.expected_rate_container {
+  position: absolute;
+  left: 0;
+  top: 0;
   padding: 7px 15px;
   color: white;
-  z-index: 1;
-
+  z-index: 4;
   .my_rate {
     display: block;
     margin-top: 8px;
@@ -32,60 +138,90 @@
     padding-left: 33px;
     height: 25px;
   }
-
-  .small-profile {
-    .rounded(50%);
-    .absolute-position();
+  .small_profile {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
-
   .rating {
-    font-size: @rate-font-size;
+    font-weight: 400;
+    font-size: 24px;
     line-height: 30px;
     text-shadow: 1px 1px #000000;
-    .absolute-position(50px,13px);
+    position: absolute;
+    left: 50px;
+    top: 13px;
   }
 }
-
-.top-gradation {
-  .absolute-position();
-  .element-size(100%,180px);
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
-  .rounded(@card-radius);
+.top_gradation {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 180px;
+  background: -moz-linear-gradient(top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0.65)),color-stop(100%,rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  background: -o-linear-gradient(top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  background: -ms-linear-gradient(top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
 }
-
-.back-gradation {
-  background-color: #000000;
-  .element-center();
-  .element-size();
+.card_shadow {
+  display: inline;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-font-smoothing: antialiased;
+  background-color: #525252;
+  opacity: 0.2;
 }
-
-.hover-view {
-  outline: 1px solid #ff545d !important;
-  .absolute-position(0,160px);
-  .element-size(100%,160px);
+.poster_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  max-width: inherit;
+}
+.hover_contents {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 160px;
   background-color: white;
   text-align: center;
-  opacity: 0;
-  -webkit-transition-property: opacity;
-  -moz-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-  -moz-transition-duration: 0.1s;
-  -o-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  .movie-title {
-    font-size: @rate-font-size + 5px;
+  z-index: 1;
+  .movie_title {
+    font-size: 14px;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
     font-weight: 700;
+    color: #403f4e;
+    border-bottom: 1px solid #f3f3f5;
+    overflow: hidden;
   }
-  &:hover {
-      opacity: 100;
+  .star_rate {
+    padding: 17px 0 20px;
+    height: 50px;
   }
 }
-
-
