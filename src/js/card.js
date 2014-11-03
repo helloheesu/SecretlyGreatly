@@ -22,6 +22,7 @@ function card_mouse_enter() {
             }
         });
     }
+
     /*
      별점 클릭 이벤트 연결.
      현재 추출 데이터는 몇 점을 넣었는지만 반영.
@@ -36,8 +37,6 @@ function card_mouse_enter() {
 
     // 별점 드래그 이벤트 연결
     $(stars).hover(function () {
-
-
             $(this).addClass("hover");
             target_value = $(this).attr('data-value');
 
@@ -55,6 +54,5 @@ function card_mouse_leave() {
     $(this).removeClass("hover");
     $("span.star.half",this).off();
 }
-
 
 $(".card_wrap").hover(card_mouse_enter,card_mouse_leave);
