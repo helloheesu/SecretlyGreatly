@@ -46,43 +46,35 @@ router.get('/login', function (request, response, next) {
 router.post('/login', function (request, response, next) {
 	var login = request.param('login');
 	var password = request.param('password');
-	console.log('hello');
-	console.log(login, password);
-	console.log('abcd');
-	// console.log(request, body);
-	console.log('5678');
-	if (isRightAuth(login, password)) {
+	console.log('login request : ',login, password);
+	if (isRightAuth(login, password)===true) {
+		console.log('안녕안녕');
 		response.cookie('auth', true);
 		response.redirect('/');
 	} else {
+		console.log('hihihihihihihi');
 		response.redirect('/login');
 	}
 });
 
 function isRightAuth(username, pass) {
-	client.query('SELECT pw FROM user WHERE id="'+username+'";', function (error, result, fields) {
-		console.log('SELECT pw FROM user WHERE id="'+username+'";');
-
-		// if(error) {
+	client.query('SELECT * FROM user WHERE id="'+username+'";', function (error, result, fields) {
+		console.log('isRightAuth called');
+		if(error) {
 			console.log('쿼리 문장에 오류가 있습니다.');
-
-		// } else {
-			// console.log(result.pw);
-			console.log('-=====error');
-			console.log(error);
-			console.log('-=====result');
-			console.log(result);
-			console.log('wiufhwqf');
-			console.log(result[0].pw);
-			if(result[0].pw == '1234') {
-				console.log('2345q3453');
-				console.log('안녕');
+			return false;
+		} else {
+			if(result[0]) {
+				console.log("has result");
+				if(result[0].pw == pass) {console.log('RightAuth');return true;}
+				else {console.log('Wrong pw');return false;}
+			} else {
+				console.log("no result");
+				return false;
 			}
-			// console.log('-=====fields');
-			// console.log(fields);
-		// }
-			console.log('hi');
-		return true;
+		}
+		console.log('hi');
+		return false;
 	});
 }
 
