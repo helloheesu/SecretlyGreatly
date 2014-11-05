@@ -47,14 +47,15 @@ router.post('/login', function (request, response, next) {
 	var login = request.param('login');
 	var password = request.param('password');
 	console.log('login request : ',login, password);
-	if (isRightAuth(login, password)===true) {
-		console.log('안녕안녕');
-		response.cookie('auth', true);
-		response.redirect('/');
-	} else {
-		console.log('hihihihihihihi');
-		response.redirect('/login');
-	}
+	handleAuth(login, password, response);
+	// if (isRightAuth(login, password)===true) {
+	// 	console.log('안녕안녕');
+	// 	response.cookie('auth', true);
+	// 	response.redirect('/');
+	// } else {
+	// 	console.log('hihihihihihihi');
+	// 	response.redirect('/login');
+	// }
 });
 
 function isRightAuth(username, pass) {
@@ -75,6 +76,34 @@ function isRightAuth(username, pass) {
 		}
 		console.log('hi');
 		return false;
+	});
+}
+
+function handleAuth(username, pass, response) {
+	client.query('SELECT * FROM user WHERE id="'+username+'";', function (error, result, fields) {
+		console.log('isRightAuth called');
+		if(error) {
+			console.log('쿼리 문장에 오류가 있습니다.');
+			response.redirect('/login');
+		} else {
+			if(result[0]) {
+				console.log("has result");
+				if(result[0].pw == pass) {
+					console.log('RightAuth');
+					response.cookie('auth', true);
+					response.redirect('/');
+				}
+				else {
+					console.log('Wrong pw');
+					response.redirect('/login');
+				}
+			} else {
+				console.log("no result");
+				response.redirect('/login');
+			}
+		}
+		console.log('hi');
+		// response.redirect('/login');
 	});
 }
 
