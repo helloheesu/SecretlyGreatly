@@ -11,14 +11,14 @@ var client = mysql.createConnection({
 });
 
 
-client.query('SELECT * FROM user', function (error, result, fields) {
-	if(error) {
-		console.log('쿼리 문장에 오류가 있습니다.');
-	} else {
-		console.log(result);
-		console.log(fields);
-	}
-});
+// client.query('SELECT * FROM user', function (error, result, fields) {
+// 	if(error) {
+// 		console.log('쿼리 문장에 오류가 있습니다.');
+// 	} else {
+// 		console.log(result);
+// 		console.log(fields);
+// 	}
+// });
 
 var app = express();
 
@@ -51,13 +51,40 @@ router.post('/login', function (request, response, next) {
 	console.log('abcd');
 	// console.log(request, body);
 	console.log('5678');
-	if (login == 'rint' && password == '1234') {
+	if (isRightAuth(login, password)) {
 		response.cookie('auth', true);
 		response.redirect('/');
 	} else {
 		response.redirect('/login');
 	}
 });
+
+function isRightAuth(username, pass) {
+	client.query('SELECT pw FROM user WHERE id="'+username+'";', function (error, result, fields) {
+		console.log('SELECT pw FROM user WHERE id="'+username+'";');
+
+		// if(error) {
+			console.log('쿼리 문장에 오류가 있습니다.');
+
+		// } else {
+			// console.log(result.pw);
+			console.log('-=====error');
+			console.log(error);
+			console.log('-=====result');
+			console.log(result);
+			console.log('wiufhwqf');
+			console.log(result[0].pw);
+			if(result[0].pw == '1234') {
+				console.log('2345q3453');
+				console.log('안녕');
+			}
+			// console.log('-=====fields');
+			// console.log(fields);
+		// }
+			console.log('hi');
+		return true;
+	});
+}
 
 app.use('/', router);
 // app.use('/login', router);
