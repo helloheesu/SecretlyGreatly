@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 .idea
+.DS_Store
 vendor
 node_modules
-=======
 2week
-.idea
->>>>>>> origin/master
