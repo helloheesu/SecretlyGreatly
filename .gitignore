@@ -1,6 +1,7 @@
+.idea
+.DS_Store
 vendor
 node_modules
-.DS_Store
+test
+less
 2week
-.idea
->>>>>>> origin/master
