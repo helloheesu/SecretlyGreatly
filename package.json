@@ -1,7 +1,0 @@
-{
-  "dependencies":
-  {
-    "express":"*",
-    "body-parser":"*"
-  }
-}
