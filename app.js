@@ -2,6 +2,24 @@ var fs = require('fs');
 var http = require('http');
 var express = require('express');
 
+var mysql = require('mysql');
+// $ mysql -u root -pdb1004 test
+var client = mysql.createConnection({
+	user: 'root',
+	password: 'db1004',
+	'database': 'test'
+});
+
+
+client.query('SELECT * FROM user', function (error, result, fields) {
+	if(error) {
+		console.log('쿼리 문장에 오류가 있습니다.');
+	} else {
+		console.log(result);
+		console.log(fields);
+	}
+});
+
 var app = express();
 
 var cookieParser = require('cookie-parser');
