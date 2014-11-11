@@ -9,7 +9,7 @@ body {
   font-family: Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, sans-serif;
   font-size: 12px;
   float: left;
-  z-index: 0;
+  z-index: 10;
 }
 .card_wrap.size_1x1 {
   width: 220px;
@@ -34,10 +34,9 @@ body {
   width: 220px;
   height: 638px;
 }
-.card_wrap.hover > .poster_container > .hover_container {
+.card_wrap.active .hover_container {
   opacity: 1;
 }
-
 .hover_container {
   position: absolute;
   left: 0;

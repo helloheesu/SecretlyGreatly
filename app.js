@@ -6,7 +6,7 @@ var mysql = require('mysql');
 // $ mysql -u root -pdb1004 test
 var client = mysql.createConnection({
 	user: 'root',
-	password: 'tomntoms',
+	password: 'db1004',
 	'database': 'test'
 });
 
@@ -67,7 +67,7 @@ function isRightAuth(username, pass) {
 		} else {
 			if(result[0]) {
 				console.log("has result");
-				if(result[0].pw === pass) {console.log('RightAuth');return true;}
+				if(result[0].pw == pass) {console.log('RightAuth');return true;}
 				else {console.log('Wrong pw');return false;}
 			} else {
 				console.log("no result");
