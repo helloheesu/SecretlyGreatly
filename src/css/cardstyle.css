@@ -6,7 +6,7 @@ body {
   height: 314px;
   position: relative;
   margin: 10px;
-  font-family: Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, sans-serif;
+  font-family: Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, '돋움', sans-serif;
   font-size: 12px;
   float: left;
   z-index: 10;

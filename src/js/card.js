@@ -28,12 +28,12 @@ function card_mouse_enter() {
      현재 추출 데이터는 몇 점을 넣었는지만 반영.
      TODO @jjung :화면에 아웃풋을 보여주나 추 후 뷰는 저장메세지, 로직은 포스트로 변경.
      */
+
     $(stars).click(function () {
         var output;
         output = '<h1>' + target_value + '</h1>';
         $('body').append(output);
     });
-
 
     // 별점 드래그 이벤트 연결
     $(stars).hover(function () {
@@ -46,8 +46,6 @@ function card_mouse_enter() {
             $(this).removeClass("hover");
             _star_over_animation(target_value , false);
         });
-
-
 }
 
 function card_mouse_leave() {
