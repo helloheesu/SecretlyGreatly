@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>추천 영화</title>
+
+	<link rel="stylesheet" href="css/recommendation.css">
+	<link rel="stylesheet" href="css/cardstyle.css"/>
+	<link rel="stylesheet" href="css/normalize.css"/>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="top_container">
+
+<div class="filter_container">
+	<ul class="filter_wrapper">
+		<li class="filter_category"><span class="text">장르</span></li>
+		<li class="filter_category"><span class="text">국가</span></li>
+		<li class="filter_category"><span class="text">연도</span></li>
+		<li class="filter_category"><span class="text">추천이유</span></li>
+	</ul>
+
+	<ul class="selected_filter_wrapper">
+		<li><span class="text">공포<a href="#"><span class="text_icon">x</span></a></span></li>
+		<li><span class="text">한국<a href="#"><span class="text_icon">x</span></a></span></li>
+		<li><span class="text">1900~1990<a href="#"><span class="text_icon">x</span></a></span></li>
+	</ul>
+</div>
+
+<div id="contents">
+	<div id="card_container">
+
+		<ul>
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.9</span>
+					</div>
+				</div>
+				<div class="reason">
+					<img class="profile_img" src="http://placehold.it/30x30" />
+					<span class="text">좋아하는 감독 <a href="#">스탠리 큐브릭</a></span>
+				</div>
+			</li>
+	
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.8</span>
+					</div>
+				</div>
+				<div class="reason">
+					<img class="profile_img" src="http://placehold.it/30x30" />
+					<span class="text"><a href="#"><아메리칸 싸이코></a>와 비슷해요.</span>
+				</div>
+			</li>
+	
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.2</span>
+					</div>
+				</div>
+				<div class="reason reason_star">
+					<span class="text">예상별점 3.2개</span>
+					<span class="star_graph">
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+					</span>
+				</div>
+			</li>
+	
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.7</span>
+					</div>
+				</div>
+				<div class="reason reason_star">
+					<span class="text">예상별점 3.7개</span>
+					<span class="star_graph">
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+					</span>
+				</div>
+			</li>
+	
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.9</span>
+					</div>
+				</div>
+				<div class="reason">
+					<img class="profile_img" src="http://placehold.it/30x30" />
+					<span class="text">좋아하는 감독 <a href="#">스탠리 큐브릭</a></span>
+				</div>
+			</li>
+	
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.8</span>
+					</div>
+				</div>
+				<div class="reason">
+					<img class="profile_img" src="http://placehold.it/30x30" />
+					<span class="text"><a href="#"><아메리칸 싸이코></a>와 비슷해요.</span>
+				</div>
+			</li>
+
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.8</span>
+					</div>
+				</div>
+				<div class="reason">
+					<img class="profile_img" src="http://placehold.it/30x30" />
+					<span class="text"><a href="#"><아메리칸 싸이코></a>와 비슷해요.</span>
+				</div>
+			</li>
+	
+			<li class="card_wrapper">
+				<div class="poster_wrapper">
+					<img class="poster_img" src="http://placehold.it/220x314" />
+					<div class="expected_star">
+						<img class="profile_img" src="https://d12hfz37g51hrt.cloudfront.net/assets/default/user/photo_thumb-93d0365adaacdfb7ee641c322bade18b.jpg" />
+						<span class="text star_score">3.8</span>
+					</div>
+				</div>
+				<div class="reason reason_star">
+					<span class="text">예상별점 3.8개</span>
+					<span class="star_graph">
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+						<span class="on"></span>
+					</span>
+				</div>
+			</li>
+
+			<% data.forEach(function (item,index) { %>
+			<li class="card_wrap size_1x1 ">
+				<div class="card_shadow"></div>
+				<div class="poster_container">
+					<div class ="expected_rate_container">
+            <span class="my_rate">
+                <img class="small_profile" src="http://placehold.it/25x25" />
+            </span>
+						<span class="rating"><%= item.movie_rate %></span>
+					</div>
+					<img class="poster" src="<%= item.movie_img_url %>" alt=""/>
+					<div class="top_gradation"></div>
+					<div class="hover_container">
+						<div class="black_bg"></div>
+						<div class="hover_contents">
+							<div class="movie_title">
+								<%= item.movie_title %></div>
+							<div class="star_rate">
+								<div class="star_container">
+									<span class="star half left" data-value=0.5></span>
+									<span class="star half right" data-value=1></span>
+									<span class="star half left" data-value=1.5></span>
+									<span class="star half right" data-value=2></span>
+									<span class="star half left" data-value=2.5></span>
+									<span class="star half right" data-value=3></span>
+									<span class="star half left" data-value=3.5></span>
+									<span class="star half right" data-value=4></span>
+									<span class="star half left" data-value=4.5></span>
+									<span class="star half right" data-value=5></span>
+								</div>
+							</div>
+							<div class="wish_btn_container">
+								<div class="wish">
+									<span class="icon"></span>
+									<span class="text">보고싶어요</span>
+								</div>
+								<div class="no_wish">
+									<span class="icon"></span>
+									<span class="text">그만 볼래요</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<% }); %>
+		</ul>
+	</div>
+	<div class="no_result">
+		<span><img src="http://placehold.it/100x100" /></span>
+		<span><p class="text">정희수님에게 추천해 드릴 만한 영화가 없습니다.<br>필터링 조건을 바꿔보세요.</p></span>
+	</div>
+</div>
+
+
+</div>
+
+<div id = 'gray'>
+	<p id = 'star_view'></p>
+</div>
+
+<h1 style="margin-top: 50px;">MOVIE LIST</h1>
+<a href="/insert">INSERT DATAS</a>
+<hr />
+<table width="100%" border="1">
+	<tr>
+		<th>DELETE</th>
+		<th>EDIT</th>
+		<th>ID</th>
+		<th>TITLE</th>
+		<th>RATE</th>
+		<th>IMG_URL</th>
+	</tr>
+
+	<% data.forEach(function (item,index) { %>
+	<tr>
+		<td><a href="/delete/<%= item.movie_id %>">DELETE</a></td>
+		<td><a href="/edit/<%= item.movie_id %>">EDIT</a></td>
+		<td><%= item.movie_id %></td>
+		<td><%= item.movie_title %></td>
+		<td><%= item.movie_rate %></td>
+		<td><%= item.movie_img_url %></td>
+
+	</tr>
+	<% }); %>
+</table>
+<script src="js/customAjax.js"></script>
+<script src="js/card.js"></script>
+</body>
+</html>
