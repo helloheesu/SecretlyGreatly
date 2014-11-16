@@ -1,6 +1,7 @@
 var fs = require('fs');
 var http = require('http');
 var express = require('express');
+var ejs = require('ejs');
 
 var mysql = require('mysql');
 // $ mysql -u root -pdb1004 ev_movie_test
@@ -55,25 +56,22 @@ function makeNewInfoCard (movie_id, movie_title, score) {
 	document.getElementById('eval_info_table').appendChild(evalInfo);
 }
 router.get('/show', function (request, response, next) {
-	// var query = 'SELECT * FROM score_info;';
-	// db.execute(query)
-	// 	.addListener('row', function(r) {
-	// 		user_array.push( { user_name: r.user_name } );
-	// 	})
-	// 	.addListener('result', function(r) {
-	// 		req.session.user_array = user_array;
-	// 	});
 	sql.query('SELECT * FROM score_info;', function (error, result, fields) {
 		if(error) {
 			console.log('wrong query');
 			return;
 		}
-		// for (var i = result.length - 1; i >= 0; i--) {
-		// 	result[i] = 0;
-		// }
-		response.writeHead(200, {"Content-Type": "text/plain"});
-		response.write(JSON.stringify(result));
-		response.end();
+
+		// response.writeHead(200, {"Content-Type": "text/plain"});
+		// response.write(JSON.stringify(result));
+		// response.end();
+		console.log('hello');
+		fs.readFile('show.html', 'utf8', function (error, data) {
+			response.writeHead(200, {"Content-Type": "text/html"});
+			response.end(ejs.render(data, {
+				result: result
+			}));
+		});
 
 		console.log('hi');
 	});

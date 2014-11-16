@@ -12,6 +12,22 @@
 			<tr>
 				<td>예시</td><td>3점</td>
 			</tr>
+			<% console.log('서버에찍히지롱ㅜㅜ'); %>
+			<%/* switch-case문 안됨, if-else로 해야함(심지어 else if도 안됨), comment는 이렇게 쓰는거, console.log는 브라우저콘솔이아닌 서버콘솔에 찍힘. '#'얘기도있었으나 안됨 ㅜㅜ */%>
+			<!-- test if -->
+			<%if (3==3) {%>  TEXT PRINTED  <%}%>
+			<%if (3==4) {%>  TEXT NOT PRINTED  <%}%>
+			<% for(var i=0; i<result.length; i++) { %>
+			<tr>
+				<% var title = ""; console.log('title'); %>
+				<%/* 일단은 if-else, 나중에 영화정보 테이블 만들어서. */%>
+				<% if(result[i].movie_id == 1) title="인터스텔라"; %>
+				<% if(result[i].movie_id == 2) title="패션왕"; %>
+				<% if(result[i].movie_id == 3) title="보이후드"; %>
+				<% console.log(title); %>
+				<td><%= title %></td><td><%= result[i].score %>점</td>
+			</tr>
+			<% } %>
 		</tbody>
 	</table>
 </body>
