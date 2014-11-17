@@ -5,7 +5,9 @@ var options = {
   hostname: 'www.imdb.com',
   port: 80,
   path: '/chart/top',
-  method: 'GET'
+  method: 'GET',
+  headers: {'Accept-Language':'en'},  // 영화이름이 'Daeboo' 방지..
+  agent:false
 };
 
 var req = http.request(options, function(res) {
@@ -38,7 +40,3 @@ req.end();
 req.on('error', function(e) {
   console.log('problem with request: ' + e.message);
 });
-
-
-
-
