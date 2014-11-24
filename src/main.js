@@ -25,6 +25,6 @@ function changeImg (e){
 function rollImg(){
 	var Img = document.getElementById('top_image');
    // Img.onclick = function(){alert('header 영역입니다.');}
-   //Img.addEventListener('click', changeImg, false);
-   setTimeout(changeImg(Img), 5000)
+   Img.addEventListener('click', changeImg, false);
+   //setTimeout(changeImg(Img), 5000)
 }
