@@ -5,20 +5,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var compression = require('compression');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var recommend = require('./routes/recommend');
 var insert = require('./routes/insert');
-
+var news = require('./routes/new');
 
 
 var app = express();
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 // uncomment after placing your favicon in /src
 //app.use(favicon(__dirname + '/src/favicon.ico'));
@@ -34,8 +35,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/recommend', recommend);
 app.use('/insert', insert);
-
-
+app.use('/new', news);
 
 
 

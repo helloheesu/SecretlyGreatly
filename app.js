@@ -1,8 +1,8 @@
 var fs = require('fs');
 var http = require('http');
 var express = require('express');
-var async = require('async');
-var compression = require('compression');
+// var async = require('async');
+// var compression = require('compression');
 
 var app = express();
 
@@ -19,8 +19,8 @@ var client = mysql.createConnection({
 });
 
 app.use(bodyParser.urlencoded());
-app.use(compression());
-app.use(express.static(__dirname + '/src'));
+// app.use(compression());
+//app.use(express.static(__dirname + '/src'));
 
 router.get('/', function (request, response) {
 	fs.readFile('./src/login.html', function (error, data) {

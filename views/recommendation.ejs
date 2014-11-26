@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>추천 영화</title>
 
-	<link rel="stylesheet" href="css/recommendation.css">
+	<link rel="stylesheet" href="css/recommendation2.css">
 	<link rel="stylesheet" href="css/cardstyle.css"/>
 	<link rel="stylesheet" href="css/normalize.css"/>
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -241,13 +241,12 @@
 
 	<% data.forEach(function (item,index) { %>
 	<tr>
-		<td><a href="/delete/<%= item.movie_id %>">DELETE</a></td>
+		<td><a href="/users">DELETE</a></td>
 		<td><a href="/edit/<%= item.movie_id %>">EDIT</a></td>
 		<td><%= item.movie_id %></td>
 		<td><%= item.movie_title %></td>
 		<td><%= item.movie_rate %></td>
 		<td><%= item.movie_img_url %></td>
-
 	</tr>
 	<% }); %>
 </table>

@@ -23,6 +23,11 @@ function card_mouse_enter() {
         });
     }
 
+    function _showDataLoadingPage() {
+        var temp = document.getElementById('star_view');
+        temp.innerText = target_value;
+    }
+
     /*
      별점 클릭 이벤트 연결.
      현재 추출 데이터는 몇 점을 넣었는지만 반영.
@@ -30,9 +35,7 @@ function card_mouse_enter() {
      */
 
     $(stars).click(function () {
-        var output;
-        output = '<h1>' + target_value + '</h1>';
-        $('body').append(output);
+        _showDataLoadingPage();
     });
 
     // 별점 드래그 이벤트 연결

@@ -7,20 +7,17 @@ var fs = require('fs');
 var ejs = require('ejs');
 var http = require('http');
 
-
-// $ mysql -u root -pdb1004 test
 var client = mysql.createConnection({
     user: 'root',
     password: 'tomntoms',
     'database': 'movies'
 });
+
 var router = express.Router();
 
-
-router.get('/delete:id', function (req,res) {
+router.get('/users', function (req, res) {
     client.query('DELETE FROM products WHERE id=?', [req.param('id')], function () {
-        res.redirect('/');
-    })
+    });
 });
 
 
@@ -33,7 +30,7 @@ router.post('/edit/:id', function (req,res) {});
 /* GET home page. */
 router.get('/', function(req, res) {
     console.log("in the routes");
-        client.query('SELECT * FROM moviedata WHERE movie_id between 0 AND 10;', function (error, result, fields) {
+    client.query('SELECT * FROM moviedata WHERE movie_id between 0 AND 20;', function (error, result, fields) {
             console.log('loadMovie called');
             if (error) {
                 console.log('쿼리 문장에 오류가 있습니다.');
