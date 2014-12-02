@@ -8,8 +8,7 @@ var http = require('http');
 var mysql = require('mysql');
 
 var client = mysql.createConnection({
-    user: 'root',
-    password: 'tomntoms',
+    user: 'guest_demo',
     'database': 'movies'
 });
 
