@@ -1,4 +1,7 @@
 /**
+ * Created by jjungmac on 2014. 12. 3..
+ */
+/**
  * Created by jjungmac on 2014. 12. 2..
  */
 console.log('js test');
