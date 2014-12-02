@@ -4,7 +4,7 @@ var app = require('../jjungapp');
 var http = require('http');
 
 
-app.set('port', process.env.PORT || 4464);
+app.set('port', process.env.PORT || 3000);
 
 
 var server = http.createServer(app).listen(app.get('port'), function() {
