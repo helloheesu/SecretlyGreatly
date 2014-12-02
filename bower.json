@@ -1,0 +1,22 @@
+{
+  "name": "SecretlyGreatly",
+  "version": "0.0.1",
+  "homepage": "https://github.com/helloheesu/SecretlyGreatly",
+  "authors": [
+    "HWangJJUng <marvel94@nhnnext.org>"
+  ],
+  "description": "next developing experience project",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "masonry": "desandro/masonry#~3.1.5",
+    "jquery": "~2.1.1",
+    "normalize.css": "~3.0.2"
+  }
+}

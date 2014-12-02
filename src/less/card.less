@@ -1,0 +1,91 @@
+@import "variables";
+@import "mixins";
+
+//카드
+
+.movie-card-size-1x1 {
+ width: @card-size-base;
+  margin: @margin-base;
+  overflow: hidden;
+}
+
+.poster-wrapper {
+  font-family: @font-family-nanum;
+  font-size: @font-size-base;
+  position: relative;
+  max-width: 220px;
+  .rounded(@card-radius);
+  width: 220px;
+}
+
+.expect-star-rating-container {
+
+  .absolute-position();
+  padding: 7px 15px;
+  color: white;
+  z-index: 1;
+
+  .my_rate {
+    display: block;
+    margin-top: 8px;
+    position: relative;
+    padding-left: 33px;
+    height: 25px;
+  }
+
+  .small-profile {
+    .rounded(50%);
+    .absolute-position();
+  }
+
+  .rating {
+    font-size: @rate-font-size;
+    line-height: 30px;
+    text-shadow: 1px 1px #000000;
+    .absolute-position(50px,13px);
+  }
+}
+
+.top-gradation {
+  .absolute-position();
+  .element-size(100%,180px);
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  .rounded(@card-radius);
+}
+
+.back-gradation {
+  background-color: #000000;
+  .element-center();
+  .element-size();
+}
+
+.hover-view {
+  outline: 1px solid #ff545d !important;
+  .absolute-position(0,160px);
+  .element-size(100%,160px);
+  background-color: white;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  .movie-title {
+    font-size: @rate-font-size + 5px;
+    font-weight: 700;
+  }
+  &:hover {
+      opacity: 100;
+  }
+}
+
+
