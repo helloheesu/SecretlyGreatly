@@ -12,8 +12,7 @@ font-size: 80px;
 line-height: 650%;
 color: white;
 text-shadow: 2px 2px 1px rgba(188, 188, 188, 0.8);
-background: url("img/slumdog.jpg");
-}
+background: url("../img/slumdog.jpg");
 
 #total{
 height : 400px;
@@ -95,7 +94,7 @@ margin: 10px;
   width: 50px;
   height: 50px;
   float: left;
-  background-image: url('img/img_empty_star.png');
+  background-image: url('../img/img_empty_star.png');
   background-size: 50px 50px;
 }
 
@@ -126,7 +125,7 @@ margin: 10px;
 }
 
 .star.over {
-  background-image: url('img/img_full_star.png');
+  background-image: url('../img/img_full_star.png');
   /*background-image: url('../img/img_full_star.png');*/
 
 }
