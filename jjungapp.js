@@ -36,7 +36,7 @@ app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
 app.use('/insert', insert);
-app.use('/new', news);
+app.use('/new',news);
 app.use('/main', main);
 app.use('/delete', del);
 
