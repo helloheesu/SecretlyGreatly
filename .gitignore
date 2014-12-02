@@ -1,16 +1,9 @@
-# nodejs
-node_modules
-npm-debug.log
-
-# jquery
-vendor
-
-# osx
-.DS_Store
-
-# webstorm
 .idea
-
-# etc
+.DS_Store
+vendor
+node_modules
 test
 less
+2week
+package.json
+npm-debug.log

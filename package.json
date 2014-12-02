@@ -1,27 +1,21 @@
 {
   "name": "SecretlyGreatly",
   "version": "0.0.1",
-  "description": "next develop experience project",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/helloheesu/SecretlyGreatly.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/helloheesu/SecretlyGreatly/issues"
-  },
-  "homepage": "https://github.com/helloheesu/SecretlyGreatly",
-  "devDependencies": {
-    "karma-chrome-launcher": "^0.1.5",
-    "karma-coverage": "^0.2.6",
-    "karma-html2js-preprocessor": "^0.1.0",
-    "karma-qunit": "^0.1.4",
-    "less": "^1.7.5",
-    "qunitjs": "^1.15.0"
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "compression": "^1.2.0",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.0.0",
+    "ejs": "~0.8.5",
+    "express": "^4.10.2",
+    "less-middleware": "1.0.x",
+    "logger": "0.0.1",
+    "morgan": "~1.3.0",
+    "mysql": "^2.5.3",
+    "serve-favicon": "~2.1.3"
   }
 }

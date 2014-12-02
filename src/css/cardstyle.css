@@ -9,7 +9,7 @@ body {
   font-family: Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, sans-serif;
   font-size: 12px;
   float: left;
-  z-index: 10;
+  z-index: 0;
 }
 .card_wrap.size_1x1 {
   width: 220px;
@@ -34,9 +34,11 @@ body {
   width: 220px;
   height: 638px;
 }
-.card_wrap.active .hover_container {
+
+.card_wrap.hover > .poster_container > .hover_container {
   opacity: 1;
 }
+
 .hover_container {
   position: absolute;
   left: 0;
@@ -227,3 +229,114 @@ body {
   padding: 17px 0 20px;
   height: 50px;
 }
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.card_wrap {
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+
+  -moz-animation-name: slidein;
+  -webkit-animation-name: slidein;
+  -o-animation-name: slidein;
+  animation-name: slidein;
+}
+
+@-moz-keyframes slidein {
+  from {
+    margin-left: 100%;
+    left: 300%;
+  }
+
+  to {
+    margin-left: 10px;
+    left: 0%;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    left: 300%;
+  }
+
+  to {
+    margin-left: 10px;
+    left: 0%;
+  }
+}
+
+@-o-keyframes slidein {
+  from {
+    margin-left: 100%;
+    left: 300%;
+  }
+
+  to {
+    margin-left: 10px;
+    left: 0%;
+  }
+}
+
+@-webkit-keyframes slidein {
+  from {
+    margin-left: 100%;
+    left: 300%
+  }
+
+  to {
+    margin-left: 10px;
+    left: 0%;
+  }
+}
+
+#gray {
+  position: fixed;
+  bottom: 200px;
+  width: 100px;
+  height: 50px;
+}
+
+#gray p {
+  width: 100px;
+  height: 50px;
+  font-Size: 35px;
+  font-family: Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, sans-serif;
+}
+
