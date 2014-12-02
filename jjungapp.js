@@ -12,6 +12,8 @@ var users = require('./routes/users');
 var recommend = require('./routes/recommend');
 var insert = require('./routes/insert');
 var news = require('./routes/new');
+var main = require('./routes/main');
+var del = require('./routes/delete')
 
 
 var app = express();
@@ -31,11 +33,13 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'src')));
 app.use(express.static(path.join(__dirname, 'src')));
 
-app.use('/', routes);
+app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
 app.use('/insert', insert);
 app.use('/new', news);
+app.use('/main', main);
+app.use('/delete', del);
 
 
 

@@ -15,10 +15,6 @@ var client = mysql.createConnection({
 
 var router = express.Router();
 
-router.get('/users', function (req, res) {
-    client.query('DELETE FROM products WHERE id=?', [req.param('id')], function () {
-    });
-});
 
 
 router.get('/edit/:id', function (req,res) {

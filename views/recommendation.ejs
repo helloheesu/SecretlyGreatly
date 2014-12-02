@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>추천 영화</title>
 
-	<link rel="stylesheet" href="css/recommendation2.css">
+	<link rel="stylesheet" href="css/recommendation.css">
 	<link rel="stylesheet" href="css/cardstyle.css"/>
 	<link rel="stylesheet" href="css/normalize.css"/>
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -241,7 +241,7 @@
 
 	<% data.forEach(function (item,index) { %>
 	<tr>
-		<td><a href="/users">DELETE</a></td>
+		<td><a href="/delete/<%= item.movie_id %>">DELETE</a></td>
 		<td><a href="/edit/<%= item.movie_id %>">EDIT</a></td>
 		<td><%= item.movie_id %></td>
 		<td><%= item.movie_title %></td>
@@ -250,7 +250,10 @@
 	</tr>
 	<% }); %>
 </table>
-<script src="js/customAjax.js"></script>
+
+<!--<script src="" /> 로 하면 안되고 <script src=""></script>로 해야 작동합니다.-->
+<script src="js/handle_get.js"></script>
 <script src="js/card.js"></script>
+
 </body>
 </html>
