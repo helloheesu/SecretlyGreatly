@@ -22,7 +22,6 @@ router.get('/edit/:id', function (req,res) {
 });
 router.post('/edit/:id', function (req,res) {});
 
-
 /* GET home page. */
 router.get('/', function(req, res) {
     console.log("in the routes");
