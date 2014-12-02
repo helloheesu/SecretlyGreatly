@@ -36,7 +36,7 @@ float:left;
 }
 
 #wrap {
-1height:1900px;
+/*1height:1900px;*/
 position:static;
 width:100%;
 }
@@ -81,7 +81,7 @@ width:50px;
 }
 
 #top_image {
-1background-image:url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mx0l4f-9f64cd856227b7c06f6c.jpg?1411561786);	
+/*1background-image:url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mx0l4f-9f64cd856227b7c06f6c.jpg?1411561786);	*/
 border:1px solid gray;
 height:500px;
 width:100%;
