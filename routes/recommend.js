@@ -8,8 +8,8 @@ var ejs = require('ejs');
 var http = require('http');
 
 var client = mysql.createConnection({
-    user: 'root',
-    password: 'tomntoms',
+    user: 'guest_demo',
+    password: '',
     'database': 'movies'
 });
 
@@ -27,13 +27,14 @@ router.post('/edit/:id', function (req,res) {});
 router.get('/', function(req, res) {
     console.log("in the routes");
     client.query('SELECT * FROM moviedata WHERE movie_id between 0 AND 20;', function (error, result, fields) {
-            console.log('loadMovie called');
-            if (error) {
-                console.log('쿼리 문장에 오류가 있습니다.');
-            } else {
-                console.log(result.length);
-                res.render('recommendation', {
-                    data: result
+        console.log('loadMovie called');
+        if (error) {
+			console.log('error:'+error);
+            console.log('쿼리 문장에 오류가 있습니다.');
+        } else {
+            console.log(result.length);
+            res.render('recommendation', {
+                data: result
             });
         }
     });
