@@ -13,7 +13,8 @@ var recommend = require('./routes/recommend');
 var insert = require('./routes/insert');
 var news = require('./routes/new');
 var main = require('./routes/main');
-var del = require('./routes/delete')
+var del = require('./routes/delete');
+var signin = require('./routes/signin');
 
 
 var app = express();
@@ -32,7 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'src')));
 
-app.use('/', main);
+// app.use('/', main);
+app.use('/', signin);
+// app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
 app.use('/insert', insert);

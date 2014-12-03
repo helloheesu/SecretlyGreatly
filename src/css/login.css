@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 
 body {
-	background: url("img/bg.jpg");
+	background: url("../img/bg.jpg");
 	background-position: -1500px -1770px;
 	font-family: 'Nanum Gothic Coding'
 }
