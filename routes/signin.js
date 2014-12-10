@@ -36,6 +36,9 @@ router.post('/login', function (request, response, next) {
 	var email = request.param('email');
 	var password = request.param('password');
 	console.log('login request : ',email, password);
+	var shasum = crypto.createHash('sha1');
+	shasum.update(password);
+	password = shasum.digetst('hex');
 	pool.getConnection(function (error, connection) {
 		connection.query('SELECT * FROM user WHERE email="'+email+'";', function (error, result, fields) {
 			console.log('isRightAuth called');
@@ -69,6 +72,10 @@ router.post('/signup', function (request, response, next) {
 	var email = request.param('email');
 	var password = request.param('password');
 	console.log('signup request : ',email, password);
+	var shasum = crypto.createHash('sha1');
+	shasum.update(password);
+	password = shasum.digetst('hex');
+
 	var statement = 'INSERT INTO user (email, password) VALUES("'+email+'","'+password+'");';
 	console.log('statement:'+statement);
 	pool.getConnection(function(error, connection) {
