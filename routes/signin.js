@@ -31,7 +31,29 @@ router.get('/main', function (request, response, next) {
 });
 
 router.get('/login', function (request, response, next) {
-	response.render('login');
+	var email = request.param('email');
+	if(!email)
+		response.render('login');
+
+	pool.getConnection(function (error, connection) {
+		connection.query('SELECT email FROM user WHERE email="'+email+'";', function (error, result, fields) {
+			if(error) {
+				console.log('쿼리 문장에 오류가 있습니다.');
+				throw error;
+			} else {
+				var exists = false;
+				if(result[0]) {
+					console.log('이미 존재하는 이메일입니다.');
+					exists = true;
+				}
+				else {
+					console.log('존재하지 않는 이메일이다.');
+					exists = false;
+				}
+				response.end(exists);
+			}
+		});
+	});
 });
 
 router.post('/login', function (request, response, next) {
