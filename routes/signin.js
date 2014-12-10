@@ -3,11 +3,13 @@ var http = require('http');
 var express = require('express');
 var ejs = require('ejs');
 var pool = require('../modules/database.js');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var crypto = require('crypto');
+
 
 var app = express();
-var cookieParser = require('cookie-parser');
 app.use(cookieParser());
-var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 var router = express.Router();
