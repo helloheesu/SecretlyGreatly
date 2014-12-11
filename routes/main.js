@@ -5,12 +5,15 @@
 
 var express = require('express');
 var router = express.Router();
+//var signin = require('./signin');
 
 /* GET home page. */
 
 
-router.get('/', function (req, res) {
-    res.render('main');
+router.get('/', function (request, response, next) {
+    // response.send(response.user);
+    response.render('main');
 });
+
 
 module.exports = router;

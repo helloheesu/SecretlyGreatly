@@ -17,7 +17,7 @@ var insert = require('./routes/insert');
 var news = require('./routes/new');
 var main = require('./routes/main');
 var del = require('./routes/delete');
-var signin = require('./routes/signin');
+var login = require('./routes/signin');
 var evaluate = require('./routes/evaluate');
 
 
@@ -35,10 +35,22 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+    secret: 'WeLoveJisu',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'src')));
 
+
 // app.use('/', main);
-app.use('/', signin);
+app.use('/', main);
 // app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
@@ -47,7 +59,7 @@ app.use('/new', news);
 app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
-
+app.use('/login', login);
 
 
 
