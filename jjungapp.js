@@ -4,10 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var compression = require('compression');
 
-var routes = require('./routes/index');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+var session = require('express-session');
+
 var users = require('./routes/users');
 var recommend = require('./routes/recommend');
 var insert = require('./routes/insert');
@@ -16,6 +19,7 @@ var main = require('./routes/main');
 var del = require('./routes/delete');
 var signin = require('./routes/signin');
 var evaluate = require('./routes/evaluate');
+
 
 var app = express();
 app.use(compression());
@@ -43,6 +47,8 @@ app.use('/new', news);
 app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
+
+
 
 
 // catch 404 and forward to error handler
