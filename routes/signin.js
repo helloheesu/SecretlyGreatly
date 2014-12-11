@@ -79,7 +79,7 @@ router.post('/login', function (request, response, next) {
 			console.error(error);
 		}
 		var sql = 'SELECT * FROM user WHERE email='+pool.escape(email);
-		connection.query(sqk, function (error, result, fields) {
+		connection.query(sql, function (error, result, fields) {
 			console.log('isRightAuth called');
 			connection.release();
 			if(error) {
@@ -115,7 +115,7 @@ router.post('/signup', function (request, response, next) {
 	shasum.update(password);
 	password = shasum.digest('hex');
 
-	var statement = 'INSERT INTO user (email, password) VALUES('+pool.escape([email,password]);
+	var statement = 'INSERT INTO user (email, password) VALUES('+pool.escape([email,password])+');';
 	console.log('statement:'+statement);
 	pool.getConnection(function(error, connection) {
 		console.error(error);
