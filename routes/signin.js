@@ -59,7 +59,8 @@ router.get('/login', function (request, response, next) {
 					console.log('존재하지 않는 이메일이다.');
 					exists = false;
 				}
-				response.end(exists);
+				response.send(exists);
+				response.end();
 			}
 		});
 	});
