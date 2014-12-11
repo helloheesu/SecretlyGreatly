@@ -32,10 +32,19 @@ router.get('/main', function (request, response, next) {
 
 router.get('/login', function (request, response, next) {
 	var email = request.param('email');
-	if(!email)
+	if(!email) {
+		console.log('no email');
 		response.render('login');
+		return;
+	}
 
 	pool.getConnection(function (error, connection) {
+		if(error) {
+			console.error(error);
+		}
+
+		console.log('yes email');
+		
 		connection.query('SELECT email FROM user WHERE email="'+email+'";', function (error, result, fields) {
 			if(error) {
 				console.log('쿼리 문장에 오류가 있습니다.');
@@ -64,6 +73,9 @@ router.post('/login', function (request, response, next) {
 	shasum.update(password);
 	password = shasum.digest('hex');
 	pool.getConnection(function (error, connection) {
+		if(error) {
+			console.error(error);
+		}
 		connection.query('SELECT * FROM user WHERE email="'+email+'";', function (error, result, fields) {
 			console.log('isRightAuth called');
 			connection.release();
@@ -103,6 +115,7 @@ router.post('/signup', function (request, response, next) {
 	var statement = 'INSERT INTO user (email, password) VALUES("'+email+'","'+password+'");';
 	console.log('statement:'+statement);
 	pool.getConnection(function(error, connection) {
+		console.error(error);
 		connection.query(statement, function (error, result, fields) {
 			connection.release();
 			if (error) {
