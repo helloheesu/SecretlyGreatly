@@ -3,16 +3,12 @@ var http = require('http');
 var express = require('express');
 var ejs = require('ejs');
 var pool = require('../modules/database.js');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 var crypto = require('crypto');
 
-
-var app = express();
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 var router = express.Router();
+
+
+
 
 router.get('/', function (request, response, next) {
 	if (request.cookies.logined) {
