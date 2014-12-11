@@ -44,8 +44,9 @@ router.get('/login', function (request, response, next) {
 		}
 
 		console.log('yes email');
-		
-		connection.query('SELECT email FROM user WHERE email="'+email+'";', function (error, result, fields) {
+
+		var sql = 'SELECT email FROM user WHERE email='+pool.escape(email);
+		connection.query(sql, function (error, result, fields) {
 			if(error) {
 				console.log('쿼리 문장에 오류가 있습니다.');
 				throw error;
@@ -77,7 +78,8 @@ router.post('/login', function (request, response, next) {
 		if(error) {
 			console.error(error);
 		}
-		connection.query('SELECT * FROM user WHERE email="'+email+'";', function (error, result, fields) {
+		var sql = 'SELECT * FROM user WHERE email='+pool.escape(email);
+		connection.query(sqk, function (error, result, fields) {
 			console.log('isRightAuth called');
 			connection.release();
 			if(error) {
@@ -113,7 +115,7 @@ router.post('/signup', function (request, response, next) {
 	shasum.update(password);
 	password = shasum.digest('hex');
 
-	var statement = 'INSERT INTO user (email, password) VALUES("'+email+'","'+password+'");';
+	var statement = 'INSERT INTO user (email, password) VALUES('+pool.escape([email,password]);
 	console.log('statement:'+statement);
 	pool.getConnection(function(error, connection) {
 		console.error(error);
