@@ -30,7 +30,7 @@ width:100%;
 #gnb {
 margin-left:50px;
 position:relative;
-width:215px;
+width:280px;
 }
 
 #gnb > li {
@@ -50,9 +50,6 @@ width:100%;
 }
 
 
-
-
-
 #logo {
 padding:25px 10px;
 }
@@ -63,6 +60,7 @@ margin-bottom:15px;
 
 .header_menu {
 height:80px;
+
 }
 
 .header_menu a {
@@ -74,7 +72,11 @@ line-height:80px;
 padding:25px 10px;
 }
 
-#profile a{
+/*.profile {
+height:80px;
+}*/
+
+.profile a{
 -webkit-font-smoothing:antialiased;
 color:#fff;
 font:inherit;
