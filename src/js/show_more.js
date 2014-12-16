@@ -1,51 +1,27 @@
-//sublime 에서 jshint 플러그인을 적용해서 사용해보기.
+//로드되면 clickSeeMore()함수 호출
+//clickSeeMore()함수 : 모두보기 버튼을 클릭하면 getdata함수 호출
+//getdata 함수 : 제이슨파일을 서버로 보내고 받는다. 
+//네개의 카드를 포함하는 card_container를 잡아서 innerHTML로 서버에서온 제이슨파일의 데이타를 거기에 넣어줌
+//makeCardElement: 받아온 제이슨 파일의 길이만큼 템플릿에서 이미지링크 영역에 제이슨 파일의 데이터를 innerHTML로 넣어준다
+
 window.addEventListener("load", function(){
-  seeMore();
-  console.log('good-bye');
-  getData("data/movies.json");
-  changeData();
+  clickSeeMore(); 
 });
 
-//더보기 
-function seeMore(){
-  //var showMore=document.querySelector(".see_all");
-    var showMore = document.getElementsByClassName("see_all");
+var sTemplate = '<div id="card_container"><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn evaluate_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn log_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn log_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn log_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div></div>';
 
-  showMore.addEventListener('click', function(e){
-    //loading();
-    
-    getData("js/movies.js");
-  },false);
-}
-
-function makeCardElement(data){
-    var done = "";
+//모두보기(see_all) 버튼을 클릭하면 getData함수 호출 
+function clickSeeMore(){
+  var showMore=document.querySelector(".see_all");
  
-    for(var i = 0; i < data.length; i++){
-        var maked = sTemplate.replace("<%=link%>", data[i].PageLink);
-        // .replace("<%=ImageLink%>", data[i].ImageLink)
-        // .replace("<%=top_gradation%>",data[i].top_gradation)
-        // .replace("<%=hover_container%>",data[i].hover_container)
-        // .replace("<%=black_bg%>",data[i].black_bg)
-        // .replace("<%=hover_contents%>",data[i].hover_contents)
-        done += maked;
-      }
-    return done;
-}
-
-//모두보기를 누르면 카드 더보기
-function changeData(){
-  var target = document.getElementsByClassName("see_all");
-
-  target.addEventListener('click', function(ev){
-  ev.preventDefault();
-  //console.log('hi');
-  getData(ev.target.className);
-  //console.log('hello');
+  showMore.addEventListener('click', function(e){
+    e.preventDefault();
+    getData();
   },false);
 }
 
-function getData(dataset){
+//ajax
+function getData(){
   var request = new XMLHttpRequest();
   var url = "data/movies.json";  //디비가 저장될 파일 명이 필요함. 
   request.open("GET" , url , true);
@@ -56,9 +32,23 @@ function getData(dataset){
     if(request.readyState === 4 && request.status === 200) {
       result = request.responseText;
       result = JSON.parse(result);
-     
-     var tobechanged = document.querySelector(".poster_container");
-     tobechanged.innerHTML = makeCardElement(result);
+
+    var tobechanged = document.querySelector("#card_container");
+    var legacyData  = tobechanged.innerHTML;
+    tobechanged.innerHTML= legacyData + makeCardElement(result);
     }
   };
+}
+ 
+function makeCardElement(data){
+    var resultList = "";
+ 
+    for(var i = 0; i < data.length; i++){
+        var result = sTemplate.replace("<%=ImageLink%>", data[i].ImageLink)
+        .replace("<%=ImageLink%>", data[i].ImageLink2)
+        .replace("<%=ImageLink%>", data[i].ImageLink3)
+        .replace("<%=ImageLink%>", data[i].ImageLink4)
+        resultList += result;
+      }
+    return resultList;
 }
