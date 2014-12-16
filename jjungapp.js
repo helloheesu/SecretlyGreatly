@@ -17,8 +17,10 @@ var insert = require('./routes/insert');
 var news = require('./routes/new');
 var main = require('./routes/main');
 var del = require('./routes/delete');
-var login = require('./routes/signin');
+var login = require('./routes/login');
 var evaluate = require('./routes/evaluate');
+var signup = require('./routes/signup');
+
 
 
 var app = express();
@@ -60,6 +62,7 @@ app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
 app.use('/login', login);
+app.use('/signup', signup);
 
 
 
@@ -69,6 +72,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+
 
 // error handlers
 
