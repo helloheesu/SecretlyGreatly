@@ -1,11 +1,19 @@
+var fs = require('fs');
+var http = require('http');
+
 var express = require('express');
+var ejs = require('ejs');
+
+
 var router = express.Router();
 
+var ensure = require('../modules/gateway.js');
+
 /* GET home page. */
+router.get('/',ensure,
+    function(req, res) {
+      res.redirect('/main');
+    });
 
-
-router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
-});
 
 module.exports = router;

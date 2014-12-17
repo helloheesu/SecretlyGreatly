@@ -5,12 +5,14 @@
 
 var express = require('express');
 var router = express.Router();
-//var signin = require('./signin');
+
+
+var ensure = require('../modules/gateway.js');
 
 /* GET home page. */
 
 
-router.get('/', function (request, response, next) {
+router.get('/',ensure, function (request, response, next) {
     // response.send(response.user);
     response.render('main');
 });

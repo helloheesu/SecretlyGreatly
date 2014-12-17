@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
+var http = require('http');
 
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 var session = require('express-session');
 
@@ -20,7 +20,7 @@ var del = require('./routes/delete');
 var login = require('./routes/login');
 var evaluate = require('./routes/evaluate');
 var signup = require('./routes/signup');
-
+var index = require('./routes/index');
 
 
 var app = express();
@@ -32,7 +32,6 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /src
 //app.use(favicon(__dirname + '/src/favicon.ico'));
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,9 +49,8 @@ app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'src')));
 
-
 // app.use('/', main);
-app.use('/', main);
+app.use('/', index);
 // app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
@@ -65,7 +63,6 @@ app.use('/login', login);
 app.use('/signup', signup);
 
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
@@ -75,7 +72,6 @@ app.use(function(req, res, next) {
 
 
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
