@@ -33,9 +33,13 @@ function getData(){
       result = request.responseText;
       result = JSON.parse(result);
 
-    var tobechanged = document.querySelector("#card_container");
-    var legacyData  = tobechanged.innerHTML;
-    tobechanged.innerHTML= legacyData + makeCardElement(result);
+      var tobechanged = document.querySelector("#card_container");
+      // var legacyData  = tobechanged.innerHTML;
+      // tobechanged.innerHTML= legacyData + makeCardElement(result); 
+
+      //tobechanged.innerHTML = tobechanged.innerHTML + makeCardElement(result); //addjecentHTML
+      tobechanged.insertAdjacentHTML("beforeend", makeCardElement(result));
+    
     }
   };
 }
