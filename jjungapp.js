@@ -43,6 +43,8 @@ app.use('/new', news);
 app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
+//added by yunseo
+app.get('/shows',routes.shows);
 
 
 // catch 404 and forward to error handler
