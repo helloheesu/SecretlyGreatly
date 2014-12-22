@@ -17,7 +17,7 @@ function profileListOpenClose(){
 
   //다른 부분을 클릭하면 리스트 닫기
   elBody.addEventListener("click", function(e){
-    if(e.elTarget.id != "Layer1" && elList.style.display === "block") {
+    if(e.target.id != "Layer1" && elList.style.display === "block") {
      elList.style.display = "none";
     }
   }, false);

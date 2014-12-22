@@ -12,7 +12,7 @@ function clickSeeMore(){
   showMore.addEventListener('click', function(e){
     e.preventDefault();
     getData();
-    console.log('clickSeeMore');
+    console.log('clickSeeMore'); //확인완료 
   },false);
 }
 
@@ -34,10 +34,11 @@ function getData(){
       result = request.responseText;
       result = JSON.parse(result);
       var tobechanged = document.querySelector("#card_container");
+      // var tobechanged = document.querySelector(".card_container");
       // var legacyData  = tobechanged.innerHTML;
       // tobechanged.innerHTML= legacyData + makeCardElement(result); 
 
-      //tobechanged.innerHTML = tobechanged.innerHTML + makeCardElement(result); //addjecentHTML
+      tobechanged.innerHTML = tobechanged.innerHTML + makeCardElement(result); //addjecentHTML
       tobechanged.insertAdjacentHTML("beforeend", makeCardElement(result));
     console.log('onreadystatechange');
     }
@@ -48,12 +49,12 @@ function makeCardElement(data){
     var resultList = "";
  
     for(var i = 0; i < data.length; i++){
-        var result = sTemplate.replace("<%=ImageLink%>", data[i].ImageLink)
-        .replace("<%=ImageLink%>", data[i].ImageLink2)
-        .replace("<%=ImageLink%>", data[i].ImageLink3)
-        .replace("<%=ImageLink%>", data[i].ImageLink4)
+        var result = sTemplate.replace("<%=ImageLink%>", data[0].movie_img_url)
+        .replace("<%=ImageLink%>", data[1].movie_img_url)
+        .replace("<%=ImageLink%>", data[2].movie_img_url)
+        .replace("<%=ImageLink%>", data[3].movie_img_url) // .replace("<%=ImageLink%>", data[i].ImageLink4)수정
         resultList += result;
-      }
+      }//for 문 또는 recursive하게 돌리도록 한다. 
       console.log('makeCardElement');
     return resultList;
 }
