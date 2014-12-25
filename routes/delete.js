@@ -8,7 +8,8 @@ var mysql = require('mysql');
 
 var client = mysql.createConnection({
     user: 'guest_demo',
-    'database': 'movies'
+    password: '',
+    database: 'movies'
 });
 
 

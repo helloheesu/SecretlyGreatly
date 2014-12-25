@@ -2,16 +2,17 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css" meida="screen">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 	<header>
 		<ul id="gnb">
 			<li id="logo">
 				<a href=""><img src="https://d12hfz37g51hrt.cloudfront.net/assets/bi/icon_40-c857765f58065997922df8262ca7bf07.png" width="30" height="30"></a>
-				<span class="highlight"></span>
+				<span class="highlight"><span>
 			</li>				
 			<li class="header_menu">
-				<a href="./recommend">추천영화</a>
+				<a href="recommendation.html">추천영화</a>
 			<span class="highlight"></span>
 			</li>
 			<li class="header_menu">
@@ -23,107 +24,141 @@
 
 	<div id="wrap">		
 		<div id="top_image">	<!--메인 위쪽 이미지 부분-->
-			<ul>
-				<li class = "img idx1" style="height: 500px; width: 1280px; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mrql0a-b0178a6c902e3ed56ce8.jpg?1413186354);"></li>
-				<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mjvntm-945087e9e2d7a9960a96.jpg?1411964803);"></li>
-				<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mxfcdc-65e305c9b4e4c78e0ba1.jpg?1370681845);"></li>
-				<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/m0u13w-174131f966b4516a0c8c.jpg?1370680594);"></li>
-				<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mx0l4f-9f64cd856227b7c06f6c.jpg?1411561786);"></li>
-			</ul>
+			<li class = "img idx1" style="height: 500px; width: 1280px; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mrql0a-b0178a6c902e3ed56ce8.jpg?1413186354);"></li>
+			<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mjvntm-945087e9e2d7a9960a96.jpg?1411964803);"></li>
+			<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mxfcdc-65e305c9b4e4c78e0ba1.jpg?1370681845);"></li>
+			<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/m0u13w-174131f966b4516a0c8c.jpg?1370680594);"></li>
+			<li class = "img idx1" style="height: 500px; width: 1280px; display: none; background-image: url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mx0l4f-9f64cd856227b7c06f6c.jpg?1411561786);"></li>
+			
 		</div>
+
+		<div id = 'search'>
+    		<div id = 'search_bar'>
+      			<input type="text" name="firstname" value=" 검색">
+    		</div>
+  		</div>
 
 		<div id="container">
 			<div class="section"> 	<!--평가 늘리기 부분-->
-				<div class="title"><a href="">여태 살면서 나는 영화를 몇편이나 봤을까?</a></div>
+				<div class="title"><a href="">BOX OFFICE</a></div>
 				<div class="see_all"><a href="">모두보기</a></div>
-				<div id="eval_container">
-					<div id="side_menu">
-					</div>
+				<div class="card_wrap size_1x1 ">
+       				<div class="card_shadow"></div>
+        			<div class="poster_container">
+            			<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/1fc27f1b05aafaa33bd3.jpg?1417466843" alt=""/>
+            			<div class="top_gradation"></div>
+            			<div class="hover_container">
+                			<div class="black_bg"></div>
+            				<div class="hover_contents">    
+
+                    			<div class="btn log_container">
+                        			<span class="text">내역보기</span>
+                        		</div>
+                        		<div class="btn evaluate_container">
+                        			<span class="text"><a href="/evaluate">평가하기</a></span>
+                        		</div>
+                			</div>
+            			</div>
+        			</div>
+    			</div>
+
+    			<div class="card_wrap size_1x1 ">
+       				<div class="card_shadow"></div>
+        			<div class="poster_container">
+            			<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/749e417a1ef3d8d292b5.jpg?1417468890" alt=""/>
+            			<div class="top_gradation"></div>
+            			<div class="hover_container">
+                			<div class="black_bg">
+	                			<div class="hover_contents">    
+
+	                    			<!-- <div class="btn log_container">
+                        				<span class="text">내역보기</span>
+                        			</div> -->
+                        			<div class="btn evaluate_container">
+                        				<span class="text">평가하기</span>
+                        			</div>
+	                			</div>
+                			</div>
+            			</div>
+        			</div>
+    			</div>
+
+    			<div class="card_wrap size_1x1 ">
+       				<div class="card_shadow"></div>
+        			<div class="poster_container">
+            			<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/3d3d6bf968a60889d5bd.jpg?1417468876" alt=""/>
+            			<div class="top_gradation"></div>
+            			<div class="hover_container">
+                			<div class="black_bg"></div>
+                			<div class="hover_contents">    
+                				<div class="btn log_container">
+                        			<span class="text">내역보기</span>
+                        		</div>
+                        		<div class="btn evaluate_container">
+                        			<span class="text">평가하기</span>
+                        		</div>
+                			</div>
+            			</div>
+        			</div>
+    			</div>
+
+    			<div class="card_wrap size_1x1 ">
+       				<div class="card_shadow"></div>
+        			<div class="poster_container">
+            			<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/84422354a95864f8b142.jpg?1417468531" alt=""/>
+            			<div class="top_gradation"></div>
+            			<div class="hover_container">
+                			<div class="black_bg"></div>
+                			<div class="hover_contents">    
+                				<div class="btn log_container">
+                        			<span class="text">내역보기</span>
+                        		</div>
+                        		<div class="btn evaluate_container">
+                        			<span class="text">평가하기</span>
+                        		</div>
+                			</div>
+            			</div>
+        			</div>
+    			</div>
+				<!-- <div id="eval_container">
 					<div id="eval_card_container">
 						<div class="card">
+							<div class="post_wrapper">
+								<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/1fc27f1b05aafaa33bd3.jpg?1417466843">
+								<div class="eval_button">
+									<span>평가하기</span>
+								</div>
+								<div class="see_button">
+									내역보기
+								</div>
+							</div>
+							
 						</div>
 						<div class="card">
+							<div class="post_wrapper">
+								<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/749e417a1ef3d8d292b5.jpg?1417468890" >
+							</div>
 						</div>
 						<div class="card">
+							<div class="post_wrapper">
+								<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/3d3d6bf968a60889d5bd.jpg?1417468876" width="100%">
+							</div>
 						</div>
 						<div class="card">
+							<div class="post_wrapper">
+								<img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/84422354a95864f8b142.jpg?1417468531" width="100%">
+							</div>
 						</div>
-						<div class="card">
-						</div>
-						<div class="card">
-						</div>
-						<div class="card">
-						</div>
-						<div class="card">
-						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
-			<div class="section"> 	<!--장르별 추천-->
-				<div class="title"><a href="">장르별 추천</a></div>
-				<div class="see_all"><a href="">모두보기</a></div>
-				<div id ="genre_card_container">
-					<a href="./recommend?genre=범죄">
-						<div class="genre_card">
-							<span class="genre_text">범죄</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=코미디">
-						<div class="genre_card">
-							<span class="genre_text">코미디</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=스릴러">
-						<div class="genre_card">
-							<span class="genre_text">스릴러</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=전쟁">
-						<div class="genre_card">
-							<span class="genre_text">전쟁</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=판타지">
-						<div class="genre_card">
-							<span class="genre_text">판타지</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=드라마">
-						<div class="genre_card">
-							<span class="genre_text">드라마</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=로맨스/멜로">
-						<div class="genre_card">
-							<span class="genre_text">로맨스/멜로</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=로맨틱코미디">
-						<div class="genre_card">
-							<span class="genre_text">로맨틱코미디</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=가족">
-						<div class="genre_card">
-							<span class="genre_text">가족</span>
-						</div>
-					</a>
-					<a href="./recommend?genre=액션">
-						<div class="genre_card">
-							<span class="genre_text">액션</span>
-						</div>
-					</a>
-				</div>
-			</div>
+			
 			<div id="email_button">
 			</div>
 		</div>
-		<footer>
-			<div id="upper">
-				<div id="name">frograms</div>
-			</div>
+		<!--<footer>
 			<div id="info">사업자명 (주식회사 프로그램스) 사업자번호 (211-88-66013) Copyright © 2014 by Frograms. Inc. All rights reserved</div>
-		</footer>
+		</footer>-->
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>

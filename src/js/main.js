@@ -28,3 +28,16 @@ function rollImg(){
    Img.addEventListener('click', changeImg, false);
    //setTimeout(changeImg(Img), 5000)
 }
+
+/*카드 호버시 이벤트*/
+function card_mouse_enter() {
+    $(this).addClass("hover");  
+}
+
+function card_mouse_leave() {
+    $(this).removeClass("hover");
+    $("span.star.half",this).off();
+}
+
+$(".card_wrap").hover(card_mouse_enter,card_mouse_leave);
+
