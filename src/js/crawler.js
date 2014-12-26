@@ -15,26 +15,24 @@ imdb_crawler.prototype.requestMovieInfo = function() {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
-		console.log('response');
-		console.log(res.statusCode);
+		console.info('response');
+		console.log('statusCode : '+res.statusCode);
+		// console.log('headers :');
 		// console.log(res.headers);
+
 		if(res.statusCode == 301) {
 			imdb_crawler.prototype.dealWithRedirection.call(self, res.headers);
 		}
 		res.on('data', function(chunk) {	// occurs multiple time
-			// console.log('data 2');
 			self.data += chunk.toString();
-			// console.log(self.data);
+			// console.log('data: ');
+			// console.log(chunk.toString());
 		});
 		res.on('end', function() {	// only once
-			console.log('res end');
+			console.info(self.movieID + 'res end');
 		});
 	});
 	req.end();
-	req.on('end', function() {	// never occurs
-		// console.log('req end');
-		// console.info(self.movieID+' done!');
-	});
 };
 imdb_crawler.prototype.dealWithRedirection = function(headers) {
 	var url = require('url').parse(headers.location);
