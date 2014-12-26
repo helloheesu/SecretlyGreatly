@@ -15,7 +15,7 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
-		console.info('response');
+		console.info(self.movieID + ' response');
 		console.log('statusCode : '+res.statusCode);
 		// console.log('headers :');
 		// console.log(res.headers);
@@ -29,7 +29,7 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 			// console.log(chunk.toString());
 		});
 		res.on('end', function() {	// only once
-			console.info(self.movieID + 'res end');
+			console.info(self.movieID + ' res end');
 			if(callback) callback();
 		});
 	});
