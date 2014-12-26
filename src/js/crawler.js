@@ -11,7 +11,7 @@ function imdb_crawler(movieID) {
 	};
 	this.data = "";
 }
-imdb_crawler.prototype.requestMovieInfo = function() {
+imdb_crawler.prototype.requestMovieInfo = function(callback) {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
@@ -21,7 +21,7 @@ imdb_crawler.prototype.requestMovieInfo = function() {
 		// console.log(res.headers);
 
 		if(res.statusCode == 301) {
-			imdb_crawler.prototype.dealWithRedirection.call(self, res.headers);
+			imdb_crawler.prototype.dealWithRedirection.call(self, res.headers, callback);
 		}
 		res.on('data', function(chunk) {	// occurs multiple time
 			self.data += chunk.toString();
@@ -30,11 +30,12 @@ imdb_crawler.prototype.requestMovieInfo = function() {
 		});
 		res.on('end', function() {	// only once
 			console.info(self.movieID + 'res end');
+			if(callback) callback();
 		});
 	});
 	req.end();
 };
-imdb_crawler.prototype.dealWithRedirection = function(headers) {
+imdb_crawler.prototype.dealWithRedirection = function(headers, callback) {
 	var url = require('url').parse(headers.location);
 	this.options = {
 		hostname: url.hostname,
@@ -43,7 +44,7 @@ imdb_crawler.prototype.dealWithRedirection = function(headers) {
 		method: 'GET',
 		headers: {'Accept-Language':'en'}
 	};
-	this.requestMovieInfo.call(this);
+	this.requestMovieInfo.call(this, callback);
 };
 
 module.exports = imdb_crawler;
