@@ -1,4 +1,5 @@
 var http = require('http');
+var cheerio = require('cheerio');
 
 function imdb_crawler(movieID) {
 	this.movieID = movieID;
@@ -45,6 +46,24 @@ imdb_crawler.prototype.dealWithRedirection = function(headers, callback) {
 		headers: {'Accept-Language':'en'}
 	};
 	this.requestMovieInfo.call(this, callback);
+};
+imdb_crawler.prototype.parseData = function() {
+	var $ = cheerio.load(this.data);
+
+	var title = $('.header > [itemprop="name"]').text();
+	var genre = $('[itemprop="genre"] > a').map(function() {
+	    return $(this).text();
+	}).get();
+	var releaseDate = $("a[title='See all release dates']").text().match(/\d{2}\s+\w+\s+\d{4}/)[0];
+	var releaseYear = releaseDate.slice(-4);
+	var posterSrc = $("img[title*='Poster']").attr('src');
+
+	this.movieData = {
+		title: title,
+		genre: genre,
+		year: releaseYear,
+		poster: posterSrc
+	};
 };
 
 module.exports = imdb_crawler;
