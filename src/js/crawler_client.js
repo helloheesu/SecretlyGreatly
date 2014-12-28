@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-var movieCrawler = require('./crawler.js').movieCrawler;
+var movieCrawler = require('./imdb-crawler.js').movieCrawler;
 
 // var sqlConn = mysql.createConnection({
 var pool  = mysql.createPool({
