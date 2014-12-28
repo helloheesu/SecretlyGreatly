@@ -9,7 +9,7 @@ window.addEventListener("load", function(){
 //makeCardElement: 받아온 제이슨 파일의 길이만큼 템플릿에서 이미지링크 영역에 제이슨 파일의 데이터를 innerHTML로 넣어준다
 
 
-var sTemplate = '<div id="card_container"><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn evaluate_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn log_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn log_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div><div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn log_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div></div>';
+var sTemplate = '<div class="card_wrap"><div class="card_shadow"></div><div class="poster_container"><img class="poster" src="<%=ImageLink%>"><div class="top_gradation"></div><div class="hover_container"></div><div class="black_bg"></div><div class="hover_contents"></div><div class="btn evaluate_container"></div><span class="text"></div><div class="btn evaluate_container"></div><span class="text"></div></div>';
 
 
 //모두보기(see_all) 버튼을 클릭하면 getData함수 호출 
@@ -40,16 +40,7 @@ function getData(){
       // var tobechanged = document.querySelector(".card_container");
       // var legacyData  = tobechanged.innerHTML;
       // tobechanged.innerHTML= legacyData + makeCardElement(result); 
-
-      tobechanged.innerHTML = tobechanged.innerHTML + makeCardElement(result); //addjecentHTML
       tobechanged.insertAdjacentHTML("beforeend", makeCardElement(result));
-
-      // var legacyData  = tobechanged.innerHTML;
-      // tobechanged.innerHTML= legacyData + makeCardElement(result); 
-
-      //tobechanged.innerHTML = tobechanged.innerHTML + makeCardElement(result); //addjecentHTML
-      tobechanged.insertAdjacentHTML("beforeend", makeCardElement(result));
-
     }
   };
 }
@@ -57,12 +48,16 @@ function getData(){
 function makeCardElement(data){
     var resultList = "";
     // for(var i = 0; i < data.length; i++){
-    for(var i = 0; i < 1; i++){
-        var result = sTemplate.replace("<%=ImageLink%>", data[0].movie_img_url)
-        .replace("<%=ImageLink%>", data[1].movie_img_url)
-        .replace("<%=ImageLink%>", data[2].movie_img_url)
-        .replace("<%=ImageLink%>", data[3].movie_img_url) // .replace("<%=ImageLink%>", data[i].ImageLink4)수정
+    // for(var i = 0; i < 1; i++){
+    //     var result = sTemplate.replace("<%=ImageLink%>", data[0].movie_url)
+    //     .replace("<%=ImageLink%>", data[1].movie_url)
+    //     .replace("<%=ImageLink%>", data[2].movie_url)
+    //     .replace("<%=ImageLink%>", data[3].movie_url) // .replace("<%=ImageLink%>", data[i].ImageLink4)수정
+    //     resultList += result;
+    //   }//for 문 또는 recursive하게 돌리도록 한다. 
+    for(var i = 0; i < data.length; i++){
+        var result = sTemplate.replace("<%=ImageLink%>", data[i].movie_url)
         resultList += result;
-      }//for 문 또는 recursive하게 돌리도록 한다. 
+      }
     return resultList;
 }
