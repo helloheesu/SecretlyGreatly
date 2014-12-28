@@ -24,19 +24,14 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 		console.log('statusCode : '+res.statusCode);
 		// console.log('headers :');
 		// console.log(res.headers);
-		switch(res.statusCode) {
-			case 200:
-				res.on('data', function(chunk) {
-					self.data += chunk.toString();
-				});
-				res.on('end', function() {
-					console.info(self.movieID + ' res end');
-					if(callback) callback();
-				});
-				break;
-			default:
-				console.log('statusCode : '+res.statusCode);
-
+		if(res.statusCode==200) {
+			res.on('data', function(chunk) {
+				self.data += chunk.toString();
+			});
+			res.on('end', function() {
+				console.info(self.movieID + ' res end');
+				if(callback) callback();
+			});
 		}
 	});
 	req.end();
