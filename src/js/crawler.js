@@ -20,21 +20,22 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 		console.log('statusCode : '+res.statusCode);
 		// console.log('headers :');
 		// console.log(res.headers);
+		switch(res.statusCode) {
+			case 200:
+				res.on('data', function(chunk) {
+					self.data += chunk.toString();
+				});
+				res.on('end', function() {
+					console.info(self.movieID + ' res end');
+					if(callback) callback();
+				});
+				break;
+			case 301:
+				imdb_crawler.prototype.dealWithRedirection.call(self, res.headers, callback);
+				break;
+			default:
+				console.log('statusCode : '+res.statusCode);
 
-		if(res.statusCode == 301) {
-			imdb_crawler.prototype.dealWithRedirection.call(self, res.headers, callback);
-		} else {
-			res.on('data', function(chunk) {	// occurs multiple time
-
-				self.data += chunk.toString();
-				// console.log('data: ');
-				// console.log(chunk.toString());
-			});
-			res.on('end', function() {	// only once
-				console.info(self.movieID + ' res end');
-				if(callback) callback();
-				console.time('job');
-			});
 		}
 	});
 	req.end();
