@@ -46,6 +46,13 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 };
 imdb_crawler.prototype.dealWithRedirection = function(headers, callback) {
 	var url = require('url').parse(headers.location);
+	
+	var movieID = url.path.match(/\d+/).toString();
+	if(movieID) {
+		console.info('change movieID to :'+movieID);
+		this.movieID = movieID;	
+	}
+
 	this.options = {
 		hostname: url.hostname,
 		port: url.port,
