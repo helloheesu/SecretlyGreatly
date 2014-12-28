@@ -4,3 +4,10 @@ CREATE TABLE user (
 	password VARCHAR(50) NOT NULL,
 	username VARCHAR(50) 
 );
+
+CREATE TABLE movie(
+	mID INT PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(255) NOT NULL,
+	year INT,
+	poster_url VARCHAR(2000)
+);

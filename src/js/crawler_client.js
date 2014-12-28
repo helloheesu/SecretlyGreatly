@@ -25,15 +25,6 @@ for (var i = 1; i < 10; i++) {
 	})(i);
 }
 
-
-/*
-create table movie(
-	mID int primary key auto_increment,
-	title varchar(255) not null,
-	year int,
-	poster_url varchar(2000)
-);
-*/
 /*
 var movieID = 23;
 var c = new imdb_crawler(movieID);
