@@ -58,13 +58,15 @@ imdb_crawler.prototype.parseData = function() {
 	var $ = cheerio.load(this.data);
 
 	var title = $('.header > [itemprop="name"]').text();
+	title = title.replace(/(?:.+\s+")(.+)(?:"\s+\(original title\)\s+)/, '$1');
+	console.log(title);
 	var genre = $('[itemprop="genre"] > a').map(function() {
 	    return $(this).text();
 	}).get();
 	var releaseDate = $("a[title='See all release dates']").text();
 	var releaseYear;
 	if(releaseDate) {
-		console.log('releaseDate : '+releaseDate);
+		// console.log('releaseDate : '+releaseDate);
 		// releaseDate = releaseDate.match(/\d+\s+\w+\s+\d{4}/)[0];
 		// releaseYear = parseInt(releaseDate.slice(-4));
 		releaseYear = releaseDate.match(/\d{4}/).toString();
