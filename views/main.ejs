@@ -9,7 +9,7 @@
 		<ul id="gnb">
 			<li id="logo">
 				<a href=""><img src="https://d12hfz37g51hrt.cloudfront.net/assets/bi/icon_40-c857765f58065997922df8262ca7bf07.png" width="30" height="30"></a>
-				<span class="highlight"><span>
+				<span class="highlight"></span>
 			</li>				
 			<li class="header_menu">
 				<a href="recommendation.html">추천영화</a>
@@ -34,8 +34,14 @@
 
 		<div id = 'search'>
     		<div id = 'search_bar'>
-      			<input type="text" name="firstname" value=" 검색">
-    		</div>
+				<form method="get" action="/">
+				<fieldset>
+					<legend class="blind">검색</legend>
+					<label for="query" class="search"><input type="text" id="srch_query" title="검색어 입력"  name="query" style="ime-mode:inactive;"><span>검색어</span></label>
+					<span class="btn_sm"><button type="submit" title="검색"><span>검색</span></button></span>
+				</fieldset>
+				</form>
+			</div>
   		</div>
 
 		<div id="container">
