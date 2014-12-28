@@ -14,12 +14,8 @@
    <header>
     <div id = "toplevel">
       <div id="movie-poster"><div>슬럼독 밀리어네어</div><a href=inter.jpg></a></div>
-      <div id="total">
-        <div id="total-score">TOTAL SCORE</div>
-        <div id="total-star">
-          <div class="star_rate ">
-              <div class="star_container total">
-                
+        <div class="star-card" data-type="total-score"> <div id="total-score">TOTAL SCORE</div> 
+          <div class="star_container total">
                   <% for(var i = 1; i <= 10; i++){ %>
                   <%if(i%2 == 0) {%>
                     <span class="star half right total" data-value=<%=i/2%>></span>
@@ -29,8 +25,6 @@
                 <%}%>
               </div>
           </div>
-        </div>
-      </div> 
     </div> 
 
 <div id="mid-eval">
