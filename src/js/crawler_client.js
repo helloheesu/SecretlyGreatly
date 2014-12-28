@@ -17,7 +17,10 @@ for (var i = 1; i < 10000; i++) {
 			var statement = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
 			pool.getConnection(function(err, sqlConn) {
 				sqlConn.query(statement, [c.movieID, c.movieData.title, c.movieData.year, c.movieData.poster], function (err, result) {
-					if(err) throw err;
+					if(err) {
+						if(err.code == 'ER_DUP_ENTRY') return;
+						throw err;
+					}
 					else {
 						// if (result) console.log('result:'+result);
 						console.log(c.movieID+' inserted!');
