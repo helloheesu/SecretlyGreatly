@@ -1,7 +1,7 @@
 var http = require('http');
 var cheerio = require('cheerio');
 
-function imdb_crawler(movieID) {
+function movieCrawler(movieID) {
 	// got bored of 301.
 	movieID = movieID.toString();
 	for (; movieID.length < 7; ) { movieID = '0'+movieID; }
@@ -16,7 +16,7 @@ function imdb_crawler(movieID) {
 	};
 	this.data = "";
 }
-imdb_crawler.prototype.requestMovieInfo = function(callback) {
+movieCrawler.prototype.requestMovieInfo = function(callback) {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
@@ -36,7 +36,7 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 	});
 	req.end();
 };
-imdb_crawler.prototype.dealWithRedirection = function(headers, callback) {
+movieCrawler.prototype.dealWithRedirection = function(headers, callback) {
 	var url = require('url').parse(headers.location);
 	
 	var movieID = url.path.match(/\d+/).toString();
@@ -54,7 +54,7 @@ imdb_crawler.prototype.dealWithRedirection = function(headers, callback) {
 	};
 	this.requestMovieInfo.call(this, callback);
 };
-imdb_crawler.prototype.parseData = function() {
+movieCrawler.prototype.parseData = function() {
 	var $ = cheerio.load(this.data);
 
 	var title = $('.header > [itemprop="name"]').text();
@@ -82,4 +82,4 @@ imdb_crawler.prototype.parseData = function() {
 	};
 };
 
-module.exports = imdb_crawler;
+module.exports.movieCrawler = movieCrawler;

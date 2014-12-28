@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 
-var imdb_crawler = require('./crawler.js');
+var movieCrawler = require('./crawler.js').movieCrawler;
 
 // var sqlConn = mysql.createConnection({
 var pool  = mysql.createPool({
@@ -11,7 +11,7 @@ var pool  = mysql.createPool({
 
 for (var i = 1; i < 10000; i++) {
 	(function (i) {
-		var c = new imdb_crawler(i);
+		var c = new movieCrawler(i);
 		c.requestMovieInfo.call(c, function () {
 			c.parseData.call(c);
 			var statement = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
@@ -34,7 +34,7 @@ for (var i = 1; i < 10000; i++) {
 
 /*
 var movieID = 23;
-var c = new imdb_crawler(movieID);
+var c = new movieCrawler(movieID);
 c.requestMovieInfo.call(c, function () {
 	c.parseData.call(c);
 
