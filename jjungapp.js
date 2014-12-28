@@ -16,6 +16,7 @@ var main = require('./routes/main');
 var del = require('./routes/delete');
 var signin = require('./routes/signin');
 var evaluate = require('./routes/evaluate');
+var evaluate_log = require('./routes/evaluate_log');//
 
 var app = express();
 app.use(compression());
@@ -43,8 +44,8 @@ app.use('/new', news);
 app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
-//added by yunseo
-app.get('/shows',routes.shows);
+app.get('/shows',routes.shows);//added by yunseo
+app.use('/evaluate_log', evaluate_log); //
 
 
 // catch 404 and forward to error handler
