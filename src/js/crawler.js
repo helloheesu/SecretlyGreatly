@@ -2,6 +2,10 @@ var http = require('http');
 var cheerio = require('cheerio');
 
 function imdb_crawler(movieID) {
+	// got bored of 301.
+	movieID = movieID.toString();
+	for (; movieID.length < 7; ) { movieID = '0'+movieID; }
+
 	this.movieID = movieID;
 	this.options = {
 		hostname: 'www.imdb.com',
