@@ -52,14 +52,13 @@ height :700px;
 width: 50%;
 float: left;
 background-color: #F1F1F1;  
+
 }
 
 #men-list li{
 text-align: center;
 font-size: 40px;
-line-height: 300%;
-height :70px;
-/*border:5px solid gray;*/
+margin: 20px;
 }
 
 #men-eval-wrap{
