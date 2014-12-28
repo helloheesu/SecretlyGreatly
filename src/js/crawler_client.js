@@ -1,4 +1,3 @@
-var fs = require('fs');
 var mysql = require('mysql');
 
 var imdb_crawler = require('./crawler.js');
@@ -9,17 +8,22 @@ var sqlConn = mysql.createConnection({
 });
 
 
-// for (var i = 0; i < 10; i++) {
-// 	(function (i) {
-// 		var c = new imdb_crawler(i);
-// 		c.requestMovieInfo.call(c, function () {
-// 			console.log('callback called');
-// 			fs.appendFile('movie'+i+'.html', c.data, 'utf8', function(err) {
-// 				if(err) throw err;
-// 			});
-// 		});		
-// 	})(i);
-// }
+for (var i = 1; i < 10; i++) {
+	(function (i) {
+		var c = new imdb_crawler(i);
+		c.requestMovieInfo.call(c, function () {
+			c.parseData.call(c);
+			var statement = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
+			sqlConn.query(statement, [c.movieID, c.movieData.title, c.movieData.year, c.movieData.poster], function (err, result) {
+				if(err) throw err;
+				else {
+					// if (result) console.log('result:'+result);
+					console.log(c.movieID+' inserted!');
+				}
+			});
+		});		
+	})(i);
+}
 
 
 /*
@@ -30,6 +34,7 @@ create table movie(
 	poster_url varchar(2000)
 );
 */
+/*
 var movieID = 23;
 var c = new imdb_crawler(movieID);
 c.requestMovieInfo.call(c, function () {
@@ -49,3 +54,4 @@ c.requestMovieInfo.call(c, function () {
 		}
 	});
 });
+*/
