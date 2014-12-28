@@ -34,9 +34,6 @@ imdb_crawler.prototype.requestMovieInfo = function(callback) {
 					if(callback) callback();
 				});
 				break;
-			case 301:
-				imdb_crawler.prototype.dealWithRedirection.call(self, res.headers, callback);
-				break;
 			default:
 				console.log('statusCode : '+res.statusCode);
 
