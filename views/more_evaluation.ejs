@@ -19,69 +19,106 @@
         <div id="total-star">
           <div class="star_rate ">
               <div class="star_container total">
-                <span class="star half left total" data-value=0.5></span>
-                <span class="star half right total" data-value=1></span>
-                <span class="star half left total" data-value=1.5></span>
-                <span class="star half right total" data-value=2></span>
-                <span class="star half left total" data-value=2.5></span>
-                <span class="star half right total" data-value=3></span>
-                <span class="star half left total" data-value=3.5></span>
-                <span class="star half right total" data-value=4></span>
-                <span class="star half left total" data-value=4.5></span>
-                <span class="star half right total" data-value=5></span>
+                
+                  <% for(var i = 1; i <= 10; i++){ %>
+                  <%if(i%2 == 0) {%>
+                    <span class="star half right total" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                    <span class="star half left total" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
               </div>
           </div>
-
         </div>
       </div> 
     </div> 
 
 <div id="mid-eval">
-     <div id="men-list-wrap" > 
-       <ul id="men-list" class="">
-        <li class="star-card">DIRECTOR</li>
-        <li class="star-card">
-          <div class="star_rate">
-              <div class="star_container">
-                <span class="star half left" data-value=0.5></span>
-                <span class="star half right" data-value=1></span>
-                <span class="star half left" data-value=1.5></span>
-                <span class="star half right" data-value=2></span>
-                <span class="star half left" data-value=2.5></span>
-                <span class="star half right" data-value=3></span>
-                <span class="star half left" data-value=3.5></span>
-                <span class="star half right" data-value=4></span>
-                <span class="star half left" data-value=4.5></span>
-                <span class="star half right" data-value=5></span>
-              </div>
+  <div id="men-list-wrap" > 
+    <ul id="men-list" class="">
+      <li class="star-card" data-type="director"><div>DIRECTOR</div>
+          <div class="star_container">
+            <form method="post" action="/evaluate_log">  
+              <% for(var i = 1; i <= 10; i++){ %>
+                <%if(i%2 == 0) {%>
+                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
+                <!-- <p id="demo">hello~~~</p> -->
+              <input type="hidden" id="Director_score" value="" >
+            </form>
           </div>
+      </li>
 
+      <li class="star-card" data-type="story"><div>STORY</div>
+          <div class="star_container">
+              <% for(var i = 1; i <= 10; i++){ %>
+                <%if(i%2 == 0) {%>
+                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
+          </div>
+      </li> 
 
-        </li>
-        <li class="star-card">STORY</li>
-        <li class="star-card"></li> 
-        <li class="star-card">ACT</li> 
-        <li class="star-card"></li>
-        <li class="star-card">MUSIC</li>
-        <li class="star-card"></li>
-        <li class="star-card">VISUAL</li>
-        <li class="star-card"></li> 
-      </ul>
-     </div>   
+      <li class="star-card" data-type="story"><div>ACT</div> 
+          <div class="star_container">
+              <% for(var i = 1; i <= 10; i++){ %>
+                <%if(i%2 == 0) {%>
+                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
+          </div>
+      </li>
+
+      <li class="star-card" data-type="music"><div>MUSIC</div></li>
+          <div class="star_container">
+              <% for(var i = 1; i <= 10; i++){ %>
+                <%if(i%2 == 0) {%>
+                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
+          </div>
+      </li>
+
+      <li class="star-card" data-type="visual"><div>VISUAL</div>
+          <div class="star_container">
+              <% for(var i = 1; i <= 10; i++){ %>
+                <%if(i%2 == 0) {%>
+                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
+          </div>
+      </li> 
+    </ul>
+  </div>   
 
     <div id="men-eval-wrap"> 
       <ul id="men-eval">
         <li class="men-card">인물 카드 들어갈 자리</li>
-<!-- Executive Director
-Christopher Nolan -->
-
         <li class="men-card">인물 카드 들어갈 자리</li> 
       </ul> 
     </div>
 </div>
-    <div id="comment-wrap"><p>영화를 보고 난 후의 느낌을 기록하세요.</p>
-      <textarea id="comment" rows="50" cols="70" name=""></textarea> 
-      <p><input id="send" type="submit" name="" /></input></p>
+
+    <div id="comment-wrap">
+      <form method="post" action="/evaluate_log"> 
+        <!--method:웹서버와의 통신 방법지정, action:입력양식에 입력된 값을 받아서 db에 저장하는 페이지 지정--> 
+        <p>영화를 보고 난 후의 느낌을 기록하세요.</p>
+        <textarea id="comment" rows="50" cols="70" name="comment"></textarea>
+        <p><input id="send" type="submit" name="" alt="확인" value="확인"></input></p>
+        <input type="hidden" name="UserIP" value="<?echo $REMOTE_ADDR?>">
+        <!--폼 전송이 같이 전송해줘야 하는 정보.-->
+      </form>
     </div> 
 
   </section>
