@@ -2,24 +2,28 @@ var mysql = require('mysql');
 
 var imdb_crawler = require('./crawler.js');
 
-var sqlConn = mysql.createConnection({
+// var sqlConn = mysql.createConnection({
+var pool  = mysql.createPool({
+	connectionLimit : 10,
 	user: 'guest_demo',
 	database: 'movies'
 });
 
-
-for (var i = 1; i < 10; i++) {
+for (var i = 1; i < 10000; i++) {
 	(function (i) {
 		var c = new imdb_crawler(i);
 		c.requestMovieInfo.call(c, function () {
 			c.parseData.call(c);
 			var statement = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
+			pool.getConnection(function(err, sqlConn) {
 			sqlConn.query(statement, [c.movieID, c.movieData.title, c.movieData.year, c.movieData.poster], function (err, result) {
 				if(err) throw err;
 				else {
 					// if (result) console.log('result:'+result);
 					console.log(c.movieID+' inserted!');
 				}
+				sqlConn.release();
+			});
 			});
 		});		
 	})(i);
