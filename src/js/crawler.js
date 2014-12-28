@@ -66,8 +66,10 @@ imdb_crawler.prototype.parseData = function() {
 	var releaseYear;
 	if(releaseDate) {
 		console.log('releaseDate : '+releaseDate);
-		releaseDate = releaseDate.match(/\d+\s+\w+\s+\d{4}/)[0];
-		releaseYear = parseInt(releaseDate.slice(-4));
+		// releaseDate = releaseDate.match(/\d+\s+\w+\s+\d{4}/)[0];
+		// releaseYear = parseInt(releaseDate.slice(-4));
+		releaseYear = releaseDate.match(/\d{4}/).toString();
+		releaseYear = (releaseYear)? parseInt(releaseYear): null;
 	}
 	var posterSrc = $("img[title*='Poster']").attr('src');
 
