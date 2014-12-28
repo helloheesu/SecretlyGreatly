@@ -62,8 +62,13 @@ imdb_crawler.prototype.parseData = function() {
 	var genre = $('[itemprop="genre"] > a').map(function() {
 	    return $(this).text();
 	}).get();
-	var releaseDate = $("a[title='See all release dates']").text().match(/\d{2}\s+\w+\s+\d{4}/)[0];
-	var releaseYear = releaseDate.slice(-4);
+	var releaseDate = $("a[title='See all release dates']").text();
+	var releaseYear;
+	if(releaseDate) {
+		console.log('releaseDate : '+releaseDate);
+		releaseDate = releaseDate.match(/\d+\s+\w+\s+\d{4}/)[0];
+		releaseYear = parseInt(releaseDate.slice(-4));
+	}
 	var posterSrc = $("img[title*='Poster']").attr('src');
 
 	this.movieData = {
