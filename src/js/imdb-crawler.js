@@ -83,3 +83,64 @@ movieCrawler.prototype.parseData = function() {
 };
 
 module.exports.movieCrawler = movieCrawler;
+
+
+
+
+
+
+
+
+
+function crewCrawler(movieID) {
+	// got bored of 301.
+	movieID = movieID.toString();
+	for (; movieID.length < 7; ) { movieID = '0'+movieID; }
+
+	this.movieID = movieID;
+	this.options = {
+		hostname: 'www.imdb.com',
+		port: 80,
+		path: '/title/tt'+this.movieID+'/fullcredits/',
+		method: 'GET',
+		headers: {'Accept-Language':'en'}
+	};
+	this.data = "";
+}
+crewCrawler.prototype.requestCrewInfo = function(callback) {
+	var self = this;
+
+	req = http.request(this.options, function(res) {
+		console.info(self.movieID + ' response');
+		console.log('statusCode : '+res.statusCode);
+		console.log('headers :');
+		console.log(res.headers);
+		if(res.statusCode==200) {
+			res.on('data', function(chunk) {
+				self.data += chunk.toString();
+			});
+			res.on('end', function() {
+				console.info(self.movieID + ' crew res end');
+				if(callback) callback();
+			});
+		}
+	});
+	req.end();
+};
+crewCrawler.prototype.parseData = function() {
+	var $ = cheerio.load(this.data);
+
+	var directionDocs = $("h4:contains('Directed by')").next().find('tr');
+	var directions = [];
+	for (var i = 0; i < directionDocs.length; i++) {
+		var name = $(directionDocs[i]).find('.name a').text().replace(/^\s+(.+[^\s])\s+$/, '$1');
+		var role = $(directionDocs[i]).find('.credit').text().replace(/^\s+(.+[^\s])\s+$/, '$1');
+		directions[i] = {name:name, role:role};
+	}
+	this.directions = directions;
+	this.crewData = {
+		directions: directions
+	};
+};
+
+module.exports.crewCrawler = crewCrawler;

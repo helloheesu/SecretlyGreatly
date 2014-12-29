@@ -1,3 +1,4 @@
+/*
 var mysql = require('mysql');
 
 var movieCrawler = require('./imdb-crawler.js').movieCrawler;
@@ -56,25 +57,13 @@ for (var i = 1; i < 10000; i++) {
 		});
 	})(i);
 }
-
-/*
-var movieID = 23;
-var c = new movieCrawler(movieID);
-c.requestMovieInfo.call(c, function () {
-	c.parseData.call(c);
-
-	// console.log(c.movieData);
-	// var movieInsertSql = 'INSERT INTO moviedata (mID, title, year, poster_url)'
-	// 	+' VALUES('+sqlConn.escape(parseInt(c.movieID))+','+sqlConn.escape(c.movieData.title)+','+sqlConn.escape(parseInt(c.movieData.year))+','+sqlConn.escape(c.movieData.poster)+');';
-	// console.log('state: \n'+movieInsertSql);
-
-	var movieInsertSql = 'INSERT INTO moviedata (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
-	sqlConn.query(movieInsertSql, [parseInt(c.movieID), c.movieData.title, parseInt(c.movieData.year), c.movieData.poster], function (err, result) {
-		if(err) throw err;
-		else {
-			// if (result) console.log('result:'+result);
-			console.log(c.movieID+' inserted!');
-		}
-	});
-});
 */
+
+var movieID = 1333125;
+// var movieID = 23;
+var crewCrawler = require('./imdb-crawler.js').crewCrawler;
+var c = new crewCrawler(movieID);
+c.requestCrewInfo.call(c, function () {
+	c.parseData.call(c);
+	console.log(c.crewData.directions);
+});
