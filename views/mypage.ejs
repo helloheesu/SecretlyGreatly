@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>마이페이지</title>
+    <link rel ="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel ="stylesheet" type="text/css" href="css/mypage.css"/>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  </head>
+
+  <!--본문-->
+  <body> 
+    <header>
+    </header>
+    <div id="award">
+      <div class ="title oska"><a href="">
+        내가 메긴 오스카상</a>
+      </div>
+      <div class="award_width">
+        <div class="director">
+          <div class="job">감독</div>
+          <img class="picture">
+          <div class="name">이름</div>
+        </div>
+        <div class="actor">
+          <div class="job">배우</div>
+          <img class="picture">
+          <div class="name">이름</div>
+        </div>
+        <div class="scenario">
+          <div class="job">각본</div>
+          <img class="picture">
+          <div class="name">이름</div>
+        </div>
+      </div>
+      <div class="award_height">
+        <div class="visual">
+          <div class="job_height">영상</div>
+          <div class="name">이름</div>
+        </div>
+        <div class="music">
+          <div class="job_height">음악</div>
+          <div class="name">이름</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="top_movie">
+      <div class ="title movies"><a href="">
+        내가 많이 평가한 영화 TOP4</a>
+      </div> 
+      <div class="card_wrap size_1x1 ">
+              <div class="card_shadow"></div>
+              <div class="poster_container">
+                  <img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/1fc27f1b05aafaa33bd3.jpg?1417466843" alt=""/>
+                  <div class="top_gradation"></div>
+                  <div class="hover_container">
+                      <div class="black_bg"></div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card_wrap size_1x1 ">
+              <div class="card_shadow"></div>
+              <div class="poster_container">
+                  <img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/749e417a1ef3d8d292b5.jpg?1417468890" alt=""/>
+                  <div class="top_gradation"></div>
+                  <div class="hover_container">
+                      <div class="black_bg">
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card_wrap size_1x1 ">
+              <div class="card_shadow"></div>
+              <div class="poster_container">
+                  <img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/3d3d6bf968a60889d5bd.jpg?1417468876" alt=""/>
+                  <div class="top_gradation"></div>
+                  <div class="hover_container">
+                      <div class="black_bg"></div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="card_wrap size_1x1 ">
+              <div class="card_shadow"></div>
+              <div class="poster_container">
+                  <img class="poster" src="https://d12hfz37g51hrt.cloudfront.net/p/b/84422354a95864f8b142.jpg?1417468531" alt=""/>
+                  <div class="top_gradation"></div>
+                  <div class="hover_container">
+                      <div class="black_bg"></div>
+                  </div>
+              </div>
+          </div>
+    </div>
+    <div id="log">
+      <div class="title log"><a href="">나의 로그
+      </a></div>
+      <div class="log_container">
+        <!--형식에 맞게 수정할 필요!! -->
+        <% for(var i=0; i<result.length; i++) { %>
+          <%= result[i].comment %>
+        <% } %>
+
+      </div>
+    </div> 
+  </body>
+ 
+
+</html> 
