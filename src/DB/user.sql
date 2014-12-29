@@ -23,7 +23,8 @@ GRANT select, insert
 CREATE TABLE genre(
 	mID INT NOT NULL,
 	genre VARCHAR(255) NOT NULL,
-	FOREIGN KEY (mID) REFERENCES movie (mID) ON UPDATE CASCADE ON DELETE CASCADE
+	FOREIGN KEY (mID) REFERENCES movie (mID) ON UPDATE CASCADE ON DELETE CASCADE,
+	PRIMARY KEY (mID, genre)
 );
 GRANT select, insert
 	ON movies.genre TO 'guest_demo'@'%';
