@@ -16,13 +16,16 @@
       <div id="movie-poster"><div>슬럼독 밀리어네어</div><a href=inter.jpg></a></div>
         <div class="star-card" data-type="total-score"> <div id="total-score">TOTAL SCORE</div> 
           <div class="star_container total">
+              <form method="post" action="/evaluate_log">  
                   <% for(var i = 1; i <= 10; i++){ %>
                   <%if(i%2 == 0) {%>
-                    <span class="star half right total" data-value=<%=i/2%>></span>
+                    <span class="star half right" data-value=<%=i/2%>></span>
                   <%} else {%>
-                    <span class="star half left total" data-value=<%=i/2%>></span>
+                    <span class="star half left" data-value=<%=i/2%>></span>
                   <%}%>
                 <%}%>
+                <input type="hidden" name="Total_score" value="" >
+            </form>
               </div>
           </div>
     </div> 
@@ -35,26 +38,29 @@
             <form method="post" action="/evaluate_log">  
               <% for(var i = 1; i <= 10; i++){ %>
                 <%if(i%2 == 0) {%>
-                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <span class="star half right " data-value=<%=i/2%>></span>
                   <%} else {%>
-                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <span class="star half left" data-value=<%=i/2%>></span>
                   <%}%>
                 <%}%>
                 <!-- <p id="demo">hello~~~</p> -->
-              <input type="hidden" id="Director_score" value="" >
+              <input type="hidden" name="Director_score" value="" >
             </form>
           </div>
       </li>
 
       <li class="star-card" data-type="story"><div>STORY</div>
           <div class="star_container">
+            <form method="post" action="/evaluate_log">              
               <% for(var i = 1; i <= 10; i++){ %>
                 <%if(i%2 == 0) {%>
-                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <span class="star half right" data-value=<%=i/2%>></span>
                   <%} else {%>
-                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <span class="star half left" data-value=<%=i/2%>></span>
                   <%}%>
                 <%}%>
+                <input type="hidden" name="Story_score" value="" >
+            </form>
           </div>
       </li> 
 
@@ -62,11 +68,13 @@
           <div class="star_container">
               <% for(var i = 1; i <= 10; i++){ %>
                 <%if(i%2 == 0) {%>
-                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <span class="star half right" data-value=<%=i/2%>></span>
                   <%} else {%>
-                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <span class="star half left" data-value=<%=i/2%>></span>
                   <%}%>
                 <%}%>
+                <input type="hidden" name="Story_score" value="" >
+            </form>
           </div>
       </li>
 
@@ -74,11 +82,13 @@
           <div class="star_container">
               <% for(var i = 1; i <= 10; i++){ %>
                 <%if(i%2 == 0) {%>
-                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <span class="star half right" data-value=<%=i/2%>></span>
                   <%} else {%>
-                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <span class="star half left" data-value=<%=i/2%>></span>
                   <%}%>
                 <%}%>
+                <input type="hidden" name="Music_score" value="" >
+            </form>
           </div>
       </li>
 
@@ -86,19 +96,37 @@
           <div class="star_container">
               <% for(var i = 1; i <= 10; i++){ %>
                 <%if(i%2 == 0) {%>
-                  <span class="star half right total" data-value=<%=i/2%>></span>
+                  <span class="star half right" data-value=<%=i/2%>></span>
                   <%} else {%>
-                  <span class="star half left total" data-value=<%=i/2%>></span>
+                  <span class="star half left" data-value=<%=i/2%>></span>
                   <%}%>
                 <%}%>
+                <input type="hidden" name="Visual_score" value="" >
+            </form>
           </div>
       </li> 
     </ul>
   </div>   
 
+
     <div id="men-eval-wrap"> 
       <ul id="men-eval">
-        <li class="men-card">인물 카드 들어갈 자리</li>
+        <li class="men-card">
+          <li class="star-card" data-type="name">
+            <img class="maker-pic" src="https://d12hfz37g51hrt.cloudfront.net/ppl/b/ae0009744e3d2eb2d3dc.jpg?1344271219">
+            <div class="maker-name">james paker</div>
+            <div class="star_container">
+              <% for(var i = 1; i <= 10; i++){ %>
+                <%if(i%2 == 0) {%>
+                  <span class="star half right" data-value=<%=i/2%>></span>
+                  <%} else {%>
+                  <span class="star half left" data-value=<%=i/2%>></span>
+                  <%}%>
+                <%}%>
+            </div>
+          </li> 
+        </li> 
+
         <li class="men-card">인물 카드 들어갈 자리</li> 
       </ul> 
     </div>
