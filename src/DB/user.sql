@@ -45,6 +45,11 @@ CREATE TABLE p_type(
 );
 GRANT select
 	ON movies.p_type TO 'guest_demo'@'%';
+INSERT INTO p_type VALUES(1, 'direction');
+INSERT INTO p_type VALUES(2, 'scenario');
+INSERT INTO p_type VALUES(3, 'acting');
+INSERT INTO p_type VALUES(4, 'music');
+INSERT INTO p_type VALUES(5, 'cinematography');
 
 CREATE TABLE participation(
 	pID INT PRIMARY KEY AUTO_INCREMENT,
