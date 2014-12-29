@@ -1,1089 +1,270 @@
-html {
-font-family:'Apple SD Gothic Neo',나눔고딕,NanumGothic,'맑은 고딕','Malgun Gothic',돋움,dotum,굴림,gulim,applegothic,sans-serif;
-}
-
-body {
-margin:0;
-}
-
-ul {
-list-style:none;
-margin:0;
-padding:0;
-}
-
-a {
-text-decoration:none;
-}
+a { text-decoration:none }
 
 header {
-z-index: 1;
-border:1px solid gray;
-height:80px;
-position:absolute;
-top :0;
-width:100%;
+	position: static;
+	width: 100%;
+	height : 100px;
+	background-color: red;
 }
 
-#gnb {
-margin-left:50px;
-position:relative;
+.title a {
+	color:#000;
+	font-size:20px;
+	font-weight:700;
 }
 
-#gnb > li {
-float:left;
+.title {
+	padding-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
-/*#wrap {
-position:static;
-width:100%;
-}*/
-
-#header {
-height:500px;
-width:100%;
-}
-
-#logo {
-padding:25px 10px;
-}
-
-#logo img {
-margin-bottom:15px;
-}
-
-.header_menu {
-height:80px;
-}
-
-.header_menu a {
--webkit-font-smoothing:antialiased;
-color:#fff;
-font:inherit;
-font-size:100%;
-line-height:80px;
-padding:25px 10px;
-}
-
-#logo .highlight {
-background-color:#ff382e;
-height:5px;
-left:0;
-position:absolute;
-width:50px;
-}
-
-/*검색창*/
-.search_class{
-position:relative;
-
-}
-
-/*#search_button{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/header-sdd140c72a7-3510850c02add43e75155ce7ed94ef8c.png);
-background-origin: padding-box;
-background-position: 0px -270px;
-width:15px;
-height:16px;
-margin-left:200px;
-margin-top: 0px;
-}*/
-
-#search {
-width:220px;
-height:33px;
-float:left;
-margin-left:100px;
-margin-top: 20px;
-}
-
-#search input{
-width:200px;
-height:18px;
-border:1.5px;
-padding:6px 10px 6px 30px; 
-}
-
-/*상단 오른쪽 메뉴*/
-#gnb_right{
-
-}
-
-#gnb_right_menu{
-float: right;
-position : relative;
-margin-top: 20px;
-margin-right:50px;
-
-}
-
-#gnb_right_menu > li {
-float:left;
-margin: 3px;
-}
-
-#alarm_bell{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/header-sdd140c72a7-3510850c02add43e75155ce7ed94ef8c.png);
-background-origin: padding-box;
-background-position: 0px -126px;
-background-size: auto;
-width:32px;
-height:32px;
-
-}
-
-#user_name{
-letter-spacing: -1px;
-line-height: 35px;
-width:30px;
-height:30px;
-font-size: 12px;
-}
-
-#id_photo img{
-width:30px;
-height:30px;
-border-bottom-left-radius: 50%;
-border-bottom-right-radius: 50%;
-border-top-left-radius: 50%;
-border-top-right-radius: 50%;
-}
-
-#movie_partner{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/header-sdd140c72a7-3510850c02add43e75155ce7ed94ef8c.png);
-background-origin: padding-box;
-background-position: 0px -190px;
-background-size: auto;
-border-bottom-left-radius: 50%;
-border-bottom-right-radius: 50%;
-width:30px;
-height:30px;
-}
-
-/*상단 이미지*/
-#top_image {
-height:320px;
-width:100%;
-position: absolute;
-z-index : -1px;
-}
-
-#top_image img{
-1border:1px solid gray;
-height:320px;
-width:100%;
-}
-
-
-/*개인프로파일*/
-#personal_movie_profile{
- position: relative;
- float: left;
- left: 50%;
- top:110px;
-}
-
-/* 개인이름 */
-#personal_account {
- font-size: 10px;
- 1position: relative;
- /*color: #fff;	*/
- margin : 8px;
- display: block;
- font-color: white;
-}
-
-#personal_account h1{
-font-color: white;
-}
-#personal_account img{
-border-bottom-left-radius: 50%;
-border-bottom-right-radius: 50%;
-border-top-left-radius: 50%;
-border-top-right-radius: 50%;
-1position: relative;
-}
-
-.personal_movie_profile{
-
-}
-
-.personal_movie_profile. label
-{
-
-}
-
-.stat_count{
-    
-}
-
-
-.menu{
-background-color: #6D6C83;
-display: block;
-font-size: 14px;
-height: 50px;
-letter-spacing: -1px;
-line-height: 18.6666660308838px;
-margin:0px;
-border:0px;
-padding:0px;
-vertical-align: baseline;
-position : relative;
-top :320px;
-}
-
-.menu_wrap{
- margin-left: 30px; 
- 1position : relative;
- top :320px;
- width: 100%;
-  
-}
-.nav > li {
-float:left;
-color:#fff;
-font:inherit;
-font-size:100%;
-line-height:40px;
-padding:5px 15px;
-font-color:white;
-}
-
-#container{
- background-color:#e5e5e5;
-}
-
-#contents{
-position:relative;
-top:300px;
-height: 2000px;
-margin:30px 25px;
-1width:90%;
-background-color:yellow;   
-}
-
-/* 카드 사이즈*/
-#contents .small_card{
-background-color:#FFF;
-border-radius:5px;
-float:left;
-left:240px;
-margin:10px;
-width:460px;
-height: 350px;
-}
-
-#contents .nomal_card{
-background-color:#FFF;
-border-radius:5px;
-float:left;
-left:240px;
-margin:10px;
-width:460px;
-height: 452px;
-}
-
-
-/* card header */
-#card_header{
-width:460px;
-height:80px;    
-}
-
-#contents .card_title{
-color: #93939c;
-font-size: 10px;
-margin: 20px;
-}
-
-/* 카드설명 */
-.flaver_text{
-color: #6d6c83;
-font-size: 20px;
-}
-
-/* 카드상단본문본문 */
-#contents .card_contents{
-width:460px;
-height:218px;
-background-color:pink;
-color: #6d6c83;
-font-size: 15px;
-}
-
-/* 별점분포 */
-.rating_contents{
- font-size :20px;
-}
-
-/* 선호국가 */
-#world_map{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/users-sd99c358127-bce2802f17bc76a1d5fccfa198bd05c5.png);
-background-origin: padding-box;
-background-position: 0px -0px;
-background-size: auto;
-width:406px;
-height:218px;
-margin-left:20px;
-}
-
-.row_best{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-    
-}
-
-.nation_name{
- float:left;
- margin: 0px 13px;
-}
-.nation_persent{
- float:left;
- margin: 0px 13px;
-}
-.nation_count{
- float:left;
-  margin: 0px 13px;
-}
-
-/* 더보기 버튼*/
-.more_button button{
-margin: 0;
-padding-top: 18px;
-padding-bottom: 16px;
-width: 460px;
-background-color: #FBFBFB;
-border: none;
-border-top: 1px solid #F2F2F2;
-font-size: 16px;
-color: #6d6c83;
-cursor: pointer;
-position : relative;  
-}
-
-
-/* 배우/감독사진 */
-#people_list> li .photo{
-width:75px;
-height:75px;
-border-radius: 10px;
-}
-
-.person{
- float:left;
- margin: 0px 13px;
- width:329px;
- height : 79px;
-}
-.count{
- float:left;
- margin: 0px 13px;
-}
-.watched_movies{
- float:left;
-  margin: 0px 13px;
-}
-
-/* 선호장르 */
-.top3genres{
- width:416px;
-height:100px;
-background-color:red;
-color: #6d6c83;
-font-size: 15px;
-
-}
-
-genreList_others
-.genreList{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-}
-/**/
-.row_best{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-    
-}
-
-.genreList_others li{
- float:left;
- margin: 0px 13px;
-}
-
-
-.person{
- float:left;
- margin: 0px 13px;
-}
-
-
-/* 평가매기기 */
-#watched_hours_wrap{
-width: 160px;
-height: 160px;
-background-color:  #F46B5B;
-border-radius:50%;   
-color: #FFF;    
-margin : 0px 128px;
-border 1px;
-}
-
-.bubble{
-color: red;
-width: 460px;
-height: 240px;
-}
-
-#icon-clock{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/users-sd99c358127-bce2802f17bc76a1d5fccfa198bd05c5.png);
-background-origin: padding-box;
-background-position: 0px -780px;html {
-font-family:'Apple SD Gothic Neo',나눔고딕,NanumGothic,'맑은 고딕','Malgun Gothic',돋움,dotum,굴림,gulim,applegothic,sans-serif;
-}
-
-
-.nation_name{
- float:left;
- margin: 0px 13px;
-}
-.nation_persent{
- float:left;
- margin: 0px 13px;
-}
-.nation_count{
- float:left;
-  margin: 0px 13px;
-}
-
-/* 더보기 버튼*/
-.more_button button{
-margin: 0;
-padding-top: 18px;
-padding-bottom: 16px;
-width: 460px;
-background-color: #FBFBFB;
-border: none;
-border-top: 1px solid #F2F2F2;
-font-size: 16px;
-color: #6d6c83;
-cursor: pointer;
-position : relative;
-   
-}
-
-
-
-
-/* 배우/감독사진 */
-
-#people_list > li .photo{
-width:75px;
-height:75px;
-border-radius: 10px;
-position :relative;
-margin-right :10px;
-
-}
-
-#people_list > li {
-float:left;
-vertical-align: middle;
-}
-
-
-.person{
-
- float:left;
- margin: 0px 13px;
-}
-.count{
- float:right;
- margin: 0px 13px;
-}
-.watched_movies{
- float:left;
- margin: 0px 13px;
-  
-}
-
-/* 선호장르 */
-.top3genres{
-    width:416px;
-height:100px;
-background-color:red;
-color: #6d6c83;
-font-size: 15px;
-inline-block
-}
-
-genreList_others
-.genreList{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-}
-
-.row_best{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-    
-}
-
-.genreList_others li{
- float:left;
- margin: 0px 13px;
-}
-
-
-.person{
- float:left;
- margin: 0px 13px;
-}
-
-
-margin:0px;
-border:0px;
-padding:0px;
-html {
-font-family:'Apple SD Gothic Neo',나눔고딕,NanumGothic,'맑은 고딕','Malgun Gothic',돋움,dotum,굴림,gulim,applegothic,sans-serif;
-}
-
-body {
-margin:0;
-}
-
-ul {
-list-style:none;
-margin:0;
-padding:0;
-}
-
-a {
-text-decoration:none;
-}
-
-header {
-z-index: 1;
-border:1px solid gray;
-height:80px;
-position:absolute;
-top :0;
-width:100%;
-}
-
-#gnb {
-margin-left:50px;
-position:relative;
-}
-
-#gnb > li {
-float:left;
-}
-
-#wrap {
-position:static;
-width:100%;
-}
-
-#header {
-height:500px;
-width:100%;
-}
-
-#logo {
-padding:25px 10px;
-}
-
-#logo img {
-margin-bottom:15px;
-}
-
-.header_menu {
-height:80px;
-}
-
-.header_menu a {
--webkit-font-smoothing:antialiased;
-color:#fff;
-font:inherit;
-font-size:100%;
-line-height:80px;
-padding:25px 10px;
-}
-
-#logo .highlight {
-background-color:#ff382e;
-height:5px;
-left:0;
-position:absolute;
-width:50px;
-}
-
-/*검색창*/
-.search_class{
-position:relative;
-
-}
-
-/*#search_button{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/header-sdd140c72a7-3510850c02add43e75155ce7ed94ef8c.png);
-background-origin: padding-box;
-background-position: 0px -270px;
-width:15px;
-height:16px;
-margin-left:200px;
-margin-top: 0px;
-}*/
-
-#search {
-width:220px;
-heigh:33px;
-float:left;
-margin-left:100px;
-margin-top: 20px;
-}
-
-#search input{
-width:200px;
-height:18px;
-border:1.5px;
-padding:6px 10px 6px 30px; 
-}
-
-/*상단 오른쪽 메뉴*/
-#gnb_right{
-
-}
-
-#gnb_right_menu{
-float: right;
-position : relative;
-margin-top: 20px;
-margin-right:50px;
-
-}
-
-#gnb_right_menu > li {
-float:left;
-margin: 3px;
-}
-
-#alarm_bell{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/header-sdd140c72a7-3510850c02add43e75155ce7ed94ef8c.png);
-background-origin: padding-box;
-background-position: 0px -126px;
-background-size: auto;
-width:32px;
-height:32px;
-
-}
-
-#user_name{
-letter-spacing: -1px;
-line-height: 35px;
-width:30px;
-height:30px;
-font-size: 12px;
-}
-
-#id_photo img{
-width:30px;
-height:30px;
-border-bottom-left-radius: 50%;
-border-bottom-right-radius: 50%;
-border-top-left-radius: 50%;
-border-top-right-radius: 50%;
+.title.oska {
+  padding-top: 50px;
 }
 
-#movie_partner{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/header-sdd140c72a7-3510850c02add43e75155ce7ed94ef8c.png);
-background-origin: padding-box;
-background-position: 0px -190px;
-background-size: auto;
-border-bottom-left-radius: 50%;
-border-bottom-right-radius: 50%;
-width:30px;
-height:30px;
+#award {
+	position: relative;
+	width: 100%;
+	height : 530px;
+	background-color: gray;
 }
 
-/*상단 이미지*/
-#top_image {
-height:320px;
-width:100%;
-position: absolute;
-z-index : -1;
+.award_width {
+	float: left;
+	height :480px;
+	width: 50%;
+	background-color: blue;
 }
 
-#top_image img{
-/*border:1px solid gray;*/
-height:320px;
-width:100%;
-}
-
-
-/*개인프로파일*/
-#personal_movie_profile{
- position: relative;
- float: left;
- left: 50%;
- top:110px;
-}
-
-/* 개인이름 */
-#personal_account {
- font-size: 10px;
- 1position: relative;
- /*color: #fff;	*/
- margin : 8px;
- display: block;
- font-color: white;
-}
-
-#personal_account h1{
-font-color: white;
-}
-#personal_account img{
-border-bottom-left-radius: 50%;
-border-bottom-right-radius: 50%;
-border-top-left-radius: 50%;
-border-top-right-radius: 50%;
-1position: relative;
-}
-
-.personal_movie_profile{
-
-}
-
-.personal_movie_profile. label
-{
-
-
-}
-
-.stat_count{
-    
-}
-
-
-.menu{
-background-color: #6D6C83;
-display: block;
-font-size: 14px;
-height: 50px;
-letter-spacing: -1px;
-line-height: 18.6666660308838px;
-margin:0px;
-border:0px;
-padding:0px;
-vertical-align: baseline;
-position : relative;
-top :320px;
-
-}
-
-menu_wrap{
- margin-left: 30px; 
- 1position : relative;
- top :320px;
- width: 100%;
-  
-}
-.nav > li {
-float:left;
-color:#fff;
-font:inherit;
-font-size:100%;
-line-height:40px;
-padding:5px 15px;
-font-color:white;
-}
-
-#container{
- background-color:#e5e5e5;
-}
-
-#contents{
-position:relative;
-top:300px;
-height: 2000px;
-margin:30px 25px;
-1width:90%;
-background-color:yellow;   
-}
-
-/* 카드 */
-#contents .card{
-background-color:#FFF;
-border-radius:5px;
-float:left;
-left:240px;
-margin:10px;
-width:460px;
-height: 452px;
-}
-
-/* card header */
-#contents .card_title{
-width:460px;
-height:80px;
-
-}
-
-/* 카드제목 */
-#contents .card_title {
-color: #93939c;
-font-size: 10px;
-
-margin:0px;
-border:0px;
-padding:0px;
-}
-
-/* 카드설명 */
-.card .flaver_text{
-color: #6d6c83;
-font-size: 20px;
-}
-
-/* 카드상단본문본문 */
-#contents .card_contents{
-width:460px;
-height:218px;
-background-color:pink;
-color: #6d6c83;
-font-size: 15px;
-}
-
-/* 별점분포 */
-.rating_contents{
- font-size :20px;
-}
-
-/* 선호국가 */
-#world_map{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/users-sd99c358127-bce2802f17bc76a1d5fccfa198bd05c5.png);
-background-origin: padding-box;
-background-position: 0px -0px;
-background-size: auto;
-width:406px;
-height:218px;
-margin-left:20px;
-}
-
-.row_best{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-    
-}
-
-.nation_name{
- float:left;
- margin: 0px 13px;
-}
-.nation_persent{
- float:left;
- margin: 0px 13px;
-}
-.nation_count{
- float:left;
-  margin: 0px 13px;
-}
-
-/* 더보기 버튼*/
-.more_button button{
-margin: 0;
-padding-top: 18px;
-padding-bottom: 16px;
-width: 460px;
-background-color: #FBFBFB;
-border: none;
-border-top: 1px solid #F2F2F2;
-font-size: 16px;
-color: #6d6c83;
-cursor: pointer;
-position : relative;
-   
-}
-
-
-.person{
- float:left;
- margin: 0px 13px;
- width:329px;
- height : 79px;
-}
-.count{
- float:left;
- margin: 0px 13px;
-}
-.watched_movies{
- float:left;
-  margin: 0px 13px;
-}
+.director {
+	float: left;
+	width: 170px;
+	height : 305px;
+	background-color: white;
+	margin: 20px;
+  margin-top: 70px;
 
-/* 선호장르 */
-.top3genres{
-    width:416px;
-height:100px;
-background-color:red;
-color: #6d6c83;
-font-size: 15px;
-inline-block
 }
 
-genreList_others
-.genreList{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
+.job {
+  margin-top: 20px;
+  text-align: center;
 }
 
-.row_best{
-border-top-color: #F2F2F2; 
-border-top-style: solid;
-border-top-width: 1px;
-display: inline-block;
-font-size: 14px;
-height: 22px;
-letter-spacing: -1px;
-line-height: 16px;;
-padding-top: 5px;
-text-indent: 8px;
-width: 416px;
-    
+.picture {
+  margin-top: 40px;
+  height: 150px;
+  width: 150px;
+  background-color: black;
+  margin-left: 9px;
 }
 
-.genreList_others li{
- float:left;
- margin: 0px 13px;
+.name {
+  padding-top: 20px;
+  text-align: center;
 }
 
-
-.person{
- float:left;
- margin: 0px 13px;
-}
-
-
-/* 평가매기기 */
-
-#watched_hours_wrap{
-width: 160px;
-height: 160px;
-background-color:  #F46B5B;
-border-radius:50%;   
-color: #FFF;    
-margin : 0px 128px;
-border 1px;
-}
-
-.bubble{
-1color: red;
-1width: 460px;
-1height: 240px;
+.actor {
+	float: left;
+	width: 170px;
+	height : 305px;
+	background-color: white;
+	margin: 20px;
+  margin-top: 70px;
 }
 
-.icon-clock{
-background-image: url(https://d12hfz37g51hrt.cloudfront.net/assets/users-sd99c358127-bce2802f17bc76a1d5fccfa198bd05c5.png);
-background-origin: padding-box;
-background-position: 0px -780px;
-background-size: auto;
-width:16px;
-height:16px;
+.scenario {
+	float: left;
+	width: 170px;
+	height : 305px;
+	background-color: white;
+	margin: 20px;
+  margin-top: 70px;
 }
 
-.label{
-font-size: 16px;
+.award_height {
+	float: right;
+	height :480px;
+	width: 50%;
+	background-color: orange;
 }
 
-/* 영화 본 총 시간 */
-.stat_count{
-font-size: 40px;  
-width: 158px;
-height: 40px; 
-margin-top : 10px;
+.job_height {
+  margin-left: 20px;
+  padding-top: 20px;
 }
 
-#info{
-
+.visual {
+	height: 142px;
+	width: 600px;
+	background-color: white;
+	margin: 20px;
+  margin-top: 70px;
 }
 
-/*footer*/
-footer {
-color: #fff;
-border:1px solid gray;
-height:180px;
-width:100%;
-bottom:0px;
-position: fixed;
+.music {
+	height: 142px;
+	width: 600px;
+	background-color: white;
+	margin: 20px;
+}
+
+
+#top_movie {
+	clear:both;
+	position: relative;
+	width: 100%;
+	height : 570px;
+	background-color: green;
+}
+
+
+.card_wrap {
+  width: 275px;
+  height: 394px;
+  position: relative;
+  margin: 10px;
+  font-family: Apple SD Gothic Neo, '나눔고딕', Nanum Gothic, sans-serif;
+  font-size: 12px;
+  float: left;
+  z-index: 0;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.card_wrap.hover > .poster_container > .hover_container {
+  opacity: 1;
+}
+
+.hover_container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+.hover_container .black_bg {
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.60;
+}
+
+.btn {
+	margin: 0 auto;
+	height: 40px;
+	width: 170px;
+	color: #FFF;
+	border: 1px solid;
+	font-size: 1.4em;
+	line-height: 2.5em;
+}
+
+
+
+.top_gradation {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 180px;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.65)), color-stop(100%, rgba(0, 0, 0, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+  /* W3C */
+}
+.card_shadow {
+  display: inline;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-font-smoothing: antialiased;
+  background-color: #525252;
+  opacity: 0.2;
+}
+.poster_container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  max-width: inherit;
+}
+.poster{
+	width : 100%;
+	height: 100%;
+}
+
+
+#log {
+	position: relative;
+	width: 100%;
+	height : 500px;
+	background-color: yellow;
+}
+
+.log_container {
+	margin-left: 30px;
+	width: 95%;
+	height: 80%;
+	background-color: white;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
-
-/*width: 416px;
-height: px;
-margin:0px;
-border:0px;
-padding:0px;
-*/
