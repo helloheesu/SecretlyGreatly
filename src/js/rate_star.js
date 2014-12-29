@@ -44,9 +44,11 @@ function mouse_enter() {
     }
 
     function _showDataLoadingPage() {
-        console.log(target_value);       //콘솔 창에 클릭한 별점을 보여줌
-    
-        var x = document.getElementById("Director_score").value;
+        console.log(target_value);     
+        
+
+        var Director =document.getElementsByName("Director_score");
+        // .value = target_value;
       
         // console.log(document.getElementById("Director_score").value);
     }
