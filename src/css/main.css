@@ -8,6 +8,13 @@ body {
 margin:0;
 }
 
+.idx1 {
+    width: 100%;
+    background-size:   cover;                      /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;  
+}
+
 ul {
 list-style:none;
 margin:0;
