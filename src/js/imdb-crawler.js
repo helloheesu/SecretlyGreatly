@@ -199,63 +199,32 @@ pCrawler.prototype.requestCrewInfo = function(callback) {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
-		console.info(self.movieID + ' response');
+		console.info(self.crewID + ' response');
 		console.log('statusCode : '+res.statusCode);
-		console.log('headers :');
-		console.log(res.headers);
+		// console.log('headers :');
+		// console.log(res.headers);
 		if(res.statusCode==200) {
 			res.on('data', function(chunk) {
 				self.data += chunk.toString();
 			});
 			res.on('end', function() {
-				console.info(self.movieID + ' crew res end');
+				console.info(self.crewID + ' crew res end');
 				if(callback) callback();
 			});
 		}
 	});
 	req.end();
 };
-// pCrawler.prototype.parseData = function() {
-// 	var $ = cheerio.load(this.data);
-// 	var removeSpaces = function(text) {
-// 		return text.replace(/^\s+|\s+$/g, '').replace(/\s{2,}/g, ' ');
-// 	};
-// 	var getParsedPersonInfo = function(typetext) {
-// 		var docs = $("h4:contains("+typetext+")").next().find('tr');
-// 		return (function getParsedArray(docs) {
-// 			var result = [];
-// 			for (var i = 0; i < docs.length; i++) {
-// 				var cID = $(docs[i]).find('.name a').attr('href');
-// 				if(!cID) continue;
-// 				cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
-// 				var name = removeSpaces($(docs[i]).find('.name a').text());
-// 				var role = removeSpaces($(docs[i]).find('.credit').text());
-// 				result.push({cID:cID, name:name, role:role});
-// 			}
-// 			return result;
-// 		})(docs);
-// 	};
-// 	var getParsedActorInfo = function() {
-// 		var actDocs = $("h4:contains('Cast')").next().find('tr.odd, tr.even');
-// 		var result = [];
-// 		for (var i = 0; i < actDocs.length; i++) {
-// 			var cID = $(actDocs[i]).find("[itemprop='name']").parent().attr('href');
-// 			if(!cID) continue;
-// 			cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
-// 			var name = removeSpaces($(actDocs[i]).find("[itemprop='name']").text());
-// 			var role = removeSpaces($(actDocs[i]).find(".character").text());
-// 			result.push({cID:cID, name:name, role:role});
-// 		}
-// 		return result;
-// 	};
+pCrawler.prototype.parseData = function() {
+	var $ = cheerio.load(this.data);
 
-// 	this.crewData = {
-// 		direction: getParsedPersonInfo('Directed by'),
-// 		scenario: getParsedPersonInfo('Writing Credits'),
-// 		music: getParsedPersonInfo('Music by'),
-// 		cinema: getParsedPersonInfo('Cinematography by'),
-// 		act: getParsedActorInfo()
-// 	};
-// };
+	var name = $('.header > [itemprop="name"]').text();
+	var profileSrc = $('#name-poster').attr('src');
+
+	this.crewData = {
+		name: name,
+		profile: profileSrc
+	};
+};
 
 module.exports.pCrawler = pCrawler;
