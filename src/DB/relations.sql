@@ -1,5 +1,10 @@
+USE movies;
+
+-- RENAME TABLE p_type TO type;
+-- ALTER TABLE type CHANGE COLUMN typeID tID INT;
+-- ALTER TABLE type CHANGE COLUMN type_name name VARCHAR(255);
 CREATE TABLE type(
-	tID INT PRIMARY KEY,
+	tID INT PRIMARY KEY, -- 일부러 AUTO_INCREMENT 안 함.
 	name VARCHAR(255) NOT NULL
 );
 GRANT select
@@ -22,4 +27,21 @@ CREATE TABLE participate(
 	PRIMARY KEY (mID, cID, tID)
 );
 GRANT select, insert
-	ON movies.participation TO 'guest_demo'@'%';
+	ON movies.participate TO 'guest_demo'@'%';
+
+CREATE TABLE record(
+	rID INT NOT NULL AUTO_INCREMENT,
+	timestamp TIMESTAMP NOT NULL,
+	PRIMARY KEY (rID, timestamp),
+	uID INT NOT NULL,
+	mID INT NOT NULL,
+	total_score DECIMAL(2, 1),
+	comment TEXT,
+	tID INT NOT NULL,
+	type_score DECIMAL(2,1),
+	FOREIGN KEY (uID) REFERENCES user(uID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (mID) REFERENCES movie(mID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (tID) REFERENCES type(tID) ON UPDATE CASCADE ON DELETE CASCADE
+);
+GRANT select, insert
+	ON movies.record TO 'guest_demo'@'%';
