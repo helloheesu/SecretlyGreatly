@@ -20,7 +20,6 @@ text-decoration:none;
 
 header {
 z-index: 1;
-1border:1px solid gray;
 height:80px;
 position:absolute;
 top :0;
@@ -38,7 +37,6 @@ float:left;
 }
 
 #wrap {
-1height:1900px;
 position:static;
 width:100%;
 }
@@ -48,7 +46,6 @@ width:100%;
 height:500px;
 width:100%;
 }
-
 
 #logo {
 padding:25px 10px;
@@ -118,29 +115,9 @@ width:50px;
 }
 
 #top_image {
-1background-image:url(https://d12hfz37g51hrt.cloudfront.net/s/n_b/mx0l4f-9f64cd856227b7c06f6c.jpg?1411561786);	
-1border:1px solid gray;
 height:500px;
 width:100%;
 }
-
-#search_bar{
-  opacity: 0.6
-}
-
-#search_bar > input{ 
-	border: none;
-  position : absolute;
-  top : 400px;
-  left : 400px;
-  width :450px;
-  height : 50px;
-  font: 16px arial,sans-serif;
-
-  1background-color: rgba(0,0,0,0.7)
-
-}
-
 
 
 #container {
@@ -197,8 +174,6 @@ width:275px;
 .poster:hover{
 	opacity: 0.2
 }*/
-
-
 
 /*footer {
 border:1px solid gray;
@@ -352,4 +327,102 @@ width:100%;
     opacity: 0;
   }
 }
+#top {
+  position: relative;
+}
 
+#search {
+  position: absolute;
+  top: 65%;
+  width: 70%;
+  min-width: 400px;
+  margin: 0 auto;
+  padding-left: 45%;
+}
+
+.blind {
+  display: none;
+}
+#search_bar fieldset {
+  border: none;
+}
+
+#search_query{
+  opacity: 0.9;
+  width: 80%;
+  min-width: 200px;
+  height: 40px;
+  display: inline-block;
+  float:left;
+  font-size: 1em;
+  padding-left: 5px;
+  border-radius: 3px;
+  border: 1px solid rgb(227,227,227);
+}
+
+#search_bar .btn_sm button {
+  border-radius: 3px;
+  background-color: rgb(201,27,60);
+  display: inline-block;
+  height: 40px;
+  width: 70px;
+  margin-left: 5px;
+  float: left;
+  border: none;
+  font-size: 12pt;
+  color: white;
+  cursor: pointer;
+  
+}
+
+.result_wrap {
+  width:80%;
+  min-width: 200px;
+  border: 1px solid;
+  overflow: hidden;
+  display: none;
+  z-index: 2;
+  position: relative;
+  background-color: white;
+  line-height: 1.3em;
+}
+
+.search_result {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.search_result div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.search_result div:first-child {
+  margin-left: 10px;
+  width: 80%;
+  float:left;
+  display: block;
+  
+  }
+.search_result div:last-child{
+  margin-left: 10px;
+  width: 15%;
+  float: right;
+  display: inline;
+  }
+
+.search_year {
+  float: right;
+  margin-right: 20px;
+  color: #555;
+}
+
+.on {
+  background-color: #E9A;
+}
+
+.search_result a {
+  display: block;
+  overflow: hidden;
+  color: #333;
+}

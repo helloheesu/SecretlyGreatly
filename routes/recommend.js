@@ -9,7 +9,8 @@ var http = require('http');
 
 var client = mysql.createConnection({
     user: 'guest_demo',
-    'database': 'movies'
+    password: '',
+    database: 'movies'
 });
 
 var router = express.Router();
