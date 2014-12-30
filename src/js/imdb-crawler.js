@@ -140,9 +140,8 @@ participationCrawler.prototype.parseData = function() {
 				var cID = $(docs[i]).find('.name a').attr('href');
 				if(!cID) continue;
 				cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
-				var name = removeSpaces($(docs[i]).find('.name a').text());
 				var role = removeSpaces($(docs[i]).find('.credit').text());
-				result.push({cID:cID, name:name, role:role});
+				result.push({cID:cID, role:role});
 			}
 			return result;
 		})(docs);
@@ -154,9 +153,8 @@ participationCrawler.prototype.parseData = function() {
 			var cID = $(actDocs[i]).find("[itemprop='name']").parent().attr('href');
 			if(!cID) continue;
 			cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
-			var name = removeSpaces($(actDocs[i]).find("[itemprop='name']").text());
 			var role = removeSpaces($(actDocs[i]).find(".character").text());
-			result.push({cID:cID, name:name, role:role});
+			result.push({cID:cID, role:role});
 		}
 		return result;
 	};
