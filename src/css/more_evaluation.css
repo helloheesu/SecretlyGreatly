@@ -3,6 +3,7 @@
 body{
 font-family: 'Nanum Gothic Coding' ; 
 }
+/*상단의 영화 포스터*/
 #movie-poster{
 height : 400px;
 width: 100%;
@@ -14,11 +15,11 @@ color: white;
 text-shadow: 2px 2px 1px rgba(188, 188, 188, 0.8);
 background: url("../img/slumdog.jpg");
 }
+
 #total{
 height : 400px;
 width: 100%;
 position: static;
-
 }
 
 #total-score{
@@ -31,7 +32,6 @@ width: 100%;
 position: relative;
 background-color: #D4D4D4;  
 background-color: #F1F1F1;  
-
 }
 
 #total-star{
@@ -41,6 +41,7 @@ position: relative;
 background-color: #D4D4D4;  
 }
 
+/*하위 5개 영역*/
 #mid-eval{
 height :700px;
 width: 100%;
@@ -51,7 +52,8 @@ position: relative;
 height :700px;
 width: 50%;
 float: left;
-background-color: #F1F1F1; 
+background-color: #F1F1F1;  
+
 }
 
 #men-list li{
@@ -67,17 +69,7 @@ float: right;
 background-color: #F1F1F1;  
 }
 
-#men-eval li{
-/*text-align: center;*/
-font-size: 20px;
-line-height: 100%;
-height :200px;
-background: orange;
-
-margin: 10px;
-/*border:5px solid gray;  */
-}
-
+/*별점 */
 .star_container {
   text-align: left;
   margin: 0 auto;
@@ -125,9 +117,29 @@ margin: 10px;
 .star.over {
   background-image: url('../img/img_full_star.png');
   /*background-image: url('../img/img_full_star.png');*/
-
 }
 
+/*상세 인물 카드*/
+#card-list li{
+height :200px;
+background: orange;
+margin: 10px;
+}
+
+.maker-pic{
+ margin : 20px; 
+ float:left:
+}
+.maker-name{
+border:5px solid gray;
+font-size: 30px;
+float: right;
+line-height: 200%;
+}
+
+
+
+/*코멘트*/
 #comment-wrap{
 text-align: center;
 font-size: 20px;
@@ -135,7 +147,7 @@ color: white;
 line-height: 200%;
 height :500px;
 width: 100%;
-background: purple;
+background: navy;
 
 }
 
@@ -152,5 +164,3 @@ margin: 20px;
   width : 150px;
   height :40px;
 }
-
-
