@@ -3,8 +3,8 @@ var express = require('express');
 var mysql = require('mysql');
 var client = mysql.createConnection({ //수정요
 	user: 'root',
-	password: '',
-	'database': 'movies'
+	password: '0525',
+	'database': 'booklist'
 });
 
 var app = express();

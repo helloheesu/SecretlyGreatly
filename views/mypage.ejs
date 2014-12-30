@@ -98,7 +98,35 @@
       <div class="title log"><a href="">나의 로그
       </a></div>
       <div class="log_container">
-        <!--형식에 맞게 수정할 필요!! -->
+        <table id="mylog">
+          <tr>
+            <th>Num</th>
+            <th>Date</th>
+            <th>Movie Name</th>   
+            <th>Total Point</th>
+            <th>Favorite Point</th>   
+            <th>Comment</th>
+          </tr>
+  <tr>
+    <td>1</td>
+    <td>2014/12/31</td>   
+    <td>3</td>
+    <td>4.5</td>
+    <td>Art</td>    
+    <td> <% for(var i=0; i<result.length; i++) { %>
+          <%= result[i].comment %>
+        <% } %></td>
+  </tr>
+<!--   <tr>
+    <td></td>
+    <td></td>   
+    <td></td>
+    <td></td>
+    <td></td>   
+    <td></td>
+  </tr> -->
+</table>
+
         <% for(var i=0; i<result.length; i++) { %>
           <%= result[i].comment %>
         <% } %>

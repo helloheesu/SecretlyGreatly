@@ -233,6 +233,11 @@ header {
 	background-color: white;
 }
 
+table#mylog {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+
 @-webkit-keyframes fadeOut {
   from {
     opacity: 1;
