@@ -130,16 +130,32 @@ crewCrawler.prototype.requestCrewInfo = function(callback) {
 crewCrawler.prototype.parseData = function() {
 	var $ = cheerio.load(this.data);
 
+	var getParsedArray = function(docs) {
+		var getParsedPeopleText = function(text) {
+			return text.replace(/^\s+(.+[^\s])\s+$/, '$1');
+		};
+		var result = [];
+		for (var i = 0; i < docs.length; i++) {
+			var name = getParsedPeopleText($(docs[i]).find('.name a').text());
+			var role = getParsedPeopleText($(docs[i]).find('.credit').text());
+			result.push({name:name, role:role});
+		}
+		return result;
+	};
+
 	var directionDocs = $("h4:contains('Directed by')").next().find('tr');
-	var directions = [];
-	for (var i = 0; i < directionDocs.length; i++) {
-		var name = $(directionDocs[i]).find('.name a').text().replace(/^\s+(.+[^\s])\s+$/, '$1');
-		var role = $(directionDocs[i]).find('.credit').text().replace(/^\s+(.+[^\s])\s+$/, '$1');
-		directions[i] = {name:name, role:role};
-	}
-	this.directions = directions;
+	var directions = getParsedArray(directionDocs);
+	var scenarioDocs = $("h4:contains('Writing Credits')").next().find('tr');
+	var scenarios = getParsedArray(scenarioDocs);
+	var musicDocs = $("h4:contains('Music by')").next().find('tr');
+	var musics = getParsedArray(musicDocs);
+	var cinemaDocs = $("h4:contains('Cinematography by')").next().find('tr');
+	var cinemas = getParsedArray(cinemaDocs);
 	this.crewData = {
-		directions: directions
+		direction: directions,
+		scenario: scenarios,
+		music: musics,
+		cinema: cinemas
 	};
 };
 

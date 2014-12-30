@@ -63,5 +63,5 @@ var crewCrawler = require('./imdb-crawler.js').crewCrawler;
 var c = new crewCrawler(movieID);
 c.requestCrewInfo.call(c, function () {
 	c.parseData.call(c);
-	console.log(c.crewData.directions);
+	console.log(c.crewData);
 });
