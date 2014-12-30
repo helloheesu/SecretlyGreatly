@@ -10,7 +10,7 @@ font-family: 'Nanum Gothic Coding' ;
 #movie-poster{
 height : 400px;
 width: 100%;
-position: static;
+1position: static;
 text-align: center;
 font-size: 80px;
 line-height: 650%;
@@ -38,13 +38,13 @@ font-size: 60px;
 }
 /*하위 5개 영역*/
 #mid-eval{
-height :1700px;
+1height :1700px;
 width: 100%;
 position: relative;
 }
 
 #type-list-wrap{
-position: relative;
+1position: relative;
 width: 100%;
 f1loat: left;
 background-color: #F1F1F1;  

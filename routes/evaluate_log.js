@@ -1,8 +1,4 @@
-//input id가 send인 타입이 submit인 버튼을 클릭하면
-//디비에 저장되도록 하는 자바스크립트 파일 만들어야 될거같다.
-//아니면 more_evaluation.ejs에서 
-//<form method="post" action="/eval_log">이렇게 해줘서
-//별도로 필요없을까?
+//평가하기페이지에서 별점+코멘트를 쓰고 제출을 하면 디비에 넣어주는 코드 
 
 var fs = require('fs');
 var http = require('http');

@@ -229,13 +229,14 @@ header {
 .log_container {
 	margin-left: 30px;
 	width: 95%;
-	height: 80%;
+	height: 80%; 
 	background-color: white;
 }
 
 table#mylog {
     width: 100%;    
     background-color: #f1f1c1;
+    text-align: center;
 }
 
 @-webkit-keyframes fadeOut {

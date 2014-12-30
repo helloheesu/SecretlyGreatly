@@ -107,30 +107,17 @@
             <th>Favorite Point</th>   
             <th>Comment</th>
           </tr>
-  <tr>
-    <td>1</td>
-    <td>2014/12/31</td>   
-    <td>3</td>
-    <td>4.5</td>
-    <td>Art</td>    
-    <td> <% for(var i=0; i<result.length; i++) { %>
-          <%= result[i].comment %>
-        <% } %></td>
-  </tr>
-<!--   <tr>
-    <td></td>
-    <td></td>   
-    <td></td>
-    <td></td>
-    <td></td>   
-    <td></td>
-  </tr> -->
+          <tr>
+            <% for(var i=0; i<num_result.length; i++) { %>
+            <td><%= num_result[i].num %></td>   
+            <td><%= date_result[i].date %></td>   
+            <td><%= movie_name_result[i].movie_name %></td>   
+            <td><%= total_result[i].total_point %></td>   
+            <td><%= fav_point_result[i].favorite %></td>        
+            <td><%= comment_result[i].comments %></td>
+          </tr><% } %>
+
 </table>
-
-        <% for(var i=0; i<result.length; i++) { %>
-          <%= result[i].comment %>
-        <% } %>
-
       </div>
     </div> 
   </body>

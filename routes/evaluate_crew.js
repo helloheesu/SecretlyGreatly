@@ -16,17 +16,14 @@ var router = express.Router();
 
 router.get('/', function (request, response, next) {
 	console.log('hello ');
-	client.query('SELECT name, picture, role FROM crew_info where type = "director";', function (error, db_director_result, fields) {
-		client.query('SELECT name, picture, role FROM crew_info where type = "actor";', function (error, db_actor_result, fields) {
-			client.query('SELECT name, picture, role FROM crew_info where type = "story";', function (error, db_story_result, fields) {
-				client.query('SELECT name, picture, role  FROM crew_info where type = "music";', function (error, db_music_result, fields) {
-					client.query('SELECT name, picture, role FROM crew_info where type = "visual";', function (error, db_visual_result, fields) {
+	// client.query('SELECT movie_title FROM moviedata where movie_title="daeboo";'), function (error, db_title_result, fields) {
+		client.query('SELECT name, picture, role FROM crew_info where type = "director";', function (error, db_director_result, fields) {
+			client.query('SELECT name, picture, role FROM crew_info where type = "actor";', function (error, db_actor_result, fields) {
+				client.query('SELECT name, picture, role FROM crew_info where type = "story";', function (error, db_story_result, fields) {
+					client.query('SELECT name, picture, role  FROM crew_info where type = "music";', function (error, db_music_result, fields) {
+						client.query('SELECT name, picture, role FROM crew_info where type = "visual";', function (error, db_visual_result, fields) {
 
-		// if(error) {
-		// 	console.log('wrong query');
-		// 	return; //디비 쿼리문은 테이블 명에 맞추어 수정한다.
-		// }
-		// console.log('hello '+result.length);
+
 		response.render('more_evaluation', {director_result:db_director_result, actor_result:db_actor_result,story_result:db_story_result, music_result:db_music_result, visual_result:db_visual_result} );
 
 					});
