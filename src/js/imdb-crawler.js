@@ -164,7 +164,7 @@ participationCrawler.prototype.parseData = function() {
 		scenario: getParsedPersonInfo('Writing Credits'),
 		music: getParsedPersonInfo('Music by'),
 		cinema: getParsedPersonInfo('Cinematography by'),
-		act: getParsedActorInfo()
+		acting: getParsedActorInfo()
 	};
 };
 
