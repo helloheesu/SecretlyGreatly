@@ -53,44 +53,44 @@ var pc = new participationCrawler(movieID);
 var pInsertSql = 'INSERT INTO participate (mID, cID, tID, role, credit_order) VALUES(?, ?, ?, ?, ?)';
 pc.requestParticipationInfo.call(pc, function () {
 	pc.parseData.call(pc);
-		var pData = pc.participationData;
-		for (var type in pData) {
-			(function(type) {
-				var typeID;
-				switch(type) {
-					case 'direction': typeID = 1; break;
-					case 'scenario': typeID = 2; break;
-					case 'acting': typeID = 3; break;
-					case 'music': typeID = 4; break;
-					case 'cinematography': typeID = 5; break;
-				}
-				// array of {cID:cID, role:role, creditOrder:creditOrder}
-				var typeCrewArray = pData[type];
-				var insertedOK = 0;
-				pool.getConnection(function(err, sqlConn) {
-					(function() {
-						for (var i = 0; i < typeCrewArray.length; i++) {
-							(function(i) {
-								var newM = pc.movieID, newC, newT = typeID, newR = typeCrewArray[i].role, newO = typeCrewArray[i].creditOrder;
-								var newArr = [ newM, newC, newT, newR, newO ];
-								sqlConn.query(pInsertSql, newArr, function (err, result) {
-									if(err) {
-										if(err.code == 'ER_DUP_ENTRY') {
-											console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' already exists!');
-										} else { throw err; }
-									} else { console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' inserted!'); }
-									console.log('inserted participate: '+(++insertedOK));
-									if(insertedOK >= typeCrewArray.length) {
-										console.info('will release sqlConn');
-										sqlConn.release();
-									}
-								});
-							})(i);
-						}
-					})();
-				});
-			})(type);
-		}
+	var pData = pc.participationData;
+	for (var type in pData) {
+		(function(type) {
+			var typeID;
+			switch(type) {
+				case 'direction': typeID = 1; break;
+				case 'scenario': typeID = 2; break;
+				case 'acting': typeID = 3; break;
+				case 'music': typeID = 4; break;
+				case 'cinematography': typeID = 5; break;
+			}
+			// array of {cID:cID, role:role, creditOrder:creditOrder}
+			var typeCrewArray = pData[type];
+			var insertedOK = 0;
+			pool.getConnection(function(err, sqlConn) {
+				(function() {
+					for (var i = 0; i < typeCrewArray.length; i++) {
+						(function(i) {
+							var newM = pc.movieID, newC, newT = typeID, newR = typeCrewArray[i].role, newO = typeCrewArray[i].creditOrder;
+							var newArr = [ newM, newC, newT, newR, newO ];
+							sqlConn.query(pInsertSql, newArr, function (err, result) {
+								if(err) {
+									if(err.code == 'ER_DUP_ENTRY') {
+										console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' already exists!');
+									} else { throw err; }
+								} else { console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' inserted!'); }
+								console.log('inserted participate: '+(++insertedOK));
+								if(insertedOK >= typeCrewArray.length) {
+									console.info('will release sqlConn');
+									sqlConn.release();
+								}
+							});
+						})(i);
+					}
+				})();
+			});
+		})(type);
+	}
 });
 /*
 var crewID = 115;
