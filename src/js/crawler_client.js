@@ -48,7 +48,7 @@ for (var i = startIdx; i < endIdx; i++) {
 		});
 	})(i);
 }
-*/
+
 
 for (var i = startIdx; i < endIdx; i++) {
 	(function(i) {
@@ -90,11 +90,21 @@ for (var i = startIdx; i < endIdx; i++) {
 		});
 	})(i);
 }
-
-
+*/
+var crewInsertSql = 'INSERT INTO crew (cID, name, profile_url) VALUES(?, ?, ?);';
 var crewID = 115;
 var cc = new crewCrawler(crewID);
 cc.requestCrewInfo.call(cc, function () {
 	cc.parseData.call(cc);
 	console.log(cc.crewData);
+	pool.getConnection(function(err, sqlConn) {
+		sqlConn.query(crewInsertSql, [cc.crewID, cc.crewData.name, cc.crewData.profile], function (err, result) {
+			if(err) {
+				if(err.code == 'ER_DUP_ENTRY') {
+					console.log('crew#'+cc.crewID+' already exists');
+				} else { throw err; }
+			} else { console.log(cc.crewID+' inserted!'); }
+			sqlConn.release();
+		});
+	});
 });
