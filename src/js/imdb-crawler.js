@@ -141,7 +141,7 @@ participationCrawler.prototype.parseData = function() {
 				if(!path) continue;
 				cID = path.replace(/^.+\/nm(\d{7}).+$/, '$1');
 				var role = removeSpaces($(docs[i]).find('.credit').text());
-				var creditOrder = path.match(/\d+$/);
+				var creditOrder = path.match(/\d+$/)[0];
 				result.push({cID:cID, role:role, creditOrder:creditOrder});
 			}
 			return result;
@@ -155,7 +155,7 @@ participationCrawler.prototype.parseData = function() {
 			if(!path) continue;
 			cID = path.replace(/^.+\/nm(\d{7}).+$/, '$1');
 			var role = removeSpaces($(actDocs[i]).find(".character").text());
-			var creditOrder = path.match(/\d+$/);
+			var creditOrder = path.match(/\d+$/)[0];
 			result.push({cID:cID, role:role, creditOrder:creditOrder});
 		}
 		return result;
