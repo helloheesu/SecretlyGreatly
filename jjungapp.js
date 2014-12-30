@@ -15,7 +15,11 @@ var news = require('./routes/new');
 var main = require('./routes/main');
 var del = require('./routes/delete');
 var evaluate = require('./routes/evaluate');
-
+var signin = require('./routes/signin');
+var evaluate = require('./routes/evaluate');
+var evaluate_log = require('./routes/evaluate_log');//
+var mypage = require('./routes/mypage');
+var evaluate_crew = require('./routes/evaluate_crew');
 var app = express();
 app.use(compression());
 
@@ -32,7 +36,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'src')));
 
-app.use('/', main);
+// app.use('/', main);
+app.use('/', signin);
+// app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
 app.use('/insert', insert);
@@ -41,6 +47,10 @@ app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
 
+app.use('/evaluate', evaluate);  // evaluate.js 는 지울 것.
+app.use('/evaluate_log', evaluate_log); //
+app.use('/mypage', mypage);
+app.use('/evaluate_crew', evaluate_crew);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

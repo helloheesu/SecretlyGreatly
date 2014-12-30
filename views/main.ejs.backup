@@ -11,7 +11,7 @@
 				<span class="highlight"></span>
 			</li>				
 			<li class="header_menu">
-				<a href="./recommendation">추천영화</a>
+				<a href="./recommend">추천영화</a>
 			<span class="highlight"></span>
 			</li>
 			<li class="header_menu">
@@ -63,36 +63,56 @@
 				<div class="title"><a href="">장르별 추천</a></div>
 				<div class="see_all"><a href="">모두보기</a></div>
 				<div id ="genre_card_container">
-					<div class="genre_card">
-						<span class="genre_text">범죄</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">코미디</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">스릴러</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">전쟁</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">판타지</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">드라마</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">로맨스/멜로</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">로맨틱코미디</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">가족</span>
-					</div>
-					<div class="genre_card">
-						<span class="genre_text">액션</span>
-					</div>
+					<a href="./recommend?genre=범죄">
+						<div class="genre_card">
+							<span class="genre_text">범죄</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=코미디">
+						<div class="genre_card">
+							<span class="genre_text">코미디</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=스릴러">
+						<div class="genre_card">
+							<span class="genre_text">스릴러</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=전쟁">
+						<div class="genre_card">
+							<span class="genre_text">전쟁</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=판타지">
+						<div class="genre_card">
+							<span class="genre_text">판타지</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=드라마">
+						<div class="genre_card">
+							<span class="genre_text">드라마</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=로맨스/멜로">
+						<div class="genre_card">
+							<span class="genre_text">로맨스/멜로</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=로맨틱코미디">
+						<div class="genre_card">
+							<span class="genre_text">로맨틱코미디</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=가족">
+						<div class="genre_card">
+							<span class="genre_text">가족</span>
+						</div>
+					</a>
+					<a href="./recommend?genre=액션">
+						<div class="genre_card">
+							<span class="genre_text">액션</span>
+						</div>
+					</a>
 				</div>
 			</div>
 			<div id="email_button">
