@@ -57,11 +57,12 @@ for (var i = 1; i < 10000; i++) {
 }
 */
 
-var movieID = 268126;
+var movieID = 115;
 // var movieID = 1333125;
-var crewCrawler = require('./imdb-crawler.js').crewCrawler;
+var crewCrawler = require('./imdb-crawler.js').pCrawler;
 var c = new crewCrawler(movieID);
 c.requestCrewInfo.call(c, function () {
-	c.parseData.call(c);
-	console.log(c.crewData);
+	// c.parseData.call(c);
+	// console.log(c.crewData);
+	console.log(c.data);
 });
