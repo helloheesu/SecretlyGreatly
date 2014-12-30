@@ -28,6 +28,7 @@ CREATE TABLE participate(
 );
 GRANT select, insert
 	ON movies.participate TO 'guest_demo'@'%';
+INSERT INTO participate (mID, cID, tID, role, credit_order) VALUES(472160, 564215, 3, 'Johnny / Max', 15);
 
 CREATE TABLE record(
 	rID INT NOT NULL AUTO_INCREMENT,
