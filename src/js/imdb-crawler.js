@@ -137,11 +137,12 @@ participationCrawler.prototype.parseData = function() {
 		return (function getParsedArray(docs) {
 			var result = [];
 			for (var i = 0; i < docs.length; i++) {
-				var cID = $(docs[i]).find('.name a').attr('href');
-				if(!cID) continue;
-				cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
+				var path = $(docs[i]).find('.name a').attr('href');
+				if(!path) continue;
+				cID = path.replace(/^.+\/nm(\d{7}).+$/, '$1');
 				var role = removeSpaces($(docs[i]).find('.credit').text());
-				result.push({cID:cID, role:role});
+				var creditOrder = path.match(/\d+$/);
+				result.push({cID:cID, role:role, creditOrder:creditOrder});
 			}
 			return result;
 		})(docs);
@@ -150,11 +151,12 @@ participationCrawler.prototype.parseData = function() {
 		var actDocs = $("h4:contains('Cast')").next().find('tr.odd, tr.even');
 		var result = [];
 		for (var i = 0; i < actDocs.length; i++) {
-			var cID = $(actDocs[i]).find("[itemprop='name']").parent().attr('href');
-			if(!cID) continue;
-			cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
+			var path = $(actDocs[i]).find("[itemprop='name']").parent().attr('href');
+			if(!path) continue;
+			cID = path.replace(/^.+\/nm(\d{7}).+$/, '$1');
 			var role = removeSpaces($(actDocs[i]).find(".character").text());
-			result.push({cID:cID, role:role});
+			var creditOrder = path.match(/\d+$/);
+			result.push({cID:cID, role:role, creditOrder:creditOrder});
 		}
 		return result;
 	};
