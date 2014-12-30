@@ -92,7 +92,7 @@ module.exports.movieCrawler = movieCrawler;
 
 
 
-function crewCrawler(movieID) {
+function participationCrawler(movieID) {
 	// got bored of 301.
 	movieID = movieID.toString();
 	for (; movieID.length < 7; ) { movieID = '0'+movieID; }
@@ -107,27 +107,27 @@ function crewCrawler(movieID) {
 	};
 	this.data = "";
 }
-crewCrawler.prototype.requestCrewInfo = function(callback) {
+participationCrawler.prototype.requestParticipationInfo = function(callback) {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
 		console.info(self.movieID + ' response');
 		console.log('statusCode : '+res.statusCode);
-		console.log('headers :');
-		console.log(res.headers);
+		// console.log('headers :');
+		// console.log(res.headers);
 		if(res.statusCode==200) {
 			res.on('data', function(chunk) {
 				self.data += chunk.toString();
 			});
 			res.on('end', function() {
-				console.info(self.movieID + ' crew res end');
+				console.info(self.movieID + ' participation res end');
 				if(callback) callback();
 			});
 		}
 	});
 	req.end();
 };
-crewCrawler.prototype.parseData = function() {
+participationCrawler.prototype.parseData = function() {
 	var $ = cheerio.load(this.data);
 	var removeSpaces = function(text) {
 		return text.replace(/^\s+|\s+$/g, '').replace(/\s{2,}/g, ' ');
@@ -161,7 +161,7 @@ crewCrawler.prototype.parseData = function() {
 		return result;
 	};
 
-	this.crewData = {
+	this.participationData = {
 		direction: getParsedPersonInfo('Directed by'),
 		scenario: getParsedPersonInfo('Writing Credits'),
 		music: getParsedPersonInfo('Music by'),
@@ -170,7 +170,7 @@ crewCrawler.prototype.parseData = function() {
 	};
 };
 
-module.exports.crewCrawler = crewCrawler;
+module.exports.participationCrawler = participationCrawler;
 
 
 
@@ -180,7 +180,7 @@ module.exports.crewCrawler = crewCrawler;
 
 
 
-function pCrawler(crewID) {
+function crewCrawler(crewID) {
 	// got bored of 301.
 	crewID = crewID.toString();
 	for (; crewID.length < 7; ) { crewID = '0'+crewID; }
@@ -195,7 +195,7 @@ function pCrawler(crewID) {
 	};
 	this.data = "";
 }
-pCrawler.prototype.requestCrewInfo = function(callback) {
+crewCrawler.prototype.requestCrewInfo = function(callback) {
 	var self = this;
 
 	req = http.request(this.options, function(res) {
@@ -215,7 +215,7 @@ pCrawler.prototype.requestCrewInfo = function(callback) {
 	});
 	req.end();
 };
-pCrawler.prototype.parseData = function() {
+crewCrawler.prototype.parseData = function() {
 	var $ = cheerio.load(this.data);
 
 	var name = $('.header > [itemprop="name"]').text();
@@ -227,4 +227,4 @@ pCrawler.prototype.parseData = function() {
 	};
 };
 
-module.exports.pCrawler = pCrawler;
+module.exports.crewCrawler = crewCrawler;

@@ -57,11 +57,19 @@ for (var i = 1; i < 10000; i++) {
 }
 */
 
-var movieID = 115;
-// var movieID = 1333125;
-var crewCrawler = require('./imdb-crawler.js').pCrawler;
-var c = new crewCrawler(movieID);
-c.requestCrewInfo.call(c, function () {
-	c.parseData.call(c);
-	console.log(c.crewData);
+var participationCrawler = require('./imdb-crawler.js').participationCrawler;
+var crewCrawler = require('./imdb-crawler.js').crewCrawler;
+
+var movieID = 268126;
+var pc = new participationCrawler(movieID);
+pc.requestParticipationInfo.call(pc, function () {
+	pc.parseData.call(pc);
+	console.log(pc.participationData);
+});
+
+var crewID = 115;
+var cc = new crewCrawler(crewID);
+cc.requestCrewInfo.call(cc, function () {
+	cc.parseData.call(cc);
+	console.log(cc.crewData);
 });
