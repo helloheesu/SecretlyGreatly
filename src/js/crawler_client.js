@@ -10,8 +10,8 @@ var pool  = mysql.createPool({
 	database: 'movies'
 });
 
-var startIdx = 1798780;
-var endIdx = 1798790;
+var startIdx = 1798630;
+var endIdx = 1798660;
 /*
 var movieInsertSql = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
 var genreInsertSql = 'INSERT INTO genre (mID, genre) VALUES(?, ?);';
@@ -100,10 +100,10 @@ for (var i = startIdx; i < endIdx; i++) {
 									if(err) {
 										if(err.code == 'ER_DUP_ENTRY') {
 											console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' already exists!');
-										} else if(err.code == 'ER_NO_REFERENCED_ROW_') {
+										} else if(err.code == 'ER_NO_REFERENCED_ROW_2' || err.code == 'ER_NO_REFERENCED_ROW_') {
 											// crewReqQueue.push(newC);
 											reqNInsertCrew(newC, function(){funcA(i);});
-										} else { throw err; }
+										} else { console.error(err); }
 									} else { console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' inserted!'); }
 									// console.info('will release sqlConn');
 									sqlConn.release();
