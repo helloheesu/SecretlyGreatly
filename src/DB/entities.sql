@@ -21,6 +21,7 @@ GRANT select, insert
 	ON movies.user TO 'guest_demo'@'%';
 -- 사실 guest_demo 로 하면 안 됨. 다른 유저를 생성해야ㅜㅜ
 -- 유저 이름도 guest_demo 말고 다른 걸로 바꿔야ㅜㅜ
+INSERT INTO movie(mID, title, year, poster_url) VALUES(472160, 'Penelope', 2008, 'http://ia.media-imdb.com/images/M/MV5BMTc0MTYwNzQ5Nl5BMl5BanBnXkFtZTcwMjg2MzU1MQ@@._V1_SY317_CR2,0,214,317_AL_.jpg');
 
 CREATE TABLE genre(
 	mID INT NOT NULL,
@@ -41,3 +42,4 @@ CREATE TABLE crew(
 -- 후자 선택. 게다가 크롤링시에 처음엔 cID만 넣고, 그 뒤에 배우상세 페이지에서 프로필 사진을 얻어 보완하는 방식으로 해야함.
 GRANT select, insert
 	ON movies.crew TO 'guest_demo'@'%';
+INSERT INTO crew (cID, name, profile_url) VALUES(564215, 'James McAvoy', 'http://ia.media-imdb.com/images/M/MV5BMTQzNzIxOTYzMl5BMl5BanBnXkFtZTcwNjYxNTk1Nw@@._V1_SY317_CR14,0,214,317_AL_.jpg');
