@@ -57,19 +57,43 @@ for (var i = 1; i < 10000; i++) {
 }
 */
 
+var mysql = require('mysql');
+
 var participationCrawler = require('./imdb-crawler.js').participationCrawler;
 var crewCrawler = require('./imdb-crawler.js').crewCrawler;
+
+var pool  = mysql.createPool({
+	connectionLimit : 10,
+	user: 'guest_demo',
+	database: 'movies'
+});
 
 var movieID = 268126;
 var pc = new participationCrawler(movieID);
 pc.requestParticipationInfo.call(pc, function () {
+	// INSERT INTO participate (mID, cID, tID, role, credit_order) VALUES(472160, 564215, 3, 'Johnny / Max', 15);
 	pc.parseData.call(pc);
-	console.log(pc.participationData);
+	var pData = pc.participationData;
+	for (var type in pData) {
+		console.log(type+'========================');
+		var typeArray = pData[type];
+		for (var i = 0; i < typeArray.length; i++) {
+			var crewID = typeArray[i].cID;
+			console.log((i+1)+'th : '+crewID);
+			// var cc = new crewCrawler(crewID);
+			// cc.requestCrewInfo.call(cc, function () {
+			// 	cc.parseData.call(cc);
+			// 	console.log(cc.crewData);
+			// });
+		}
+	}
+	// console.log(pc.participationData);
 });
 
-var crewID = 115;
-var cc = new crewCrawler(crewID);
-cc.requestCrewInfo.call(cc, function () {
-	cc.parseData.call(cc);
-	console.log(cc.crewData);
-});
+// var crewID = 115;
+// var cc = new crewCrawler(crewID);
+// cc.requestCrewInfo.call(cc, function () {
+// 	// INSERT INTO crew (cID, name, profile_url) VALUES(564215, 'James McAvoy', 'http://ia.media-imdb.com/images/M/MV5BMTQzNzIxOTYzMl5BMl5BanBnXkFtZTcwNjYxNTk1Nw@@._V1_SY317_CR14,0,214,317_AL_.jpg');
+// 	cc.parseData.call(cc);
+// 	console.log(cc.crewData);
+// });
