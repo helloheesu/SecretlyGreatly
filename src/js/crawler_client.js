@@ -10,8 +10,8 @@ var pool  = mysql.createPool({
 	database: 'movies'
 });
 
-var startIdx = 1798700;
-var endIdx = 1798800;
+var startIdx = 1798780;
+var endIdx = 1798790;
 /*
 var movieInsertSql = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
 var genreInsertSql = 'INSERT INTO genre (mID, genre) VALUES(?, ?);';
@@ -28,7 +28,7 @@ for (var i = startIdx; i < endIdx; i++) {
 							console.log('movie#'+c.movieID+' already exists');
 						} else { throw err; }
 					} else { console.log(c.movieID+' inserted!'); }
-					var insertedOK = 0;	// !!!!!!!! 이거 클로져 불안하다.
+					var insertedOK = 0; // !!!!!!!! 이거 클로져 불안하다.
 					for (var i = 0; i < c.movieData.genre.length; i++) {
 						sqlConn.query(genreInsertSql, [c.movieID, c.movieData.genre[i]], function (err, result) {
 							if(err) {
@@ -48,10 +48,32 @@ for (var i = startIdx; i < endIdx; i++) {
 		});
 	})(i);
 }
+*/
 
+var reqNInsertCrew = function(crewID, callback) {
+	var crewInsertSql = 'INSERT INTO crew (cID, name, profile_url) VALUES(?, ?, ?);';
+	var cc = new crewCrawler(crewID);
+	cc.requestCrewInfo.call(cc, function () {
+		cc.parseData.call(cc);
+		console.log(cc.crewData);
+		pool.getConnection(function(err, sqlConn) {
+			sqlConn.query(crewInsertSql, [cc.crewID, cc.crewData.name, cc.crewData.profile], function (err, result) {
+				if(err) {
+					if(err.code == 'ER_DUP_ENTRY') {
+						console.log('crew#'+cc.crewID+' already exists');
+					} else { throw err; }
+				} else { console.log(cc.crewID+' inserted!'); }
+				callback();
+				sqlConn.release();
+			});
+		});
+	});
+};
+
+var crewReqQueue = [];
 
 for (var i = startIdx; i < endIdx; i++) {
-	(function(i) {
+	(function funcA(i) {
 		var pc = new participationCrawler(i);
 		var pInsertSql = 'INSERT INTO participate (mID, cID, tID, role, credit_order) VALUES(?, ?, ?, ?, ?)';
 		pc.requestParticipationInfo.call(pc, function () {
@@ -67,19 +89,23 @@ for (var i = startIdx; i < endIdx; i++) {
 					case 'cinematography': typeID = 5; break;
 				}
 				(function(newM, newT) {
-					var typeCrewArray = pData[type];	// array of {cID:cID, role:role, creditOrder:creditOrder}
+					var typeCrewArray = pData[type];    // array of {cID:cID, role:role, creditOrder:creditOrder}
 					for (var i = 0; i < typeCrewArray.length; i++) {
 						(function(i) {
-							var newC, newR = typeCrewArray[i].role, newO = typeCrewArray[i].creditOrder;
+							var newC = typeCrewArray[i].cID, newR = typeCrewArray[i].role, newO = typeCrewArray[i].creditOrder;
 							var newArr = [ newM, newC, newT, newR, newO ];
+							// console.log(newArr);
 							pool.getConnection(function(err, sqlConn) {
 								sqlConn.query(pInsertSql, newArr, function (err, result) {
 									if(err) {
 										if(err.code == 'ER_DUP_ENTRY') {
 											console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' already exists!');
+										} else if(err.code == 'ER_NO_REFERENCED_ROW_') {
+											// crewReqQueue.push(newC);
+											reqNInsertCrew(newC, function(){funcA(i);});
 										} else { throw err; }
 									} else { console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' inserted!'); }
-									console.info('will release sqlConn');
+									// console.info('will release sqlConn');
 									sqlConn.release();
 								});
 							});
@@ -90,7 +116,9 @@ for (var i = startIdx; i < endIdx; i++) {
 		});
 	})(i);
 }
-*/
+console.log(crewReqQueue);
+
+/*
 var crewInsertSql = 'INSERT INTO crew (cID, name, profile_url) VALUES(?, ?, ?);';
 var crewID = 115;
 var cc = new crewCrawler(crewID);
@@ -108,3 +136,4 @@ cc.requestCrewInfo.call(cc, function () {
 		});
 	});
 });
+*/
