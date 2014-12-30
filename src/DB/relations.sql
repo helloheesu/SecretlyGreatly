@@ -39,7 +39,7 @@ CREATE TABLE total_eval(
 	FOREIGN KEY (mID) REFERENCES movie(mID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 GRANT select, insert
-	ON movies.total_record TO 'guest_demo'@'%';
+	ON movies.total_eval TO 'guest_demo'@'%';
 CREATE TABLE type_eval(
 	type_eID INT PRIMARY KEY AUTO_INCREMENT,
 	mID INT NOT NULL,
