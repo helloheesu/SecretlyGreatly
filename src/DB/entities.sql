@@ -3,11 +3,13 @@ USE movies;
 CREATE TABLE user (
 	UID INT PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(50) NOT NULL UNIQUE,
-	password VARCHAR(50) NOT NULL,
+	password BINARY(16) NOT NULL,
 	username VARCHAR(50) 
 );
 GRANT select, insert
 	ON movies.user TO 'guest_demo'@'%';
+INSERT INTO user (email, password, username) VALUES(email, UNHEX(SHA1(password)), username);
+SELECT username WHERE email=email AND password=UNHEX(SHA1(password));
 
 CREATE TABLE movie(
 	mID INT PRIMARY KEY AUTO_INCREMENT,
