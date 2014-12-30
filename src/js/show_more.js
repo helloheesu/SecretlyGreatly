@@ -56,7 +56,7 @@ function makeCardElement(data){
     //     resultList += result;
     //   }//for 문 또는 recursive하게 돌리도록 한다. 
     for(var i = 0; i < data.length; i++){
-        var result = sTemplate.replace("<%=ImageLink%>", data[i].movie_url)
+        var result = sTemplate.replace(“<%=ImageLink%>”, data[i].movie_url)
         resultList += result;
       }
     return resultList;
