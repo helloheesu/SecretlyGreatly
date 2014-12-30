@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/queryResult.css" meida="screen">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+
+<% data.forEach(function (item,index) { %>
+
+<div class="card_wrap size_1x1 ">
+    <div class="card_shadow"></div>
+    <div class="poster_container">
+        <img class="poster" src="<%= item.poster_url %> " alt=""/>
+        <div class="top_gradation"></div>
+        <div class="hover_container">
+            <div class="black_bg"></div>
+            <div class="hover_contents">
+
+                <div class="btn log_container">
+                    <span class="text">내역보기</span>
+                </div>
+                <div class="btn evaluate_container">
+                    <span class="text"><a href="/evaluate">평가하기</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="movie_title">
+        <%= item.title %>
+    </div>
+</div>
+
+<% }); %>
+
+<% data.forEach(function (item,index) { %>
+<li id="list<%= index %>" class="search_result">
+    <a href="./movie/#">
+        <span class="search_title"><%= item.title %></span>
+        <span class="search_year"><%= item.year %></span>
+    </a>
+</li>
+<% }); %>
+
+
+</body>
+</html>

@@ -16,6 +16,8 @@ var main = require('./routes/main');
 var del = require('./routes/delete');
 var signin = require('./routes/signin');
 var evaluate = require('./routes/evaluate');
+var search = require('./routes/search');
+
 
 var app = express();
 app.use(compression());
@@ -43,7 +45,7 @@ app.use('/new',news);
 app.use('/main', main);
 app.use('/delete', del);
 app.use('/evaluate', evaluate);
-
+app.use('/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
