@@ -9,11 +9,14 @@ var pool  = mysql.createPool({
 	user: 'guest_demo',
 	database: 'movies'
 });
+
+var startIdx = 1798700;
+var endIdx = 1798800;
 /*
 var movieInsertSql = 'INSERT INTO movie (mID, title, year, poster_url) VALUES(?, ?, ?, ?);';
 var genreInsertSql = 'INSERT INTO genre (mID, genre) VALUES(?, ?);';
 
-for (var i = 1; i < 110; i++) {
+for (var i = startIdx; i < endIdx; i++) {
 	(function(i) {
 		var c = new movieCrawler(i);
 		c.requestMovieInfo.call(c, function () {
@@ -47,8 +50,7 @@ for (var i = 1; i < 110; i++) {
 }
 */
 
-
-for (var i = 1; i < 110; i++) {
+for (var i = startIdx; i < endIdx; i++) {
 	(function(i) {
 		var pc = new participationCrawler(i);
 		var pInsertSql = 'INSERT INTO participate (mID, cID, tID, role, credit_order) VALUES(?, ?, ?, ?, ?)';
@@ -64,39 +66,35 @@ for (var i = 1; i < 110; i++) {
 					case 'music': typeID = 4; break;
 					case 'cinematography': typeID = 5; break;
 				}
-				(function(typeID) {
+				(function(newM, newT) {
 					var typeCrewArray = pData[type];	// array of {cID:cID, role:role, creditOrder:creditOrder}
-					var insertedOK = 0;
-					pool.getConnection(function(err, sqlConn) {
-						for (var i = 0; i < typeCrewArray.length; i++) {
-							(function(i) {
-								var newM = pc.movieID, newC, newT = typeID, newR = typeCrewArray[i].role, newO = typeCrewArray[i].creditOrder;
-								var newArr = [ newM, newC, newT, newR, newO ];
+					for (var i = 0; i < typeCrewArray.length; i++) {
+						(function(i) {
+							var newC, newR = typeCrewArray[i].role, newO = typeCrewArray[i].creditOrder;
+							var newArr = [ newM, newC, newT, newR, newO ];
+							pool.getConnection(function(err, sqlConn) {
 								sqlConn.query(pInsertSql, newArr, function (err, result) {
 									if(err) {
 										if(err.code == 'ER_DUP_ENTRY') {
 											console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' already exists!');
 										} else { throw err; }
 									} else { console.log('movie#'+newM+' crew#'+newC+' type#'+newT+' inserted!'); }
-									console.log('inserted participate: '+(++insertedOK));
-									if(insertedOK >= typeCrewArray.length) {
-										console.info('will release sqlConn');
-										sqlConn.release();
-									}
+									console.info('will release sqlConn');
+									sqlConn.release();
 								});
-							})(i);
-						}
-					});
-				})(typeID);
+							});
+						})(i);
+					}
+				})(pc.movieID, typeID);
 			}
 		});
 	})(i);
 }
-/*
+
+
 var crewID = 115;
 var cc = new crewCrawler(crewID);
 cc.requestCrewInfo.call(cc, function () {
 	cc.parseData.call(cc);
 	console.log(cc.crewData);
 });
-*/
