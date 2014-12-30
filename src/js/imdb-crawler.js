@@ -137,9 +137,12 @@ crewCrawler.prototype.parseData = function() {
 		return (function getParsedArray(docs) {
 			var result = [];
 			for (var i = 0; i < docs.length; i++) {
+				var cID = $(docs[i]).find('.name a').attr('href');
+				if(!cID) continue;
+				cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
 				var name = removeSpaces($(docs[i]).find('.name a').text());
 				var role = removeSpaces($(docs[i]).find('.credit').text());
-				result.push({name:name, role:role});
+				result.push({cID:cID, name:name, role:role});
 			}
 			return result;
 		})(docs);
@@ -148,9 +151,12 @@ crewCrawler.prototype.parseData = function() {
 		var actDocs = $("h4:contains('Cast')").next().find('tr.odd, tr.even');
 		var result = [];
 		for (var i = 0; i < actDocs.length; i++) {
+			var cID = $(actDocs[i]).find("[itemprop='name']").parent().attr('href');
+			if(!cID) continue;
+			cID = cID.replace(/^.+\/nm(\d{7}).+$/, '$1');
 			var name = removeSpaces($(actDocs[i]).find("[itemprop='name']").text());
 			var role = removeSpaces($(actDocs[i]).find(".character").text());
-			result.push({name:name, role:role});
+			result.push({cID:cID, name:name, role:role});
 		}
 		return result;
 	};

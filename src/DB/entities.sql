@@ -33,9 +33,9 @@ GRANT select, insert
 CREATE TABLE crew(
 	cID INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
-	profile_url VARCHAR(2000) NOT NULL DEFAULT 'http://ia.media-imdb.com/images/G/01/imdb/images/nopicture/32x44/name-2138558783._CB379389446_.png'
+	profile_url VARCHAR(2000)
 );
-# node.js 에서 넣을 때 profile_url의 경우 null 이면 default 를 넣도록 바꿔줘야..?
-# 아니다. js에서 null이면 default 에 해당하는 이미지를 뿌려야..?
+# node.js 에서 넣을 때 profile_url의 경우 null 이면 default 를 넣도록 / js에서 null이면 default 에 해당하는 이미지를 뿌려야..?
+# 후자 선택. 게다가 크롤링시에 처음엔 cID만 넣고, 그 뒤에 배우상세 페이지에서 프로필 사진을 얻어 보완하는 방식으로 해야함.
 GRANT select, insert
 	ON movies.crew TO 'guest_demo'@'%';
