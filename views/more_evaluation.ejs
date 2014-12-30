@@ -14,7 +14,7 @@
     <form method="post" action="/evaluate_log">
    <header>
     <div id = "toplevel">
-      <div id="movie-poster"><div>슬럼독 밀리어네어</div><a href=inter.jpg></a></div>
+      <div id="movie-poster"><div><%=title_result[0].movie_title%></div><a href=inter.jpg></a></div>
         <div class="star-card" data-type="total-score"> <div id="total-score">TOTAL SCORE</div> 
           <div class="star_container total">
             <% for(var i = 1; i <= 10; i++){ %>
