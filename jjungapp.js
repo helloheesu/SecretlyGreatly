@@ -10,10 +10,8 @@ var compression = require('compression');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var recommend = require('./routes/recommend');
-var insert = require('./routes/insert');
 var news = require('./routes/new');
 var main = require('./routes/main');
-var del = require('./routes/delete');
 var signin = require('./routes/signin');
 var evaluate = require('./routes/evaluate');
 var evaluate_log = require('./routes/evaluate_log');//
@@ -42,10 +40,8 @@ app.use('/', signin);
 // app.use('/', main);
 app.use('/users', users);
 app.use('/recommend', recommend);
-app.use('/insert', insert);
 app.use('/new',news);
 app.use('/main', main);
-app.use('/delete', del);
 app.use('/evaluate', evaluate);  // evaluate.js 는 지울 것.
 app.use('/evaluate_log', evaluate_log); //
 app.use('/mypage', mypage);
