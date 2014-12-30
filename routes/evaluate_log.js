@@ -28,19 +28,43 @@ var router = express.Router();
 // 	response.render('more_evaluation');
 // });
 router.post('/', function (request, response, next) {
-	console.log("ddd");
-	var comment = request.param('comment');//파라미터를 받은 후 웹에 보여줌. <textarea id="comment" rows="50" cols="70" name=""></textarea> 이 부
-	console.log('comment is : ', comment);
+	
+	(function sendComment(){
+		var comment = request.param('comment');//파라미터를 받은 후 웹에 보여줌. <textarea id="comment" rows="50" cols="70" name=""></textarea> 이 부
+		console.log('comment is : ', comment);
 
-	var statement = 'INSERT INTO log (comment) VALUES("'+comment+'");'; //수정요 
-	console.log('statement:'+statement);
-	client.query(statement, function (error, result, fields) {
+		var statement = 'INSERT INTO log (comment) VALUES("'+comment+'");'; //수정요 
+		console.log('statement:'+statement);
+		client.query(statement, function (error, result, fields) {
 		if (result) {
 			console.log('result:'+result);
 		}
-		//response.cookie('logined', true);//수정요
 		response.redirect('/');
+		});
+	})();
 	
+	
+	(function sendScore(){
+
+		var star =[]; 
+		star[0] = request.param('Total_score');
+		star[1] = request.param('Director_score');
+		star[2] = request.param('Story_score');
+		star[3] = request.param('Act_score');
+		star[4] = request.param('Music_score');
+		star[5] = request.param('Visual_score');
+		console.log(star[0]);
+		console.log(request.param);
+
+
+		var statement = 'INSERT INTO star (score) VALUES("'+star[0]+'");';
+
+		client.query(statement, function (error, result, fields) {
+			if (result) {
+			console.log('result:'+result);
+			}
+			response.redirect('/');
+		});
 	});
 });
 

@@ -3,7 +3,6 @@
  카드 호버 이벤트
  TODO @jjung : 여기서 영화 데이터를 변수로 먼저 잡아주어야 한다.
  */
-
 function mouse_enter() {
 
     $(this).addClass("hover");
@@ -45,29 +44,7 @@ function mouse_enter() {
 
     function _showDataLoadingPage() {
         console.log(target_value);     
-        
-
-        var Director =document.getElementsByName("Director_score");
-        // .value = target_value;
-      
-        // console.log(document.getElementById("Director_score").value);
-    }
-
-
-    function _changeStarValue() {
-       console.log(target_value);
-
-     // input type="hidden" name="Director_score" value="" >
-     //ejs파일에서 이름에 맞는 value 값을 해당하는 값으로 동적으로 변환해줌
-
-
-        
-        _saveStarValuetoDb();//디비에 저장하도록 해주는 함수 호출 
-    }
-
-    // function _saveStarValuetoDb() {
-  
-    // }    
+      }
 
     /*
      별점 클릭 이벤트 연결.
@@ -76,6 +53,28 @@ function mouse_enter() {
      */
 
     $(stars).click(function () {
+        // $(this).parent().children().
+
+        // var target_value=[];
+
+        target_value = $(this).attr('data-value')     
+        $('.star_container [type="hidden"]').attr('value', target_value);
+            
+        // target_value[2] = $(this).attr('data-value')
+        // $('.star_container [name="Director_score"]').attr('value', target_value);
+            
+        // target_value[3] = $(this).attr('data-value')
+        // $('.star_container [name="Story_score"]').attr('value', target_value);
+        
+        // target_value[4] = $(this).attr('data-value')
+        // $('.star_container [name="Act_score"]').attr('value', target_value);
+        
+        // target_value[5] = $(this).attr('data-value')
+        // $('.star_container [name="Music_score"]').attr('value', target_value);
+        
+        // target_value[6] = $(this).attr('data-value')
+        // $('.star_container [name="Visual_score"]').attr('value', target_value);
+
         _showDataLoadingPage();
         isclicked = true;
         $("span.star.half",this).off();
@@ -86,9 +85,13 @@ function mouse_enter() {
     // 별점 드래그 이벤트 연결
     $(stars).hover(function () {
             $(this).addClass("hover");
-            target_value = $(this).attr('data-value');
+            
+            target_value = $(this).attr('data-value'); //attr : 속성값을 가져온다. 
 
             _star_over_animation(target_value , true);
+
+    //       
+
         },
         function () {
             if(isclicked === false) {
@@ -96,6 +99,7 @@ function mouse_enter() {
              _star_over_animation(target_value , false);
             }
         });
+
 }
 
 function mouse_leave() {

@@ -17,7 +17,8 @@ var del = require('./routes/delete');
 var signin = require('./routes/signin');
 var evaluate = require('./routes/evaluate');
 var evaluate_log = require('./routes/evaluate_log');//
-
+var mypage = require('./routes/mypage');
+var evaluate_crew = require('./routes/evaluate_crew');
 var app = express();
 app.use(compression());
 
@@ -43,10 +44,10 @@ app.use('/insert', insert);
 app.use('/new', news);
 app.use('/main', main);
 app.use('/delete', del);
-app.use('/evaluate', evaluate);
-app.get('/shows',routes.shows);//added by yunseo
+app.use('/evaluate', evaluate);  // evaluate.js 는 지울 것.
 app.use('/evaluate_log', evaluate_log); //
-
+app.use('/mypage', mypage);
+app.use('/evaluate_crew', evaluate_crew);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

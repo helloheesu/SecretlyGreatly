@@ -30,9 +30,20 @@
     </div> 
 
 <div id="mid-eval">
-  <div id="men-list-wrap" > 
-    <ul id="men-list" class="">
-      <li class="star-card" data-type="director"><div>DIRECTOR</div>
+  <div id="type-list-wrap" > 
+    <ul id="type-list" class="">
+      <!-- 1.감독 -->
+      <li class="star-card" data-type="director"><div id="type">1. DIRECTOR</div>
+        <div class="picture_container">
+        <% for(var i=0; i<director_result.length; i++) { %>
+          <div class="picture_con">
+            <img class="picture" src="<%=director_result[i].picture%>">
+            <div class="name"><%=director_result[i].name%></div>
+            <div class="role"><%=director_result[i].role%></div>
+          </div>
+        <% } %>
+        </div>
+        <!--감독의 별점 -->
         <div class="star_container">
           <% for(var i = 1; i <= 10; i++){ %>
             <%if(i%2 == 0) {%>
@@ -41,12 +52,45 @@
               <span class="star half left" data-value=<%=i/2%>></span>
               <%}%>
             <%}%>
-            <!-- <p id="demo">hello~~~</p> -->
             <input type="hidden" name="Director_score" value="" >
         </div>
       </li>
+           <!-- 2. 연기 -->
+      <li class="star-card" data-type="act"><div id="type">2. ACT</div>  
+      <div class="picture_container">
+        <% for(var i=0; i<actor_result.length; i++) { %>
+          <div class="picture_con">
+            <img class="picture" src="<%=actor_result[i].picture%>">
+            <div class="name"><%=actor_result[i].name%></div>
+            <div class="role"><%=actor_result[i].role%></div>
+          </div>
+        <% } %>
+        </div>
+        <!--연기의 별점 -->
+        <div class="star_container">
+          <% for(var i = 1; i <= 10; i++){ %>
+            <%if(i%2 == 0) {%>
+              <span class="star half right " data-value=<%=i/2%>></span>
+              <%} else {%>
+              <span class="star half left" data-value=<%=i/2%>></span>
+              <%}%>
+            <%}%>
+            <input type="hidden" name="Act_score" value="" >
+        </div>
+      </li>
 
-      <li class="star-card" data-type="story"><div>STORY</div>
+      <!--3. 각본  -->
+      <li class="star-card" data-type="story"><div id="type">3. STORY</div>
+      <div class="picture_container">
+        <% for(var i=0; i<story_result.length; i++) { %>
+          <div class="picture_con">
+            <img class="picture" src="<%=story_result[i].picture%>">
+            <div class="name"><%=story_result[i].name%></div>
+            <div class="role"><%=story_result[i].role%></div>
+          </div>
+        <% } %>
+        </div>
+        <!-- 각본의 별점 -->
         <div class="star_container">
           <% for(var i = 1; i <= 10; i++){ %>
             <%if(i%2 == 0) {%>
@@ -59,20 +103,18 @@
         </div>
       </li> 
 
-      <li class="star-card" data-type="act"><div>ACT</div> 
-        <div class="star_container">
-          <% for(var i = 1; i <= 10; i++){ %>
-            <%if(i%2 == 0) {%>
-              <span class="star half right" data-value=<%=i/2%>></span>
-              <%} else {%>
-              <span class="star half left" data-value=<%=i/2%>></span>
-              <%}%>
-            <%}%>
-            <input type="hidden" name="Act_score" value="" >
+      <!--4.음향  -->
+      <li class="star-card" data-type="music"><div id="type">4. MUSIC</div>
+      <div class="picture_container">
+        <% for(var i=0; i<music_result.length; i++) { %>
+          <div class="picture_con">
+            <img class="picture" src="<%=music_result[i].picture%>">
+            <div class="name"><%=music_result[i].name%></div>
+            <div class="role"><%=music_result[i].role%></div>
+          </div>
+        <% } %>
         </div>
-      </li>
-
-      <li class="star-card" data-type="music"><div>MUSIC</div>
+        <!-- 음향의 별점 -->
         <div class="star_container">
           <% for(var i = 1; i <= 10; i++){ %>
             <%if(i%2 == 0) {%>
@@ -84,8 +126,18 @@
             <input type="hidden" name="Music_score" value="" >
         </div>
       </li>
-
-      <li class="star-card" data-type="visual"><div>VISUAL</div>
+       <!--5.연출  -->
+      <li class="star-card" data-type="visual"><div id="type">5. VISUAL</div>
+      <div class="picture_container">
+        <% for(var i=0; i<visual_result.length; i++) { %>
+          <div class="picture_con">
+            <img class="picture" src="<%=visual_result[i].picture%>">
+            <div class="name"><%=visual_result[i].name%></div>
+            <div class="role"><%=visual_result[i].role%></div>
+          </div>
+        <% } %>
+        </div>
+        <!-- 연출의 별점 -->
         <div class="star_container">
           <% for(var i = 1; i <= 10; i++){ %>
             <%if(i%2 == 0) {%>
@@ -99,25 +151,6 @@
       </li> 
     </ul>
   </div>   
-
-
-    <div id="men-eval-wrap"> 
-      <ul id="card-list">
-        <li class="star-card" data-type="name">
-         <img class="maker-pic" src="https://d12hfz37g51hrt.cloudfront.net/ppl/b/ae0009744e3d2eb2d3dc.jpg?1344271219">
-          <div class="maker-name">james paker</div>
-           <div class="star_container">
-            <% for(var i = 1; i <= 10; i++){ %>
-              <%if(i%2 == 0) {%>
-                <span class="star half right" data-value=<%=i/2%>></span>
-                <%} else {%>
-                <span class="star half left" data-value=<%=i/2%>></span>
-                <%}%>
-              <%}%>
-          </div> 
-        </li> 
-      </ul> 
-    </div>
 </div>
 
     <div id="comment-wrap">
