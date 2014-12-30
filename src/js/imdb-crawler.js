@@ -129,17 +129,16 @@ crewCrawler.prototype.requestCrewInfo = function(callback) {
 };
 crewCrawler.prototype.parseData = function() {
 	var $ = cheerio.load(this.data);
-
+	var removeSpaces = function(text) {
+		return text.replace(/^\s+|\s+$/g, '').replace(/\s{2,}/g, ' ');
+	};
 	var getParsedPersonInfo = function(typetext) {
 		var docs = $("h4:contains("+typetext+")").next().find('tr');
 		return (function getParsedArray(docs) {
-			var getParsedPeopleText = function(text) {
-				return text.replace(/^\s+(.+[^\s])\s+$/, '$1');
-			};
 			var result = [];
 			for (var i = 0; i < docs.length; i++) {
-				var name = getParsedPeopleText($(docs[i]).find('.name a').text());
-				var role = getParsedPeopleText($(docs[i]).find('.credit').text());
+				var name = removeSpaces($(docs[i]).find('.name a').text());
+				var role = removeSpaces($(docs[i]).find('.credit').text());
 				result.push({name:name, role:role});
 			}
 			return result;
