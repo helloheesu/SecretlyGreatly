@@ -28,20 +28,44 @@ CREATE TABLE participate(
 );
 GRANT select, insert
 	ON movies.participate TO 'guest_demo'@'%';
+INSERT INTO participate (mID, cID, tID, role, credit_order) VALUES(472160, 564215, 3, 'Johnny / Max', 15);
 
-CREATE TABLE record(
-	rID INT NOT NULL AUTO_INCREMENT,
-	timestamp TIMESTAMP NOT NULL,
-	PRIMARY KEY (rID, timestamp),
-	uID INT NOT NULL,
+CREATE TABLE total_eval(
+	total_eID INT PRIMARY KEY AUTO_INCREMENT,
 	mID INT NOT NULL,
-	total_score DECIMAL(2, 1),
+	score DECIMAL(2, 1),
 	comment TEXT,
+	timestamp TIMESTAMP NOT NULL,
+	FOREIGN KEY (mID) REFERENCES movie(mID) ON UPDATE CASCADE ON DELETE CASCADE
+);
+GRANT select, insert
+	ON movies.total_record TO 'guest_demo'@'%';
+CREATE TABLE type_eval(
+	type_eID INT PRIMARY KEY AUTO_INCREMENT,
+	mID INT NOT NULL,
 	tID INT NOT NULL,
-	type_score DECIMAL(2,1),
-	FOREIGN KEY (uID) REFERENCES user(uID) ON UPDATE CASCADE ON DELETE CASCADE,
+	score DECIMAL(2,1),
+	timestamp TIMESTAMP NOT NULL,
 	FOREIGN KEY (mID) REFERENCES movie(mID) ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY (tID) REFERENCES type(tID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 GRANT select, insert
+	ON movies.type_eval TO 'guest_demo'@'%';
+CREATE TABLE record(
+	rID INT PRIMARY KEY AUTO_INCREMENT,
+	uID INT NOT NULL,
+	total_eID  INT NOT NULL,
+	type_eID INT NOT NULL,
+	FOREIGN KEY (uID) REFERENCES user(uID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (total_eID) REFERENCES total_eval(total_eID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (type_eID) REFERENCES type_eval(type_eID) ON UPDATE CASCADE ON DELETE CASCADE
+);
+GRANT select, insert
 	ON movies.record TO 'guest_demo'@'%';
+
+-- CREATE
+INSERT INTO total_eval (mID, score, comment) VALUES (472160, 4.0, '맥어보이b');
+SET @toID = LAST_INSERT_ID();
+INSERT INTO type_eval (mID, tID, score) VALUES (472160, 3, 5.0);
+SET @tyID = LAST_INSERT_ID();
+INSERT INTO record (uID, total_eID, type_eID) VALUES ((SELECT uID FROM user WHERE username='helloheesu'), @toID, @tyID);

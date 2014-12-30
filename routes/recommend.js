@@ -15,8 +15,6 @@ var client = mysql.createConnection({
 
 var router = express.Router();
 
-
-
 router.get('/edit/:id', function (req,res) {
     res.render('insert');
 });

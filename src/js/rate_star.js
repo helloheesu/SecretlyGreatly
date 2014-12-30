@@ -7,25 +7,44 @@
 function mouse_enter() {
 
     $(this).addClass("hover");
-
-    var stars, target_value;
+    var stars, target_value, isclicked;
     stars = $("span.star.half", this);
+    target_value = 0;
+    isclicked = false;
 
-    function _star_over_animation(v , b) {
-        $.each(stars, function () {
-            if ($(this).attr('data-value') <= v) {
-                if( b === true ) {
+    function _star_over_animation(v, b) {
+        if (b === true) { 
+            $.each(stars, function () {
+                if($(this).attr('data-value') <= v) {
                     $(this).addClass("over");
-                } else{
-                    $(this).removeClass("over");
+                } else {
+                    $(this).removeClass("over");   
                 }
-            }
-        });
+            });
+        } else {
+            $.each(stars, function () {
+                $(this).removeClass("over");   
+            }); 
+        }
+            
+            // if ($(this).attr('data-value') <= v) {
+            //     if( b === true ) {
+            //         $(this).addClass("over");
+            //     } else{
+            //         $(this).removeClass("over");
+            //     }
+            // } else {
+            //     if( b === false ) {
+            //         $(this).addClass("over");
+            //     } else{
+            //         $(this).removeClass("over");
+            //     }
+            // }
     }
 
     function _showDataLoadingPage() {
-       console.log(target_value);
-    }
+        console.log(target_value);     
+      }
 
     /*
      별점 클릭 이벤트 연결.
@@ -34,19 +53,51 @@ function mouse_enter() {
      */
 
     $(stars).click(function () {
+
+        // $(this).parent().children().
+
+        // var target_value=[];
+
+        target_value = $(this).attr('data-value')     
+        $('.star_container [type="hidden"]').attr('value', target_value);
+            
+        // target_value[2] = $(this).attr('data-value')
+        // $('.star_container [name="Director_score"]').attr('value', target_value);
+            
+        // target_value[3] = $(this).attr('data-value')
+        // $('.star_container [name="Story_score"]').attr('value', target_value);
+        
+        // target_value[4] = $(this).attr('data-value')
+        // $('.star_container [name="Act_score"]').attr('value', target_value);
+        
+        // target_value[5] = $(this).attr('data-value')
+        // $('.star_container [name="Music_score"]').attr('value', target_value);
+        
+        // target_value[6] = $(this).attr('data-value')
+        // $('.star_container [name="Visual_score"]').attr('value', target_value);
+
         _showDataLoadingPage();
+        isclicked = true;
+        $("span.star.half",this).off();
+        // target value가 리스트에 저장되이써야해.
+        // 그래서 호버 이벤트 할떄마다 저장된 타겟벨류로 이니셜라이즈를 해야해. 
     });
 
     // 별점 드래그 이벤트 연결
     $(stars).hover(function () {
             $(this).addClass("hover");
-            target_value = $(this).attr('data-value');
-
+  
+            target_value = $(this).attr('data-value'); //attr : 속성값을 가져온다. 
             _star_over_animation(target_value , true);
+
+    //       
+
         },
         function () {
+            if(isclicked === false) {
             $(this).removeClass("hover");
-            _star_over_animation(target_value , false);
+             _star_over_animation(target_value , false);
+            }
         });
 }
 
@@ -55,4 +106,5 @@ function mouse_leave() {
     $("span.star.half",this).off();
 }
 
-$(".star_container").hover(mouse_enter,mouse_leave);
+
+$(".star-card").hover(mouse_enter,mouse_leave);

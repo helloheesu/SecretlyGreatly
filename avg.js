@@ -11,15 +11,15 @@ var app = express();
 // 데이터베이스와 연결
 var client = mysql.createConnection({ //createConnection: 데이터베이스에 접속 
 		user: 'root',
-		password: 'gpdnjs26',
-		database : 'project'	//연결할 데이터베이스
+		password: '0525',
+		database : 'sample'	//연결할 데이터베이스
 });
 
 // app.use(app.router);
 var router = express.Router();	//router: 페이지 라우팅을 구현하는 미들웨어.
 
 // 서버를 실행 
-http.createServer(app).listen(8888, function () {
+http.createServer(app).listen(8880, function () {
 	console.log('Server running');
 });
 

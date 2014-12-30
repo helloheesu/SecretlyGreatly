@@ -1,6 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/css-reset.css" meida="screen">
 	<link rel="stylesheet" type="text/css" href="css/main.css" meida="screen">
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
@@ -9,7 +10,7 @@
 		<ul id="gnb">
 			<li id="logo">
 				<a href=""><img src="https://d12hfz37g51hrt.cloudfront.net/assets/bi/icon_40-c857765f58065997922df8262ca7bf07.png" width="30" height="30"></a>
-				<span class="highlight"></span>
+				<span class="highlight"><span>
 			</li>				
 			<li class="header_menu">
 				<a href="recommendation.html">추천영화</a>
@@ -19,10 +20,22 @@
 				<a href="evaluation.html">평가늘리기</a>
 				<span class="highlight"></span>
 			</li>
+			<li class = "profile"><a href="#">프로필</a></li>
+       		 <ul id="Layer1" class="profile_layer" style= "display:none">
+     	 	 	<li class="movie_container"><a href="#">영화보관함</li>
+      	 		<li class="settings"><a href="#">설정</li>
+        		<li class="logout"><a href="#">로그아웃</li>
+        	</ul>
 		</ul>
+		
+
+
+
+
+		</div>
 	</header>
 
-	<div id="wrap">		
+	<div id="wrap">
 		<div id="top">
 			<div id="top_image">	<!--메인 위쪽 이미지 부분-->
 				<ul>
@@ -53,6 +66,7 @@
 			<div class="section"> 	<!--평가 늘리기 부분-->
 				<div class="title"><a href="">BOX OFFICE</a></div>
 				<div class="see_all"><a href="">모두보기</a></div>
+			<div id ="card_container">	
 				<div class="card_wrap size_1x1 ">
        				<div class="card_shadow"></div>
         			<div class="poster_container">
@@ -130,6 +144,7 @@
             			</div>
         			</div>
     			</div>
+			</div>
 				<!-- <div id="eval_container">
 					<div id="eval_card_container">
 						<div class="card">
@@ -171,6 +186,8 @@
 		</footer>-->
 	</div>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/show_more.js"></script>
+	<script type="text/javascript" src="js/show_profile.js"></script>	
 	<script type="text/javascript" src="js/search.js"></script>
 </body>
 </html>
