@@ -144,12 +144,23 @@ crewCrawler.prototype.parseData = function() {
 			return result;
 		})(docs);
 	};
+	var getParsedActorInfo = function() {
+		var actDocs = $("h4:contains('Cast')").next().find('tr.odd, tr.even');
+		var result = [];
+		for (var i = 0; i < actDocs.length; i++) {
+			var name = removeSpaces($(actDocs[i]).find("[itemprop='name']").text());
+			var role = removeSpaces($(actDocs[i]).find(".character").text());
+			result.push({name:name, role:role});
+		}
+		return result;
+	};
 
 	this.crewData = {
 		direction: getParsedPersonInfo('Directed by'),
 		scenario: getParsedPersonInfo('Writing Credits'),
 		music: getParsedPersonInfo('Music by'),
-		cinema: getParsedPersonInfo('Cinematography by')
+		cinema: getParsedPersonInfo('Cinematography by'),
+		act: getParsedActorInfo()
 	};
 };
 
