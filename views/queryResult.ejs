@@ -33,5 +33,15 @@
 
 <% }); %>
 
+<% data.forEach(function (item,index) { %>
+<li id="list<%= index %>" class="search_result">
+    <a href="./movie/#">
+        <span class="search_title"><%= item.title %></span>
+        <span class="search_year"><%= item.year %></span>
+    </a>
+</li>
+<% }); %>
+
+
 </body>
 </html>

@@ -3,100 +3,144 @@
  */
 ;
 
-(function() {
-    document.addEventListener("DOMContentLoaded", function() {
-        addMouseEvent();
-    }, false);
+var searchbar = document.getElementById("search_query");
+var movielist= "";
 
-    var count = 1;
-    var scrollAllow = true;
-    function addMouseEvent() {
-        var selfwindow = window;
-        window.addEventListener("scroll", ScrollEvent, false);
+function showMovie(e) {
+    var searchresult = document.querySelector(".result_container");
+
+    function closeEle(targetElement) {
+        targetElement.style.display = 'none';
+    }
+    function showEle(targetElement) {
+        targetElement.style.display = 'block';
     }
 
-    function ScrollEvent() {
-        if(scrollAllow == false)
-            return;
-
-        if(count > 21) {
-            window.removeEventListener("scroll", ScrollEvent, false);
-            return;
-        }
-
-
-        var scrollHeight = document.documentElement.scrollHeight;
-        var viewableRatio = window.innerHeight / scrollHeight;
-        var scrollthumbHeight = window.innerHeight * viewableRatio;
-
-        if(innerHeight - (scrollY* viewableRatio + scrollthumbHeight) < 10){
-            scrollAllow = false;
-            setTimeout(function(){getElement(count++);}, 650);
-            setTimeout(function(){scrollAllow = true;}, 1650);
-
-        }
+    function addURLParam(url, name, value) {
+        url += (url.indexOf("?") === -1 ? "?" : "&");
+        url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        return url;
     }
 
-    function getElement(count) {
-        var rankingWrapperEle = document.getElementById('ns-rankingPage');
-
+    function getData(e){
         var request = new XMLHttpRequest();
-        var url = "/ranking.ruw";
-        var params = "start=" + count;
-
-        request.open("POST", url, true);
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        request.send(params);
+        var url = "/search/ajax";
+        url = addURLParam(url,"query", e.target.value);
+        request.open("GET" , url , true);
+        request.send(null);
 
         request.onreadystatechange = function() {
-            if (request.readyState === 4 && request.status === 200) {
-                var result = request.responseText;
-                result = JSON.parse(result);
-                if(count < 21)
-                    hideLoadingBar();
-                renderSearchResult(result, rankingWrapperEle, count);
+            if(request.readyState === 4 && request.status === 200) {
+                movielist = request.responseText;
+                console.log(movielist);
+                searchresult.innerHTML = "";
+                searchresult.insertAdjacentHTML('beforeend',movielist);
+                if(movielist === "") {
+                    closeEle(searchresult.parentNode);
+                } else {
+                    showEle(searchresult.parentNode);
+                }
             }
-            resizeNavBar();
-        }
+        };
     }
 
-    function renderSearchResult(result, targetEle, count) {
-        if(result==null) {
-            return;
-        }
-        var length = result.length;
-        for(var i = 0; i < length; i++){
-            targetEle.insertAdjacentHTML('beforeend', makeResultElement(result[i], i, count));
-        }
-        if(count < 21)
-            targetEle.insertAdjacentHTML('beforeend', "<div id='loader'><img src='img/ajax-loader.gif' alt='로딩중'></div>");
+    function changeSearchBarValue() {
+        var item = searchresult.querySelector(".on .search_title");
+        var tmp = item.innerHTML;
+        searchbar.value = tmp;
     }
 
-    function makeResultElement(result, index, count){
-        return "<a href='/viewDetail.ruw?pid=" + result.politicianId + "'>"
-            + "<div class='card'>"
-            + "<div class='img'><img src='" + result.imgUrl + "' alt='" + result.name + "의원 사진'></div>"
-            + "<div class='rank'>"+ (count*10 + index*1 + 1) + " 위</div>"
-            + "<span class='name'>" + result.name + "</span>"
-            + "<span class='party'>" + result.party + "</span>"
-            + "<span class='local'>" + result.local + "</span>"
-            + "<span class='rate'>" + result.promiseFulfillment + "</span>"
-            + "<span class='percent'>%</span>"
-            + "<div class='line'></div>"
-            + "<span class='more'>자세히 보기</span>"
-            + "</div></a>";
-        scrollAllow = true;
+    switch(e.keyCode) {
+        case 27: //esc
+            closeEle(searchresult.parentNode);
+            break;
+        case 38:
+        case 40: // 방향키 위아래 위위아래
+            if (movielist !== "") {
+                var item = searchresult.querySelector(".on");
+                console.log(item);
+                if ( item === null) {
+                    $("#list0").addClass("on");
+                } else {
+                    var lstId = $(item).attr('id');
+                    var lstIndex = parseInt(lstId.charAt(lstId.length - 1), 10);
+                    if (!((lstIndex === 0 && e.keyCode === 38)
+                        || (lstIndex === 9 && e.keyCode === 40))) {
+                        $("#" + lstId).removeClass("on");
+                        if (e.keyCode === 38) {
+                            $("#list" + (lstIndex - 1)).addClass("on");
+                        } else {
+                            $("#list" + (lstIndex + 1)).addClass("on");
+                        }
+                    }
+                }
+                changeSearchBarValue();
+            }
+            break;
+        case 17:
+        case 25:
+        case 192:
+        case 16:
+        case 20:
+        case 189:
+        case 187:
+        case 220:
+        case 18:
+        case 145:
+        case 19:
+        case 45:
+        case 33:
+        case 34:
+        case 144:
+        case 111:
+        case 106:
+        case 109:
+        case 107:
+        case 46:
+        case 113:
+        case 114:
+        case 119:
+        case 120:
+        case 121:
+        case 122:
+        case 37:
+        case 39:
+            break;
+        default:
+            if (e.target.value !== "") {
+                getData(e);
+            } else {
+                closeEle(searchresult.parentNode);
+            }
+            break;
     }
+    //if(e.keyCode === 17 || e.keyCode === 25 //ctrl
+    //    || e.keyCode === 192 //`
+    //    || e.keyCode === 16 //Shift
+    //    || e.keyCode === 20 //Caps Lock
+    //    || e.keyCode === 189 //-
+    //    || e.keyCode === 187 //=
+    //    || e.keyCode === 220 //\
+    //    || e.keyCode === 18 || e.keyCode === 21 //Alt
+    //    || e.keyCode === 145 //Scroll Lock
+    //    || e.keyCode === 19 //Pause Break
+    //    || e.keyCode === 45 //Insert
+    //    || e.keyCode === 33 //Page Up
+    //    || e.keyCode === 34 //Page Down
+    //    || e.keyCode === 144 //Num Lock
+    //    || e.keyCode === 144 //Num Lock
+    //    || e.keyCode === 111 || e.keyCode === 106 || e.keyCode === 109 || e.keyCode === 107 ///*-+
+    //    || e.keyCode === 46 //.
+    //    || e.keyCode === 113 || e.keyCode === 114 || e.keyCode === 119 || e.keyCode === 120
+    //    || e.keyCode === 121 || e.keyCode === 122//F2 ~ F11
+    //    || e.keyCode === 37 || e.keyCode === 39 //<- ->키
+    //){
+    //    return;
+    //}
+}
 
-    function resizeNavBar(){
-        var height = document.getElementById("main").offsetHeight;
-        var targetEle = document.querySelector("nav");
 
-        targetEle.style.height = height + "px";
-    }
-
-    function hideLoadingBar() {
-        var loadingEle = document.getElementById("loader");
-        loadingEle.parentNode.removeChild(loadingEle);
-    }
-})();
+searchbar.addEventListener("keyup", function( e ) {
+    // prevent default action
+    showMovie(e);
+}, false);

@@ -5,35 +5,58 @@
 var express = require('express');
 var router = express.Router();
 var http = require('http');
+
+var fs = require('fs');
+var express = require('express');
 var mysql = require('mysql');
-
-var client = mysql.createConnection({
-    user: 'guest_demo',
-    password: '',
-    database: 'movies'
-});
-
+var ejs = require('ejs');
+var pool = require('../modules/database.js');
 
 router.route('/')
     .get(function (req,res) {
-        var sql = "SELECT * FROM ?? WHERE ?? LIKE ?";
+        var statement = "SELECT * FROM ?? WHERE ?? LIKE ?";
+        console.log(req);
         var inserts = ['movie', 'title', req.param('query')+"%"];
-        sql = mysql.format(sql, inserts);
-        console.log(sql);
-        client.query(sql,
-           function (error, result) {
-            console.log(req.param('query'));
+        statement = mysql.format(statement, inserts);
+        console.log(statement);
+        pool.getConnection(function(error, connection) {
+            console.error(error);
+            connection.query(statement, function (error, result) {
+                connection.release();
+                if (error) {
+                    console.log('error:'+error);
+                } else {
+                    console.log(result.length);
+                    res.render('queryResult', {
+                        data: result
+                    });
+                }
+            });
+        });
+    });
+
+router.get('/ajax', function(req,res) {
+    var input = req.param('query');
+    console.log(input);
+    var statement = "SELECT title,year FROM ?? WHERE ?? LIKE ? LIMIT 0, 10";
+    var inserts = ['movie', 'title', req.param('query')+"%"];
+    statement = mysql.format(statement, inserts);
+    console.log(statement);
+    pool.getConnection(function(error, connection) {
+        console.error(error);
+        connection.query(statement, function (error, result) {
+            connection.release();
             if (error) {
-                console.log('error:'+ error);
-                console.log('쿼리 문장에 오류가 있습니다.');
+                console.log('error:'+error);
             } else {
                 console.log(result.length);
-                res.render('queryResult', {
+                res.render('template_search.ejs', {
                     data: result
                 });
             }
         });
     });
+});
 
 
 module.exports = router;
