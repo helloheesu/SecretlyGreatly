@@ -17,15 +17,15 @@ router.get('/', function (request, response, next) {
 		connection.query('SELECT title FROM movie where mid=' + request.param('id'), function (error, db_title_result, fields) {
 			console.log(db_title_result);
 			if (error) console.log('movie_title error');
-			connection.query('SELECT name, picture, role FROM crew_info where type = "director";', function (error, db_director_result, fields) {
+			connection.query('SELECT c.name, c.profile_url FROM crew as c ,participate as p where p.cid = c.cid and p.tid = 1;', function (error, db_director_result, fields) {
 				if (error) console.log('director error');
-				connection.query('SELECT name, picture, role FROM crew_info where type = "actor";', function (error, db_actor_result, fields) {
+				connection.query('SELECT c.name, c.profile_url FROM crew as c ,participate as p where p.cid = c.cid and p.tid = 3;', function (error, db_actor_result, fields) {
 					if (error) console.log('actor error');
-					connection.query('SELECT name, picture, role FROM crew_info where type = "story";', function (error, db_story_result, fields) {
+					connection.query('SELECT c.name, c.profile_url FROM crew as c ,participate as p where p.cid = c.cid and p.tid = 2;', function (error, db_story_result, fields) {
 						if (error) console.log('story error');
-						connection.query('SELECT name, picture, role  FROM crew_info where type = "music";', function (error, db_music_result, fields) {
+						connection.query('SELECT c.name, c.profile_url FROM crew as c ,participate as p where p.cid = c.cid and p.tid = 4;', function (error, db_music_result, fields) {
 							if (error) console.log('music error');
-							connection.query('SELECT name, picture, role FROM crew_info where type = "visual";', function (error, db_visual_result, fields) {
+							connection.query('SELECT c.name, c.profile_url FROM crew as c ,participate as p where p.cid = c.cid and p.tid = 5;', function (error, db_visual_result, fields) {
 								if (error) console.log('visual error');
 								connection.release();
 								response.render('more_evaluation', {
