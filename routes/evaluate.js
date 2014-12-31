@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 router.get('/', function (req, res) {
-    res.render('more_evaluation');
+    res.redirect('/evaluate_crew?id='+ req.param('id'));
 });
 
 module.exports = router;

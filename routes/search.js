@@ -26,8 +26,7 @@ router.route('/')
                 if (error) {
                     console.log('error:'+error);
                 } else {
-                    console.log(result.length);
-                    res.render('queryResult', {
+                    res.render('queryResult.ejs', {
                         data: result
                     });
                 }
@@ -38,7 +37,7 @@ router.route('/')
 router.get('/ajax', function(req,res) {
     var input = req.param('query');
     console.log(input);
-    var statement = "SELECT title,year FROM ?? WHERE ?? LIKE ? LIMIT 0, 10";
+    var statement = "SELECT * FROM ?? WHERE ?? LIKE ? LIMIT 0, 10";
     var inserts = ['movie', 'title', req.param('query')+"%"];
     statement = mysql.format(statement, inserts);
     console.log(statement);
@@ -49,7 +48,7 @@ router.get('/ajax', function(req,res) {
             if (error) {
                 console.log('error:'+error);
             } else {
-                console.log(result.length);
+                console.log(result);
                 res.render('template_search.ejs', {
                     data: result
                 });

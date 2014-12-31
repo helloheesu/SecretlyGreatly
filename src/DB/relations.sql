@@ -40,6 +40,7 @@ CREATE TABLE total_eval(
 );
 GRANT select, insert
 	ON movies.total_record TO 'guest_demo'@'%';
+
 CREATE TABLE type_eval(
 	type_eID INT PRIMARY KEY AUTO_INCREMENT,
 	mID INT NOT NULL,
@@ -51,6 +52,7 @@ CREATE TABLE type_eval(
 );
 GRANT select, insert
 	ON movies.type_eval TO 'guest_demo'@'%';
+
 CREATE TABLE record(
 	rID INT PRIMARY KEY AUTO_INCREMENT,
 	uID INT NOT NULL,
