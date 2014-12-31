@@ -41,17 +41,12 @@ body{
   background-color: #D4D4D4;
 }
 
-#mid-eval{
-  height :700px;
-}
-
 #type {
   font-size: 60px;
 
 }
 /*하위 5개 영역*/
 #mid-eval{
-  1height :1700px;
   width: 100%;
   position: relative;
 }
